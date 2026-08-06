@@ -98,6 +98,11 @@
 .pref-icon[type="install"] {
   list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-48.png);
 }
+@media (-moz-os-version: windows-xp) {
+  .pref-icon[type="install"] {
+    list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-48-XP.png);
+  }
+}
 .pref-icon[type="geo"] {
   list-style-image: url(chrome://browser/skin/Geolocation-64.png);
 }

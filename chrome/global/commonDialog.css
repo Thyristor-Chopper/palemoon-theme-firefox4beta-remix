@@ -6,3 +6,25 @@
   -moz-margin-start: -8px;
   -moz-margin-end: -10px;
 }
+
+#commonDialog:has(#loginContainer:not([hidden="true"])) #filler spacer,
+#commonDialog:has(#password1Container:not([hidden="true"])) #filler spacer {
+	width: 36em !important;
+}
+
+#filler spacer {
+	width: 19em !important;
+}
+
+button {
+	min-width: 88px;
+}
+
+button > .button-box {
+	padding-top: 0px;
+	padding-bottom: 1px;
+}
+
+#checkboxContainer {
+	margin-top: -5px;
+}

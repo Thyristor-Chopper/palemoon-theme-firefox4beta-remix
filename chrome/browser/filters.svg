@@ -1,0 +1,217 @@
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+
+<!-- this file is from 'Classic Toolbar Buttons' add-on. -->
+
+<svg xmlns="http://www.w3.org/2000/svg" height="0">
+	<!-- **************	Matrix Filter Library ******************** -->
+ 
+	<!-- Red -->
+	<filter id="matrix-r" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.4							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Poppy -->
+	<filter id="matrix-rry" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.4							 0.3	0.38	0.3	0.0	0.1							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Orange -->
+	<filter id="matrix-ry" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.4							 0.3	0.38	0.3	0.0	0.2							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Gold -->
+	<filter id="matrix-ryy" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.4							 0.3	0.38	0.3	0.0	0.3							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Yellow -->	 
+	<filter id="matrix-y" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.4							 0.3	0.38	0.3	0.0	0.4							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>		
+
+	<!-- Citron -->
+	<filter id="matrix-yyg" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.3							 0.3	0.38	0.3	0.0	0.36							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Chartreuse -->	 
+	<filter id="matrix-yg" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.2							 0.3	0.38	0.3	0.0	0.32							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Lime -->
+	<filter id="matrix-ygg" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.1							 0.3	0.38	0.3	0.0	0.28							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Green -->		 
+	<filter id="matrix-g" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.24							 0.3	0.3	0.38	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Leaf -->
+	<filter id="matrix-ggc" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.26							 0.3	0.3	0.38	0.0	0.07							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Seafoam -->
+	<filter id="matrix-gc" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.27							 0.3	0.3	0.38	0.0	0.15							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Turquoise --> 
+	<filter id="matrix-gcc" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.28							 0.3	0.3	0.38	0.0	0.22							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+ 
+	<!-- Cyan -->		 
+	<filter id="matrix-c" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.3							 0.3	0.3	0.38	0.0	0.3							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Sky --> 
+	<filter id="matrix-ccb" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.22							 0.3	0.3	0.38	0.0	0.3							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Azure -->
+	<filter id="matrix-cb" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.15							 0.3	0.3	0.38	0.0	0.3							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Royal -->
+	<filter id="matrix-cbb" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.07							 0.3	0.3	0.38	0.0	0.3							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Blue -->		 
+	<filter id="matrix-b" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.0							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.3							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Indigo -->
+	<filter id="matrix-bbm" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.06							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.28							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Violet -->
+	<filter id="matrix-bm" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.12							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.27							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Purple --> 
+	<filter id="matrix-bmm" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.18							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.26							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Magenta -->		 
+	<filter id="matrix-m" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.24							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.24							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Fuchsia --> 
+	<filter id="matrix-mmr" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.28							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.18							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>	 
+
+	<!-- Rose --> 
+	<filter id="matrix-mr" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.32							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.12							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+	<!-- Crimson --> 
+	<filter id="matrix-mrr" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0" result="A" />			
+		<feColorMatrix type="matrix" in="A" values="0.38	0.3	0.3	0.0	0.36							 0.3	0.38	0.3	0.0	0.0							 0.3	0.3	0.38	0.0	0.06							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>
+
+
+	<!-- **************	Desaturation Filter Library **************	-->
+
+	<filter id="desat-9" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.9" />
+	</filter>
+ 
+	<filter id="desat-8" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.8" />
+	</filter>
+ 
+	<filter id="desat-7" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.7" />
+	</filter>
+ 
+	<filter id="desat-6" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.6" />
+	</filter>
+ 
+	<filter id="desat-5" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.5" />
+	</filter>
+ 
+	<filter id="desat-4" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.4" />
+	</filter>
+ 
+	<filter id="desat-3" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.3" />
+	</filter>
+
+	<filter id="desat-2" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.2" />
+	</filter>
+
+	<filter id="desat-1" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.1" />
+	</filter>
+
+	<filter id="desat-0" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="saturate" in="SourceGraphic" values="0.0" />
+	</filter>
+
+
+	<!-- **************	Random Filters **************	-->
+	
+	<filter id="clear" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="hueRotate" in="SourceGraphic" values="0" />
+	</filter>
+	
+	<filter id="lighten" color-interpolation-filters="sRGB" filterUnits="objectBoundingBox" x="0" y="0" width="100%" height="100%">
+		<feColorMatrix type="matrix" in="SourceGraphic" values="0.7	0.3	0.3	0.0	0.0							 0.3	0.7	0.3	0.0	0.0							 0.3	0.3	0.7	0.0	0.0							 0.0	0.0	0.0	1.0	0.0" />
+	</filter>	
+
+
+	<!-- **************	Flood Highlight **************	-->
+
+	<filter id="flood-highlight" x="0%" y="0%" width="100%" height="100%">
+		<feFlood flood-color="highlight" flood-opacity=".6" result="A" />
+		<feColorMatrix type="matrix" in="SourceGraphic" result="B" values="0.9	0.3	0.3	0.0	0.0										 0.3	0.9	0.3	0.0	0.0										 0.3	0.3	0.9	0.0	0.0										 0.0	0.0	0.0	1.0	0.0" />
+		<feBlend mode="multiply" in2="A" in="B" result="C" />
+		<feComposite in="C" in2="B" operator="in" />
+	</filter>
+</svg>

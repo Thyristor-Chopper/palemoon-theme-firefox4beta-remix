@@ -1,9 +1,9 @@
-skin 	browser 	firefox4bx chrome/browser/
-skin 	communicator 	firefox4bx chrome/communicator/
-skin 	global 	firefox4bx chrome/global/
-skin 	os 	firefox4bx chrome/os/linux/
-skin 	os 	firefox4bx chrome/os/winnt/ os=WINNT
-skin 	os 	firefox4bx chrome/os/darwin/ os=Darwin
+skin	browser			firefox4brmx	chrome/browser/
+skin	global			firefox4brmx	chrome/global/
+skin	mozapps			firefox4brmx	chrome/mozapps/
+skin	os				firefox4brmx	chrome/os/linux/
+skin	os				firefox4brmx	chrome/os/winnt/		os=WINNT
+skin	os				firefox4brmx	chrome/os/darwin/		os=Darwin
 
-override chrome://devtools/skin/floating-scrollbars-dark-theme.css chrome://global/skin/devtools/floating-scrollbars.css
-override chrome://devtools/skin/floating-scrollbars-responsive-design.css chrome://global/skin/devtools/floating-scrollbars-light.css
+override	chrome://devtools/skin/floating-scrollbars-dark-theme.css			chrome://global/skin/devtools/floating-scrollbars.css
+override	chrome://devtools/skin/floating-scrollbars-responsive-design.css	chrome://global/skin/devtools/floating-scrollbars-light.css

@@ -47,11 +47,13 @@
 @namespace html url("http://www.w3.org/1999/xhtml");
 
 :root {
+  --dialog-background: -moz-Dialog;
+
   --toolbox-after-color: ThreeDShadow;
 
   --toolbar-custom-color: hsl(210,75%,92%);
   --toolbar-highlight-top: rgba(255,255,255,.6);
-  --toolbar-highlight-bottom: rgba(255,255,255,.4);
+  --toolbar-highlight-bottom: rgba(255,255,255,.1);
 
   --toolbarbutton-background-color: hsla(210,32%,93%,.3);
   --toolbarbutton-border-radius: 2.5px;
@@ -68,6 +70,23 @@
   --tab-selected-highlight: rgba(255,255,255,.7);
 
   --window-text-color: currentColor;
+}
+
+@media (-moz-windows-default-theme) {
+	:root {
+		--dialog-background: rgb(227, 233, 245);
+	}
+	
+	@media (-moz-os-version: windows-xp) {
+		:root {
+			--dialog-background: rgb(227, 233, 245);
+		}
+	}
+}
+
+:root:-moz-lwtheme {
+  --toolbar-highlight-top: rgba(255,255,255,.6);
+  --toolbar-highlight-bottom: rgba(255,255,255,.4);
 }
 
 :root:-moz-lwtheme-brighttext {
@@ -103,12 +122,14 @@
   -moz-appearance: none;
   border-style: none;
   /*background-color: rgb(227, 237, 246);*/
-  background-color: -moz-Dialog;
+  background-color: var(--dialog-background);
 }
 
 @media (-moz-os-version: windows-vista), 
        (-moz-os-version: windows-win7), 
-       (-moz-os-version: windows-win8) and (-moz-windows-default-theme) {
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#navigator-toolbox > toolbar:not(:-moz-lwtheme) {
 		background-color: rgb(227, 237, 246);
 	}
@@ -488,6 +509,12 @@ statusbarpanel#statusbar-display {
 
 #appmenu_addons {
   list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+  #appmenu_addons {
+    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png");
+  }
 }
 
 @media (min-resolution: 1.25dppx) {
@@ -1135,27 +1162,15 @@ toolbar:not([iconsize="small"])[mode="icons"] #forward-button:not([disabled="tru
   margin: 1px 3px;
   padding: 2px;
   background-clip: padding-box;
-  border: 1px solid ThreeDDarkShadow;
+  border: 1px solid color-mix(in srgb, ThreeDDarkShadow 45%, rgba(1, 0, 0, 0));
   border-radius: 4px;
-  box-shadow: 0 1px 0 rgba(0,0,0,.1) inset,
-              0 1px 0 rgba(255,255,255,.4);
-}
-
-@media (-moz-os-version: windows-xp) {
-	#urlbar, .searchbar-textbox {
-		border: 1px solid ThreeDShadow;
-	}
-}
-
-@media all and (-moz-windows-default-theme) {
-  #urlbar,
-  .searchbar-textbox {
-  }
+  box-shadow: 0 1px 1px rgba(0,0,0,.06) inset,
+              0 1px 1px rgba(255,255,255,.2);
 }
 
 #urlbar:-moz-lwtheme,
 .searchbar-textbox:-moz-lwtheme {
-  background-color: rgba(255,255,255,.8);
+  background-color: rgba(255,255,255,.85);
   color: black;
 }
 
@@ -1167,7 +1182,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 
 #urlbar:-moz-lwtheme[focused="true"],
 .searchbar-textbox:-moz-lwtheme[focused="true"] {
-  background-color: white;
+  background-color: rgba(255, 255, 255, .975);
 }
 
 #urlbar-container {
@@ -1250,11 +1265,12 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 /* identity box */
 
 #identity-box {
-  background-color: -moz-dialog;
+  background-color: rgba(0, 32, 64, .1);
   background-image: -moz-linear-gradient(rgba(255,255,255,.25), rgba(0,0,0,.15));
   color: -moz-dialogText;
   border-radius: 2px;
   padding: 1px 4px 1px 4px !important;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.2) inset;
 }
 
 #identity-box:hover {
@@ -1270,15 +1286,55 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 #identity-box.verifiedIdentity {
   color: white;
   text-shadow: 0 1px 0 rgba(0,0,0,.25);
-  box-shadow: 0 0 0 1px rgba(0,0,0,.2) inset;
 }
 
+/*
 #identity-box.verifiedDomain {
-  background-color: hsl(219,45%,60%);
+  background-color: rgb(143, 182, 238);
+}
+*/
+
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain,
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
+  /* background-image: linear-gradient(rgb(221, 231, 246), rgb(206, 221, 242)); */
+  /* background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230)); */
+  background-image: linear-gradient(rgb(152, 191, 245), rgb(91, 149, 225));
+  /* border-color: rgb(155, 171, 190); */
+  border-color: rgb(64, 84, 125);
+  /* box-shadow: 0 1px 0 rgba(0, 0, 0, .1) inset; */
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
+  text-shadow: none;
+  /* color: rgb(95, 109, 137); */
+  color: white;
+}
+
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]) {
+  background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
+}
+
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active) {
+  /* background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255)); */
+  background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
+}
+
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active):has(> #padlock-ib-left[padshow="ib-left"]) {
+  background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255));
+}
+
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, .5) inset;
 }
 
 #identity-box.verifiedIdentity {
-  background-color: hsl(92,45%,52%);
+  background-color: #65b85c;
+}
+
+#urlbar[security_level="broken"] #identity-box {
+  background-color: #f94848;
+}
+
+#identity-box.mixedContent {
+  background-color: #c6dcfe;
 }
 
 #identity-box:focus {
@@ -1579,14 +1635,14 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 #TabsToolbar {
   min-height: 0;
   padding: 0;
-  box-shadow: 0 -1px ThreeDShadow inset;
+  /*box-shadow: 0 -1px ThreeDShadow inset;*/
 }
 
 #TabsToolbar:not(:-moz-lwtheme),
 #navigator-toolbox:not([tabsontop="true"]) > #TabsToolbar {
-  box-shadow: 0 -1px 1px ThreeDShadow inset;
+  /*box-shadow: 0 -1px 1px ThreeDShadow inset;*/
   background-image: -moz-linear-gradient(transparent, transparent 10%,
-                                         rgba(0,0,0,.03) 50%, rgba(0,0,0,.1) 90%, rgba(0,0,0,.2));
+                                         rgba(0,0,0,.03) 50%, rgba(0,0,0,.08) 90%, rgba(0,0,0,.15));
 }
 
 .tabbrowser-tabs:-moz-system-metric(touch-enabled) {
@@ -1612,6 +1668,12 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
   -moz-border-image: url(tabbrowser/tab.png) 4 5 3 6 / 4px 5px 3px 6px;
   border-radius: 10px 8px 0 0 !important;
   /*-moz-transition: none !important;*/
+  min-height: 24px;
+  margin-top: 1px !important;
+}
+
+.tabbrowser-tab[selected="true"] {
+	margin-top: 0px !important;
 }
 
 #TabsToolbar #home-button {
@@ -1670,7 +1732,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
                     -moz-linear-gradient(left, transparent, transparent 1px,
                                                rgba(255,255,255,.5) 1px, rgba(255,255,255,.5)),
                     -moz-linear-gradient(left, transparent, transparent 1px,
-                                               -moz-dialog 1px, -moz-dialog);
+                                               var(--dialog-background) 1px, var(--dialog-background));
   color: -moz-dialogText;
   
   background-position: center 0px, -3px 0px, -3px 0px;
@@ -2123,10 +2185,6 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 /* Notification popup */
-#notification-popup {
-  padding: 10px;
-  margin-top: 3px;
-}
 
 .popup-notification-icon {
   width: 64px;
@@ -2140,7 +2198,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 
 /* Notification icon box */
 #notification-popup-box {
-  margin: 0 3px;
+  margin: 0 3px 0 0;
 }
 
 #geo-notification-icon {
@@ -2260,7 +2318,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
   padding-bottom: 10px;
   -moz-appearance: none;
   border: none;
-  background: -moz-dialog;
+  background: var(--dialog-background);
   color: -moz-dialogText;
 }
 
@@ -2278,7 +2336,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 .allTabs-favicon[src] {
-  background-color: -moz-dialog;
+  background-color: var(--dialog-background);
   width: 22px;
   height: 22px;
   padding-top: 1px;
@@ -2912,11 +2970,16 @@ toolbarbutton, .toolbarbutton-1 {
 
   #toolbar-menubar:not(:-moz-lwtheme),
   #TabsToolbar[tabsontop="true"]:not(:-moz-lwtheme),
-  #navigator-toolbox[tabsontop="false"] > #nav-bar:not(:-moz-lwtheme),
-  #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar[tabsontop="false"]:last-child:not(:-moz-lwtheme) {
+  #navigator-toolbox:not([tabsontop="true"]) > #nav-bar:not(:-moz-lwtheme),
+  #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) {
     background: transparent !important;
     color: black;
     text-shadow: 0 0 .7em white, 0 0 .7em white, 0 1px 0 rgba(255,255,255,.4);
+  }
+
+  #navigator-toolbox:not([tabsontop="true"]) #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) {
+    border-bottom: none !important;
+    padding-bottom: 0 !important;
   }
 
   #navigator-toolbox[tabsontop="true"] > toolbar:not(#toolbar-menubar):not(#TabsToolbar) {
@@ -2927,15 +2990,15 @@ toolbarbutton, .toolbarbutton-1 {
   /* Make the window draggable by glassed toolbars (bug 555081) */
   #toolbar-menubar:not([autohide="true"]),
   #TabsToolbar[tabsontop="true"],
-  #navigator-toolbox[tabsontop="false"] > #nav-bar,
-  #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar[tabsontop="false"]:last-child,
+  #navigator-toolbox:not([tabsontop="true"]) > #nav-bar,
+  #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child,
   #navigator-toolbox > toolbar:not(#toolbar-menubar):-moz-lwtheme {
     -moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar-drag");
   }
 
   #browser:not(:-moz-lwtheme),
   #browser-bottombox:not(:-moz-lwtheme) {
-    background-color: -moz-dialog;
+    background-color: var(--dialog-background);
   }
 
   #urlbar,
@@ -2980,78 +3043,170 @@ toolbarbutton, .toolbarbutton-1 {
   }
 }
 
+/*
 #urlbar[level="high"][pageproxystate="valid"],
 #urlbar[level="low"][pageproxystate="valid"] {
-  background-color: rgba(245, 246, 190, .8);
-  color: #000000;
+  /* background-color: rgba(250, 248, 199, .8); */
+  /* background-color: rgba(231, 237, 250, .8); */
+  /* background-color: rgba(241, 244, 252, .8); */
+  /* background-color: rgba(243, 245, 252, .8); */
+  /* background-color: rgba(239, 242, 255, .85); */
+  /* background-color: rgba(246, 248, 255, .85); * /
+
+  --ssl-urlbar-background: 251, 252, 255;
+  background-color: rgb(var(--ssl-urlbar-background));
+}
+
+#urlbar[level="high"][pageproxystate="valid"]:-moz-lwtheme,
+#urlbar[level="low"][pageproxystate="valid"]:-moz-lwtheme {
+  background-color: rgba(var(--ssl-urlbar-background), .85);
+}
+*/
+
+#urlbar[level="high"][security_level="ev"][pageproxystate="valid"],
+#urlbar[level="low"][security_level="ev"][pageproxystate="valid"] {
+	--ev-ssl-urlbar-background: 234, 242, 219;
+	background-color: rgb(var(--ev-ssl-urlbar-background));
+}
+
+#urlbar[level="high"][security_level="ev"][pageproxystate="valid"]:-moz-lwtheme,
+#urlbar[level="low"][security_level="ev"][pageproxystate="valid"]:-moz-lwtheme {
+	background-color: rgba(var(--ev-ssl-urlbar-background), .85);
+}
+
+@media all and (-moz-windows-compositor) {
+	#urlbar[level="high"][security_level="ev"][pageproxystate="valid"]:not(:-moz-lwtheme),
+	#urlbar[level="low"][security_level="ev"][pageproxystate="valid"]:not(:-moz-lwtheme) {
+		background-color: rgba(var(--ev-ssl-urlbar-background), .8);
+	}
+}
+
+/*
+#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"],
+#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"] {
+	--mixed-ssl-urlbar-background: 250, 248, 199;
+	background-color: rgb(var(--mixed-ssl-urlbar-background));
+}
+
+#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"]:-moz-lwtheme,
+#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"]:-moz-lwtheme {
+	background-color: rgba(var(--mixed-ssl-urlbar-background), .8);
+}
+
+@media all and (-moz-windows-compositor) {
+	#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"]:not(:-moz-lwtheme),
+	#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"]:not(:-moz-lwtheme) {
+		background-color: rgba(var(--mixed-ssl-urlbar-background), .8);
+	}
+}
+*/
+
+#urlbar[security_level="broken"] {
+	--broken-ssl-urlbar-background: 255, 235, 233;
+	background-color: rgb(var(--broken-ssl-urlbar-background));
+}
+
+#urlbar[security_level="broken"]:-moz-lwtheme {
+	background-color: rgba(var(--broken-ssl-urlbar-background), .85);
+}
+
+@media all and (-moz-windows-compositor) {
+	#urlbar[security_level="broken"]:not(:-moz-lwtheme) {
+		background-color: rgba(var(--broken-ssl-urlbar-background), .8);
+	}
+}
+
+/*
+#urlbar[level="high"][pageproxystate="valid"][focused="true"]:-moz-lwtheme,
+#urlbar[level="low"][pageproxystate="valid"][focused="true"]:-moz-lwtheme {
+  /* background-color: rgba(249, 250, 253, .95); * /
+  background-color: rgba(255, 255, 255, .95);
+}
+*/
+
+#urlbar[level="high"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme,
+#urlbar[level="low"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme {
+  background-color: color-mix(in srgb, rgba(var(--ev-ssl-urlbar-background), .95), rgba(255, 255, 255, .95) 80%);
+}
+
+.tabbrowser-tab:not([pinned]) {
+    max-width: 235px;
 }
 
 #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar {
 	border-bottom: 4px solid !important;
-	-moz-border-bottom-colors: rgba(0, 0, 0, .38) rgba(255, 255, 255, .5) rgba(255, 255, 255, .5) rgba(255, 255, 255, .5) !important;
+	-moz-border-bottom-colors: rgba(0, 0, 0, .38) color-mix(in srgb, var(--dialog-background), white) !important;
 	box-shadow: none !important;
 }
 
-@media not all and (-moz-os-version: windows-xp) {
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]), #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar {
+#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:-moz-lwtheme {
+	-moz-border-bottom-colors: rgba(0, 0, 0, .38) var(--toolbar-highlight-top) !important;
+	background-origin: border-box;
+}
+
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
+	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
+		padding-bottom: 2px;
+	}
+
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]):not(:-moz-lwtheme),
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
 		background-clip: padding-box !important;
 	}
 	
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar {
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar:not(:-moz-lwtheme) {
 		background-image: none !important;
 		border-width: 0 0 1px 0 !important;
 	}
 
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar {
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
 		background-image: linear-gradient(transparent 0%, transparent calc(100% - 2px), rgb(246, 248, 249) calc(100% - 3px));
 		border-width: 0 0 1px 0 !important;
 	}
 
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:-moz-lwtheme {
-		background-image: linear-gradient(transparent 0%, transparent calc(100% - 2px), rgba(255, 255, 255, .8) calc(100% - 3px));
-		border-width: 0 0 1px 0 !important;
-	}
-
-	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar .tabbrowser-tabs {
+	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar .tabbrowser-tabs:not(:-moz-lwtheme) {
 		margin-bottom: 0px !important;
 	}
 
-	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar .tabbrowser-tabs .tabbrowser-tab:not([selected="true"]) {
+	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar .tabbrowser-tabs .tabbrowser-tab:not([selected="true"]):not(:-moz-lwtheme) {
 		border-bottom: 1px solid rgba(0, 0, 0, .45) !important;
 	}
 
-	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar {
+	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 		-moz-border-bottom-colors: ThreeDShadow !important;
 	}
 	
-	#main-window:not([sizemode="maximized"]) #browser {
+	#main-window:not([sizemode="maximized"]) #browser:not(:-moz-lwtheme) {
 		background-clip: padding-box !important;
 	}
 	
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #tabbrowser-tabs,
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox {
-		max-height: 24px !important;
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #tabbrowser-tabs:not(:-moz-lwtheme),
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox:not(:-moz-lwtheme) {
+		max-height: 26px !important;
 	}
 
-	#browser-bottombox > toolbar#addon-bar {
+	#browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 		-moz-appearance: none !important;
 		background-image: linear-gradient(rgb(229, 236, 245), rgb(208, 219, 236)) !important;
 		background-size: 100% !important;
 	}
 	
 	@media not all and (-moz-windows-compositor) {
-		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar {
-			background-image: linear-gradient(transparent 0%, transparent calc(100% - 2px), rgb(246, 248, 249) calc(100% - 3px)) !important;
+		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar:not(:-moz-lwtheme) {
+			background-image: linear-gradient(transparent 0%, transparent calc(100% - 2px), rgb(241, 244, 250) calc(100% - 3px)) !important;
 			border-width: 0 0 1px 0 !important;
 		}
 		
-		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar #tabbrowser-tabs,
-		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox {
-			max-height: 24px !important;
+		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar #tabbrowser-tabs:not(:-moz-lwtheme),
+		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] + #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox:not(:-moz-lwtheme) {
+			max-height: 26px !important;
 		}
 		
 		@media (-moz-windows-default-theme) {
-			/*
 			#navigator-toolbox:not([tabsontop="true"]) > toolbar:not(:-moz-lwtheme),
 			#navigator-toolbox[tabsontop="true"] > #toolbar-menubar:not(:-moz-lwtheme),
 			#navigator-toolbox[tabsontop="true"] > #TabsToolbar:not(:-moz-lwtheme),
@@ -3070,7 +3225,6 @@ toolbarbutton, .toolbarbutton-1 {
 			#browser-bottombox:not(:-moz-lwtheme):-moz-window-inactive {
 				background-color: rgb(215, 228, 242) !important;
 			}
-			*/
 			
 			#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]):not(:-moz-lwtheme), 
 			#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
@@ -3086,7 +3240,7 @@ toolbarbutton, .toolbarbutton-1 {
 			}
 			
 			#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
-				background-image: linear-gradient(rgb(207, 219, 236) 0%, rgb(197, 208, 224) calc(100% - 2px), rgb(240, 246, 255) calc(100% - 3px)) !important;
+				background-image: linear-gradient(rgb(207, 219, 236) 0%, rgb(197, 208, 224) calc(100% - 2px), rgb(243, 246, 252) calc(100% - 3px)) !important;
 				border-width: 0 1px 1px 1px !important;
 				background-clip: padding-box;
 			}
@@ -3098,7 +3252,7 @@ toolbarbutton, .toolbarbutton-1 {
 			}
 			
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab[selected="true"]:not(:-moz-lwtheme) {
-				background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgb(239, 246, 255) 1px, rgb(239, 246, 255));
+				background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgb(243, 246, 252) 1px, rgb(243, 246, 252));
 			}
 			
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #home-button:not(:-moz-lwtheme):not(:hover),
@@ -3134,7 +3288,8 @@ toolbarbutton, .toolbarbutton-1 {
 				border-radius: 0;
 			}
 			
-			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme), #main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
+			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme),
+			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 				border-left: none !important;
 				border-right: none !important;
 			}
@@ -3145,7 +3300,7 @@ toolbarbutton, .toolbarbutton-1 {
 			}
 			
 			#FindToolbar:not(:-moz-lwtheme) {
-				background-color: -moz-dialog;
+				background-color: var(--dialog-background);
 			}
 			
 			#sidebar-splitter:not(:-moz-lwtheme), #sidebar-box:not(:-moz-lwtheme) {
@@ -3154,11 +3309,11 @@ toolbarbutton, .toolbarbutton-1 {
 			
 			#main-window[chromehidden~="status"] #browser-bottombox:not(:-moz-lwtheme),
 			#main-window[chromehidden~="directories"] #browser-bottombox:not(:-moz-lwtheme) {
-				background-color: -moz-Dialog;
+				background-color: var(--dialog-background);
 			}
 			
-			#main-window[chromehidden~="status"] #browser,
-			#main-window[chromehidden~="directories"] #browser {
+			#main-window[chromehidden~="status"] #browser:not(:-moz-lwtheme),
+			#main-window[chromehidden~="directories"] #browser:not(:-moz-lwtheme) {
 				border: none !important;
 			}
 			
@@ -3176,7 +3331,8 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 @media (-moz-windows-compositor) {
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]):not(:-moz-lwtheme), #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]):not(:-moz-lwtheme),
+	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
 		border-style: solid !important;
 		border-color: rgba(0, 0, 0, .45);
 	}
@@ -3186,14 +3342,14 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]):not(:-moz-lwtheme) {
-		background-image: linear-gradient(rgba(230, 236, 245, .8), rgba(207, 219, 236, .7));
+		background-image: linear-gradient(rgba(230, 236, 245, .9), rgba(207, 219, 236, .9));
 		border-width: 1px 1px 0 1px !important;
 		border-radius: 4px 4px 0 0;
 		background-color: transparent;
 	}
 	
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar:not(:-moz-lwtheme) {
-		background-image: linear-gradient(rgba(207, 219, 236, .7) 0%, rgba(197, 208, 224, .7) calc(100% - 2px), rgba(243, 248, 253, .95) calc(100% - 3px));
+		background-image: linear-gradient(rgba(207, 219, 236, .9) 0%, rgba(197, 208, 224, .9) calc(100% - 2px), rgb(246, 249, 255) calc(100% - 3px));
 		border-width: 0 1px 1px 1px !important;
 		background-color: transparent;
 	}
@@ -3205,7 +3361,7 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 	
 	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab[selected="true"]:not(:-moz-lwtheme) {
-		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 65%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgba(239, 246, 255, .9) 1px, rgba(239, 246, 255, .9));
+		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 65%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgb(244, 248, 255) 1px, rgb(244, 248, 255));
 	}
 	
 	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) + #TabsToolbar #home-button:not(:-moz-lwtheme):not(:hover),
@@ -3249,7 +3405,8 @@ toolbarbutton, .toolbarbutton-1 {
 		border-radius: 0;
 	}
 	
-	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme), #main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
+	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme),
+	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 		border-left: none !important;
 		border-right: none !important;
 	}
@@ -3260,37 +3417,42 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 	
 	#FindToolbar:not(:-moz-lwtheme) {
-		background-color: -moz-dialog;
+		background-color: var(--dialog-background);
 	}
 	
-	#browser {
+	#browser:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
 	}
 	
-	#sidebar-splitter:not(:-moz-lwtheme), #sidebar-box:not(:-moz-lwtheme) {
+	#sidebar-splitter:not(:-moz-lwtheme), 
+	#sidebar-box:not(:-moz-lwtheme) {
 		border-left: none !important;
 	}
 	
 	#main-window[chromehidden~="status"] #browser-bottombox:not(:-moz-lwtheme),
 	#main-window[chromehidden~="directories"] #browser-bottombox:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
-		background-color: -moz-Dialog;
+		background-color: var(--dialog-background);
 	}
 	
-	#main-window[chromehidden~="status"] #browser,
-	#main-window[chromehidden~="directories"] #browser,
-	#main-window[inFullscreen="true"] #browser,
-	#main-window[inFullscreen="true"] #browser-bottombox {
+	#main-window[chromehidden~="status"] #browser:not(:-moz-lwtheme),
+	#main-window[chromehidden~="directories"] #browser:not(:-moz-lwtheme),
+	#main-window[inFullscreen="true"] #browser:not(:-moz-lwtheme),
+	#main-window[inFullscreen="true"] #browser-bottombox:not(:-moz-lwtheme) {
 		border: none !important;
 	}
 	
-	#main-window[chromehidden~="status"],
-	#main-window[chromehidden~="directories"] {
+	#main-window[chromehidden~="status"]:not(:-moz-lwtheme),
+	#main-window[chromehidden~="directories"]:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-glass !important;
 	}
 	
 	#main-window:not([sizemode="maximized"]) #browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 		border-radius: 0 0 4px 4px !important;
+	}
+	
+	#navigator-toolbox[tabsontop="true"] #TabsToolbar {
+		background-image: linear-gradient(transparent calc(100% - 1px), ThreeDShadow calc(100% - 2px)) !important;
 	}
 }
 
@@ -3404,7 +3566,19 @@ toolbarbutton, .toolbarbutton-1 {
 	background-image: linear-gradient(var(--toolbar-highlight-bottom), var(--toolbar-highlight-bottom));
 }
 
-#nav-bar:-moz-lwtheme[tabsontop="true"], #nav-bar:-moz-lwtheme[tabsontop="true"][collapsed="true"]:not([customizing]) + toolbar:-moz-lwtheme, #nav-bar:-moz-lwtheme[tabsontop="true"][collapsed="true"]:not([customizing]) + #customToolbars:-moz-lwtheme + #PersonalToolbar:-moz-lwtheme {
+#main-window[tabsontop="true"] toolbar:not(#toolbar-menubar):not(#TabsToolbar):-moz-lwtheme {
+	background-image: linear-gradient(var(--toolbar-highlight-bottom), var(--toolbar-highlight-bottom));
+}
+
+#nav-bar[tabsontop="true"],
+#nav-bar[tabsontop="true"][collapsed="true"]:not([customizing]) + toolbar,
+#nav-bar[tabsontop="true"][collapsed="true"]:not([customizing]) + #customToolbars + #PersonalToolbar {
+	background-image: linear-gradient(color-mix(in srgb, var(--dialog-background), white), var(--toolbar-highlight-bottom)) !important;
+}
+
+#nav-bar:-moz-lwtheme[tabsontop="true"],
+#nav-bar:-moz-lwtheme[tabsontop="true"][collapsed="true"]:not([customizing]) + toolbar:-moz-lwtheme,
+#nav-bar:-moz-lwtheme[tabsontop="true"][collapsed="true"]:not([customizing]) + #customToolbars:-moz-lwtheme + #PersonalToolbar:-moz-lwtheme {
     background: none !important;
     background-color: none !important;
     background-image: linear-gradient(var(--toolbar-highlight-top), var(--toolbar-highlight-bottom)) !important;
@@ -3430,6 +3604,13 @@ toolbarbutton, .toolbarbutton-1 {
 	text-shadow: 0 0 1px white, 0 0 1px white !important;
 }
 
+@media (-moz-os-version: windows-xp) {
+	#toolbar-menubar menubar menu:-moz-lwtheme-darktext[_moz-menuactive="true"] {
+		text-shadow: none !important;
+		color: HighlightText !important;
+	}
+}
+
 #toolbar-menubar menubar:-moz-lwtheme {
 	/*background: rgba(255,255,255,.3);*/
 	border-radius: 5px;
@@ -3441,4 +3622,246 @@ toolbarbutton, .toolbarbutton-1 {
 
 .bookmark-item#toggle-sidebar-button > .toolbarbutton-icon {
 	width: 20px;
+}
+
+#bookmarks-menu-button .toolbarbutton-icon,
+#bookmarks-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-ryy) !important;
+}
+
+#back-button .toolbarbutton-icon,
+#forward-button .toolbarbutton-icon,
+#home-button .toolbarbutton-icon,
+#fullscreen-button .toolbarbutton-icon,
+#print-button .toolbarbutton-icon,
+#paste-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-cbb) !important;
+}
+
+#stop-button .toolbarbutton-icon,
+#zoom-controls #zoom-out-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-r) !important;
+}
+
+#sync-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-bmm) !important;
+}
+
+#reload-button .toolbarbutton-icon,
+#downloads-indicator:not([attention="true"]) #downloads-indicator-anchor #downloads-indicator-icon,
+#downloads-button .toolbarbutton-icon,
+#new-window-button .toolbarbutton-icon,
+#copy-button .toolbarbutton-icon,
+#zoom-controls #zoom-in-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-ygg) !important;
+}
+
+#cut-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-c) !important;
+}
+
+#history-button .toolbarbutton-icon,
+#history-menu-button .toolbarbutton-icon {
+	filter: url(filters.svg#matrix-g) !important;
+}
+
+#downloads-indicator:-moz-any([progress], [counter], [paused]) #downloads-indicator-icon {
+	visibility: visible !important;
+}
+
+#downloads-indicator[progress] #downloads-indicator-icon {
+	visibility: visible !important;
+	margin-top: -5px !important;
+}
+
+#downloads-indicator #downloads-indicator-anchor #downloads-indicator-progress-area #downloads-indicator-counter {
+	display: none;
+}
+
+#downloads-indicator #downloads-indicator-anchor #downloads-indicator-progress-area #downloads-indicator-progress {
+	margin-bottom: -13px !important;
+}
+
+#sidebar-splitter {
+	background-color: var(--dialog-background);
+}
+
+#navigator-toolbox[tabsontop="true"] {
+    border-bottom: 1px solid rgba(0, 0, 0, .15);
+}
+
+#TabsToolbar #home-button {
+	margin-right: -4px !important;
+	-moz-transition: none !important;
+	box-shadow: none !important;
+	-moz-box-shadow: none !important;
+}
+
+#nav-bar, #PersonalToolbar {
+	padding-left: 2px !important;
+	padding-right: 2px !important;
+}
+
+#navigator-toolbox #TabsToolbar:-moz-lwtheme {
+	border-top: none !important;
+}
+
+#navigator-toolbox #nav-bar:-moz-lwtheme,
+#navigator-toolbox #PersonalToolbar:-moz-lwtheme {
+	border-top: none !important;
+	border-bottom: none !important;
+}
+
+#navigator-toolbox #toolbar-menubar:-moz-lwtheme {
+	border-bottom: none !important;
+}
+
+#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar #home-button .toolbarbutton-icon:not(:-moz-lwtheme),
+#navigator-toolbox[tabsontop="true"] #TabsToolbar #home-button .toolbarbutton-icon {
+	margin-bottom: -1px !important;
+}
+
+/*
+#navigator-toolbox:not([tabsontop="true"]) toolbar:not(#TabsToolbar) {
+	border-bottom: 1px dashed rgba(0, 0, 0, .2) !important;
+}
+*/
+
+.notification-anchor-icon {
+  width: 16px;
+  height: 16px;
+  margin: 0 2px;
+}
+
+.notification-anchor-icon:-moz-focusring {
+  outline: 1px dotted -moz-DialogText;
+  outline-offset: -3px;
+}
+
+#notification-popup-box:-moz-locale-dir(rtl),
+.notification-anchor-icon:-moz-locale-dir(rtl) {
+  transform: scaleX(-1);
+}
+
+.default-notification-icon,
+#default-notification-icon {
+  list-style-image: url(chrome://global/skin/icons/information-16.png);
+}
+
+.geo-notification-icon,
+#geo-notification-icon {
+  list-style-image: url(chrome://browser/skin/Geolocation-16.png);
+}
+
+#addons-notification-icon {
+  list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-16.png);
+}
+
+@media (-moz-os-version: windows-xp) {
+  #addons-notification-icon {
+    list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png);
+  }
+}
+
+.indexedDB-notification-icon,
+#indexedDB-notification-icon {
+  list-style-image: url(chrome://global/skin/icons/question-16.png);
+}
+
+#password-notification-icon {
+  list-style-image: url(chrome://mozapps/skin/passwordmgr/key-16.png);
+}
+
+#plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginNormal.png);
+}
+
+#alert-plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginAlert.png);
+}
+
+#blocked-plugins-notification-icon {
+  list-style-image: url(chrome://browser/skin/notification-pluginBlocked.png);
+}
+
+#plugins-notification-icon,
+#alert-plugins-notification-icon,
+#blocked-plugins-notification-icon {
+  -moz-image-region: rect(0, 16px, 16px, 0);
+}
+
+#plugins-notification-icon:hover,
+#alert-plugins-notification-icon:hover,
+#blocked-plugins-notification-icon:hover {
+  -moz-image-region: rect(0, 32px, 16px, 16px);
+}
+
+#plugins-notification-icon:active,
+#alert-plugins-notification-icon:active,
+#blocked-plugins-notification-icon:active {
+  -moz-image-region: rect(0, 48px, 16px, 32px);
+}
+
+#urlbar #identity-box > #padlock-ib-left {
+	pointer-events: none;
+}
+
+#urlbar #identity-box:not(.verifiedIdentity):has(> #padlock-ib-left[padshow="ib-left"]) #identity-icon-labels {
+	display: none;
+}
+
+#urlbar #identity-box > #page-proxy-favicon {
+	object-position: -17px -17px;
+	background-image: url("chrome://global/skin/icons/folder-item.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+	#urlbar #identity-box > #page-proxy-favicon {
+		background-image: url("chrome://global/skin/icons/folder-item-xp.png");
+	}
+}
+
+#urlbar #identity-box > #page-proxy-favicon:has(+ #padlock-ib-left[padshow="ib-left"][level]:not([hidden="true"])) {
+	background-image: none;
+}
+
+#urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level]:not([hidden="true"]) {
+	margin-right: 0 !important;
+	padding: 0 !important;
+	margin-left: -16px;
+}
+
+#editBookmarkPanel {
+	margin-right: -24px;
+}
+
+#notification-popup-box {
+	position: relative;
+	border: 1px solid rgba(0, 0, 0, .3);
+	border-radius: 2px;
+	margin-right: 7px;
+	padding: 1px 0;
+	background-color: rgb(242, 242, 242);
+}
+
+#notification-popup-box::after {
+	content: '';
+	background-image: url("chrome://global/skin/arrow/panelarrow-horizontal-themed.svg");
+	position: absolute;
+	top: -2px;
+	right: -8px;
+	width: 10px;
+	height: 20px;
+	transform: scaleX(-0.6) scaleY(0.5);
+	filter: invert(5%);
+}
+
+@media all and (-moz-windows-compositor) {
+	#navigator-toolbox:not([tabsontop="true"]) #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) {
+		background-image: linear-gradient(transparent calc(100% - 1px), rgba(0, 0, 0, .45) calc(100% - 2px)) !important;
+	}
+
+	#navigator-toolbox:not([tabsontop="true"]) #nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) .tabbrowser-tab[selected="true"] {
+		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5)), -moz-linear-gradient(left, transparent, transparent 1px, white 1px, white) !important;
+	}
 }

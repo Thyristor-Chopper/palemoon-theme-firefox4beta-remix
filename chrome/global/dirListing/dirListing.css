@@ -99,7 +99,19 @@ td:not(:first-child) {
   content: url(chrome://global/skin/dirListing/up.png);
 }
 
+@media (-moz-os-version: windows-xp) {
+	.up::before {
+		content: url(chrome://global/skin/dirListing/up-xp.png);
+	}
+}
+
 .dir::before {
   content: url(chrome://global/skin/dirListing/folder.png);
+}
+
+@media (-moz-os-version: windows-xp) {
+	.dir::before {
+		content: url(chrome://global/skin/dirListing/folder-xp.png);
+	}
 }
 

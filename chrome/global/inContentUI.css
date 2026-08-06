@@ -25,14 +25,17 @@ html|html {
 }
 
 @media (-moz-windows-default-theme) and (-moz-os-version: windows-vista),
-       (-moz-windows-default-theme) and (-moz-os-version: windows-win7) {
+       (-moz-windows-default-theme) and (-moz-os-version: windows-win7),
+       (-moz-windows-default-theme) and (-moz-os-version: windows-win8),
+       (-moz-windows-default-theme) and (-moz-os-version: windows-win10),
+       (-moz-windows-default-theme) and (-moz-os-version: windows-win11) {
   *|*:root {
     color: #000;
     background-color: #CCD9EA;
   }
 }
 
-@media (-moz-windows-glass) {
+@media (-moz-windows-glass), (-moz-windows-compositor) {
   *|*:root {
     /* Blame shorlander for this monstrosity. */
     background-image: /* Side gradients */
@@ -76,13 +79,16 @@ html|html {
 }
 
 @media (-moz-os-version: windows-vista),
-       (-moz-os-version: windows-win7) {
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
   *|*.main-content {
     border-radius: 5px;
   }
 }
 
-@media (-moz-windows-glass) {
+@media (-moz-windows-glass), (-moz-windows-compositor) {
   /* Buttons */
   *|button,
   menulist,

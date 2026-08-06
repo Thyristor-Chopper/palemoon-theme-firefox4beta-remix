@@ -30,6 +30,12 @@ progressmeter {
   background-color: ThreeDShadow;
 }
 
+@media (-moz-os-version: windows-xp) {
+	.progress-bar {
+		transform: scaleY(0.99);
+	}
+}
+
 /* ::::: statusbar progressmeter ::::: */
 
 .progressmeter-statusbar {

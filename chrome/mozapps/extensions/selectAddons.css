@@ -129,6 +129,12 @@
   list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16.png");
 }
 
+@media (-moz-os-version: windows-xp) {
+  .addon-icon {
+    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png");
+  }
+}
+
 .addon-icon[type="theme"] {
   list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-16.png");
 }

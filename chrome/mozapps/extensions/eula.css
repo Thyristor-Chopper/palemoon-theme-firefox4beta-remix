@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #icon {
-  list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.svg");
+  list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
   max-width: 48px;
   max-height: 48px;
   -moz-margin-end: 6px;
@@ -34,7 +34,7 @@
 }
 
 #eula {
-  -moz-appearance: none;
+  appearance: none;
   color: -moz-FieldText;
   background-color: -moz-Field;
   margin: 1em;
