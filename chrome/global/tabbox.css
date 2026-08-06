@@ -131,3 +131,40 @@ tab:first-of-type[selected="true"] {
   border-bottom: none;
 }
 
+/* ::::: fix tabs ::::: */
+
+tabbox tabs {
+  position: relative !important;
+}
+
+tabbox tabs tab {
+  min-width: 48px !important;
+  padding-left: 6px !important;
+  padding-right: 6px !important;
+  text-align: center !important;
+}
+
+tabbox tabs:not(.tabs-bottom) tab[selected="true"]:not(.tab-bottom) {
+  margin-bottom: -2px !important;
+}
+
+tabbox tabs.tabs-bottom tab.tab-bottom[selected="true"] {
+  margin-top: -2px !important;
+}
+
+tabbox tabs tab:not([selected="true"]):first-of-type {
+  margin-left: 2px !important;
+}
+
+tabbox tabs tab[selected="true"]:first-of-type {
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  min-width: 50px !important;
+}
+
+tabs.tabs-bottom tab.tab-bottom,
+tabs.tabs-bottom tab.tab-bottom .tab-icon,
+tabs.tabs-bottom tab.tab-bottom .tab-text {
+  transform: scaleY(-1);
+}
+

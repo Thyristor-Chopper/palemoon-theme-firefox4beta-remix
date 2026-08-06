@@ -78,7 +78,7 @@ panel[type="autocomplete-richlistbox"],
 }
 
 treechildren.autocomplete-treebody::-moz-tree-row(selected) {
-  background-color: Highlight;
+ background-color: Highlight;
 }
 
 treechildren.autocomplete-treebody::-moz-tree-cell-text(selected) {

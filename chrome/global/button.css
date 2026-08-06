@@ -22,6 +22,7 @@ button {
   background-color: ThreeDFace;
   color: ButtonText;
   text-shadow: none;
+  font: message-box;
 }
 
 .button-box {
@@ -35,6 +36,7 @@ button {
 .button-text {
   margin: 0 !important;
   text-align: center;
+  font: message-box;
 }
 
 /* .......... focused state .......... */

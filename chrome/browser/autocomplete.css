@@ -38,8 +38,8 @@ textbox:not(.padded) .textbox-input-box {
 panel[type="private-autocomplete"],
 panel[type="private-autocomplete-richlistbox"],
 .private-autocomplete-history-popup {
-  -moz-appearance: none !important;
-  border-width: 1px !important;
+  -moz-appearance: none;
+  border-width: 1px;
   -moz-border-top-colors: ThreeDShadow;
   -moz-border-right-colors: ThreeDShadow;
   -moz-border-bottom-colors: ThreeDShadow;
