@@ -65,7 +65,10 @@ panel[type="arrow"][side="right"] {
 }
 
 @media (-moz-os-version: windows-vista),
-       (-moz-os-version: windows-win7) {
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
 /* < Win8 */
 .panel-arrowcontent {
   border-radius: 4px;
@@ -106,12 +109,12 @@ panel[type="arrow"][side="right"] {
   margin-left: -5px;
 }
 
-@media (-moz-windows-default-theme) {
-  .panel-arrowcontent {
-    --panel-arrowcontent-border: 1px solid hsla(210,4%,10%,.2);
-    box-shadow: 0 0 4px hsla(210,4%,10%,.2);
-  }
+.panel-arrowcontent {
+  --panel-arrowcontent-border: 1px solid hsla(210,4%,10%,.2);
+  box-shadow: 0 0 4px hsla(210,4%,10%,.2);
+}
 
+@media (-moz-windows-default-theme) {
   .panel-arrow[side="top"],
   .panel-arrow[side="bottom"] {
     list-style-image: url("chrome://global/skin/arrow/panelarrow-vertical.svg");

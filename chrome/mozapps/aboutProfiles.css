@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 html {
-  --aboutProfiles-table-background: #ebebeb;
+  --aboutProfiles-table-background: -moz-Dialog;
   background-color: var(--in-content-page-background);
 }
 
