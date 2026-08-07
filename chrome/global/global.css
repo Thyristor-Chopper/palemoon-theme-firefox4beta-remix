@@ -3,8 +3,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* ===== global.css =====================================================
-	== Styles that apply everywhere.
-	======================================================================= */
+   == Styles that apply everywhere.
+   ======================================================================= */
 
 /* all localizable skin settings shall live here */
 @import url("chrome://global/locale/intl.css");
