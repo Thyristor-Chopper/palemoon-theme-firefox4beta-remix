@@ -7,13 +7,17 @@
   -moz-margin-end: -10px;
 }
 
+#filler spacer {
+	width: 19em !important;
+}
+
 #commonDialog:has(#loginContainer:not([hidden="true"])) #filler spacer,
 #commonDialog:has(#password1Container:not([hidden="true"])) #filler spacer {
 	width: 36em !important;
 }
 
-#filler spacer {
-	width: 19em !important;
+#commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon {
+	list-style-image: url("chrome://global/skin/icons/alert-auth.gif");
 }
 
 button {
