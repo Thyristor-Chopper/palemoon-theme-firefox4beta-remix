@@ -3323,6 +3323,10 @@ toolbarbutton, .toolbarbutton-1 {
 				margin-left: 3px;
 				margin-right: 3px;
 			}
+
+			#TabsToolbar .tabbrowser-tab:not([selected="true"]) .tab-content {
+				margin-bottom: -1px !important;
+			}
 		}
 	}
 }
@@ -3525,6 +3529,10 @@ toolbarbutton, .toolbarbutton-1 {
 		border-width: 0;
 	}
 	*/
+
+	#TabsToolbar .tabbrowser-tab:not([selected="true"]) .tab-content {
+		margin-bottom: -1px !important;
+	}
 }
 
 #PersonalToolbar #bookmarks-menu-button {
