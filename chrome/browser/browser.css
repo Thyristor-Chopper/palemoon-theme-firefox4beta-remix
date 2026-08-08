@@ -763,8 +763,10 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	min-width: 57px;
 }
 
-#TabsToolbar > .toolbarbutton-1:not(#home-button),
-#TabsToolbar > toolbarpaletteitem > .toolbarbutton-1:not(#home-button) {
+/* TODO :has() 구현 시 추가: #TabsToolbar > #home-button:not(:has(+ .tabbrowser-tabs:not([overflow="true"]))) */
+#PersonalToolbar > .toolbarbutton-1,
+#PersonalToolbar ~ toolbar:not(#TabsToolbar) > .toolbarbutton-1,
+#TabsToolbar > .toolbarbutton-1:not(#home-button) {
 	-moz-appearance: toolbarbutton;
 	margin: 0;
 	padding: 0 3px;
@@ -773,6 +775,14 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	background: transparent !important;
 	text-shadow: inherit !important;
 	box-shadow: none !important;
+}
+
+#PersonalToolbar > .toolbarbutton-1 .toolbarbutton-icon,
+#PersonalToolbar ~ toolbar:not(#TabsToolbar) > .toolbarbutton-1 .toolbarbutton-icon,
+#TabsToolbar > .toolbarbutton-1:not(#home-button) .toolbarbutton-icon,
+#toggle-sidebar-button .toolbarbutton-icon {
+	width: auto;
+	height: auto;
 }
 
 #TabsToolbar #home-button:hover:not(:active) {
@@ -1315,6 +1325,10 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	#identity-box > #identity-icon-labels {
 		text-shadow: 0 0 1px rgba(0, 0, 0, .4), 0 0 1px rgba(0, 0, 0, .4);
 	}
+}
+
+#identity-box > #identity-icon-labels {
+	margin-bottom: -1px;
 }
 
 /* Location bar dropmarker */
@@ -4152,4 +4166,4 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 }
 
-/* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar:has(> .tabbrowser-tabs:not([overflow="true"])) > #home-button로 변경 */
+/* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"]))로 변경 */
