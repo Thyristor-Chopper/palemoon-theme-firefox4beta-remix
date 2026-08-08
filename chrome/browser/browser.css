@@ -764,9 +764,9 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 }
 
 /* TODO :has() 구현 시 추가: #TabsToolbar > #home-button:not(:has(+ .tabbrowser-tabs:not([overflow="true"]))) */
-#PersonalToolbar > .toolbarbutton-1,
-#PersonalToolbar ~ toolbar:not(#TabsToolbar) > .toolbarbutton-1,
-#TabsToolbar > .toolbarbutton-1:not(#home-button) {
+#PersonalToolbar .toolbarbutton-1,
+#PersonalToolbar ~ toolbar:not(#TabsToolbar) .toolbarbutton-1,
+#TabsToolbar .toolbarbutton-1:not(#home-button) {
 	-moz-appearance: toolbarbutton;
 	margin: 0;
 	padding: 0 3px;
@@ -777,9 +777,9 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	box-shadow: none !important;
 }
 
-#PersonalToolbar > .toolbarbutton-1 .toolbarbutton-icon,
-#PersonalToolbar ~ toolbar:not(#TabsToolbar) > .toolbarbutton-1 .toolbarbutton-icon,
-#TabsToolbar > .toolbarbutton-1:not(#home-button) .toolbarbutton-icon,
+#PersonalToolbar .toolbarbutton-1 .toolbarbutton-icon,
+#PersonalToolbar ~ toolbar:not(#TabsToolbar) .toolbarbutton-1 .toolbarbutton-icon,
+#TabsToolbar .toolbarbutton-1:not(#home-button) .toolbarbutton-icon,
 #toggle-sidebar-button .toolbarbutton-icon {
 	width: auto;
 	height: auto;
