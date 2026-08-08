@@ -2219,7 +2219,78 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 .popup-notification-icon[popupid="geolocation"] {
-	list-style-image: url(chrome://browser/skin/Geo.png);
+	list-style-image: url("chrome://browser/skin/Geo.png");
+	width: 32px;
+	height: 32px;
+}
+
+.popup-notification-icon[popupid="xpinstall-disabled"],
+.popup-notification-icon[popupid="addon-progress"],
+.popup-notification-icon[popupid="addon-install-cancelled"],
+.popup-notification-icon[popupid="addon-install-blocked"],
+.popup-notification-icon[popupid="addon-install-origin-blocked"],
+.popup-notification-icon[popupid="addon-install-failed"],
+.popup-notification-icon[popupid="addon-install-complete"] {
+	list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
+	width: 32px;
+	height: 32px;
+}
+
+@media (-moz-os-version: windows-xp) {
+	.popup-notification-icon[popupid="xpinstall-disabled"],
+	.popup-notification-icon[popupid="addon-progress"],
+	.popup-notification-icon[popupid="addon-install-cancelled"],
+	.popup-notification-icon[popupid="addon-install-blocked"],
+	.popup-notification-icon[popupid="addon-install-origin-blocked"],
+	.popup-notification-icon[popupid="addon-install-failed"],
+	.popup-notification-icon[popupid="addon-install-complete"] {
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+	}
+}
+
+.popup-notification-icon[popupid="click-to-play-plugins"] {
+	list-style-image: url("chrome://mozapps/skin/plugins/pluginBlocked-64.png");
+}
+
+.popup-notification-icon[popupid="web-notifications"] {
+	list-style-image: url("chrome://global/skin/icons/information-48.png");
+	width: 48px;
+	height: 48px;
+}
+
+.popup-notification-icon[popupid="indexedDB-permissions-prompt"],
+.popup-notification-icon[popupid="indexedDB-quota-prompt"],
+.popup-notification-icon[popupid*="offline-app-requested"],
+.popup-notification-icon[popupid="offline-app-usage"] {
+	list-style-image: url("chrome://global/skin/icons/question-48.png");
+	width: 48px;
+	height: 48px;
+}
+
+.popup-notification-icon[popupid="password"] {
+	list-style-image: url("chrome://mozapps/skin/passwordmgr/key-64.png");
+}
+
+.popup-notification-icon[popupid="mixed-content-blocked"] {
+	list-style-image: url("chrome://browser/skin/mixed-content-blocked-48.png");
+	width: 48px;
+	height: 48px;
+}
+
+.popup-notification-icon[popupid="pointerLock"] {
+	list-style-image: url("chrome://browser/skin/pointerLock-64.png");
+}
+
+.popup-notification-icon[popupid="addon-theme-change"] {
+	list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric.png");
+	width: 32px;
+	height: 32px;
+}
+
+@media (-moz-os-version: windows-xp) {
+	.popup-notification-icon[popupid="addon-theme-change"] {
+		list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-XP.png");
+	}
 }
 
 /* Notification icon box */
@@ -4036,8 +4107,13 @@ toolbarbutton, .toolbarbutton-1 {
 	border: 1px solid rgba(0, 0, 0, .3);
 	border-radius: 2px;
 	margin-right: 7px;
-	padding: 1px 0;
+	padding: 1px;
 	background-color: rgb(242, 242, 242);
+}
+
+#notification-popup-box .notification-anchor-icon {
+	width: 14px;
+	height: 14px;
 }
 
 #notification-popup-box::after {
@@ -4050,6 +4126,33 @@ toolbarbutton, .toolbarbutton-1 {
 	height: 20px;
 	transform: scaleX(-0.6) scaleY(0.5);
 	filter: invert(5%);
+}
+
+@media (-moz-windows-compositor) {
+	#notification-popup-box {
+		background-color: rgb(226, 233, 243);
+		border-color: rgb(141, 162, 186);
+	}
+
+	#notification-popup-box::before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		left: 1px;
+		right: 1px;
+		height: 45%;
+		border-radius: 2px 2px 1px 1px;
+		background-image: linear-gradient(rgba(255, 255, 255, .5), rgba(255, 255, 255, .25));
+	}
+
+	#notification-popup-box .notification-anchor-icon {
+		position: absolute;
+	}
+
+	#notification-popup-box::after {
+		background-image: url("chrome://browser/skin/notification-popup-box-arrow-aero.svg");
+		filter: none;
+	}
 }
 
 @media all and (-moz-windows-compositor) {
@@ -4158,30 +4261,6 @@ toolbarbutton, .toolbarbutton-1 {
 #TabsToolbar:-moz-lwtheme-brighttext .tab-icon-overlay[blocked]:not([crashed]):not([selected]):not(:hover),
 .tab-icon-overlay[blocked][selected]:-moz-lwtheme-brighttext:not(:hover) {
 	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-white-blocked");
-}
-
-.popup-notification-icon[popupid="xpinstall-disabled"],
-.popup-notification-icon[popupid="addon-progress"],
-.popup-notification-icon[popupid="addon-install-cancelled"],
-.popup-notification-icon[popupid="addon-install-blocked"],
-.popup-notification-icon[popupid="addon-install-origin-blocked"],
-.popup-notification-icon[popupid="addon-install-failed"],
-.popup-notification-icon[popupid="addon-install-complete"] {
-    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
-    width: 32px;
-    height: 32px;
-}
-
-@media (-moz-os-version: windows-xp) {
-	.popup-notification-icon[popupid="xpinstall-disabled"],
-	.popup-notification-icon[popupid="addon-progress"],
-	.popup-notification-icon[popupid="addon-install-cancelled"],
-	.popup-notification-icon[popupid="addon-install-blocked"],
-	.popup-notification-icon[popupid="addon-install-origin-blocked"],
-	.popup-notification-icon[popupid="addon-install-failed"],
-	.popup-notification-icon[popupid="addon-install-complete"] {
-		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
-	}
 }
 
 /* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"]))로 변경 */
