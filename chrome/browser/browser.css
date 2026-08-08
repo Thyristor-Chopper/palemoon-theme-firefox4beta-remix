@@ -3129,7 +3129,7 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
-		background-image: linear-gradient(transparent 0%, transparent calc(100% - 3px), rgb(246, 248, 249) calc(100% - 4px));
+		background-image: linear-gradient(transparent 0%, transparent calc(100% - 3px), color-mix(in srgb, var(--dialog-background), white) calc(100% - 4px));
 		padding-bottom: 3px;
 		border-width: 0 0 1px 0 !important;
 	}
