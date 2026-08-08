@@ -275,6 +275,11 @@
 #category-theme > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-themes.png");
 }
+@media (-moz-os-version: windows-xp) {
+  #category-theme > .category-icon {
+    list-style-image: url("chrome://mozapps/skin/extensions/category-themes-XP.png");
+  }
+}
 #category-plugin > .category-icon {
   list-style-image: url("chrome://mozapps/skin/extensions/category-plugins.png");
 }

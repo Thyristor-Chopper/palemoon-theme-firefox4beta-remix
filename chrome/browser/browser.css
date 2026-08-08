@@ -1786,6 +1786,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 
 .tab-throbber[progress] {
 	list-style-image: url("chrome://browser/skin/tabbrowser/loading.png");
+	filter: saturate(0.7);
 }
 
 @media (-moz-os-version: windows-vista), 
