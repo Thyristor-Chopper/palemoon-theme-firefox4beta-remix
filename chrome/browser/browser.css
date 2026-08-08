@@ -4269,4 +4269,8 @@ toolbarbutton, .toolbarbutton-1 {
 	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-white-blocked");
 }
 
+#notification-popup popupnotification popupnotificationcontent {
+	max-width: calc(24em + 22px);
+}
+
 /* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"]))로 변경 */
