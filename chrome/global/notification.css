@@ -80,7 +80,7 @@ XXX: apply styles to all themes until bug 509642 is fixed
 */
   .popup-notification-menubutton {
     -moz-appearance: none;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 0;
   }
 
@@ -124,12 +124,12 @@ XXX: apply styles to all themes until bug 509642 is fixed
 
   .popup-notification-menubutton > .button-menubutton-button:-moz-locale-dir(ltr),
   .popup-notification-menubutton > .button-menubutton-dropmarker:-moz-locale-dir(rtl) {
-    border-radius: 2px 0 0 2px;
+    border-radius: 5px 0 0 5px;
   }
 
   .popup-notification-menubutton > .button-menubutton-button:-moz-locale-dir(rtl),
   .popup-notification-menubutton > .button-menubutton-dropmarker:-moz-locale-dir(ltr) {
-    border-radius: 0 2px 2px 0;
+    border-radius: 0 5px 5px 0;
   }
 
   .popup-notification-menubutton:not([type="menu-button"]):hover,

@@ -4017,4 +4017,112 @@ toolbarbutton, .toolbarbutton-1 {
 	margin-right: 1px;
 }
 
+/* Tab sound indicator */
+.tab-icon-sound {
+	margin-inline-start: 4px;
+	width: 16px;
+	height: 16px;
+	padding: 0;
+}
+
+.allTabs-endimage[soundplaying],
+.tab-icon-sound[soundplaying] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio.svg#tab-audio");
+}
+
+.allTabs-endimage[muted],
+.tab-icon-sound[muted] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio.svg#tab-audio-muted");
+}
+
+.allTabs-endimage[blocked],
+.tab-icon-sound[blocked] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio.svg#tab-audio-blocked");
+}
+
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-sound[soundplaying],
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-sound[blocked],
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-sound[muted] {
+	filter: invert(1);
+}
+
+.tab-icon-sound[soundplaying-scheduledremoval]:not([muted]):not(:hover),
+.tab-icon-overlay[soundplaying-scheduledremoval]:not([muted]):not(:hover) {
+	transition: opacity .3s linear var(--soundplaying-removal-delay);
+	opacity: 0;
+}
+
+/* Tab icon overlay */
+.tab-icon-overlay {
+	width: 16px;
+	height: 16px;
+	margin-top: -8px;
+	margin-inline-start: -15px;
+	margin-inline-end: -1px;
+	position: relative;
+}
+
+.tab-icon-overlay[soundplaying],
+.tab-icon-overlay[muted]:not([crashed]),
+.tab-icon-overlay[blocked]:not([crashed]) {
+	border-radius: 10px;
+}
+
+.tab-icon-overlay[soundplaying]:hover,
+.tab-icon-overlay[muted]:not([crashed]):hover,
+.tab-icon-overlay[blocked]:not([crashed]):hover {
+	background-color: white;
+}
+
+.tab-icon-overlay[soundplaying] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio");
+}
+
+.tab-icon-overlay[muted] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-muted");
+}
+
+.tab-icon-overlay[blocked] {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-blocked");
+}
+
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-overlay[soundplaying]:not([selected]):not(:hover),
+.tab-icon-overlay[soundplaying][selected]:-moz-lwtheme-brighttext:not(:hover) {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-white");
+}
+
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-overlay[muted]:not([crashed]):not([selected]):not(:hover),
+.tab-icon-overlay[muted][selected]:-moz-lwtheme-brighttext:not(:hover) {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-white-muted");
+}
+
+#TabsToolbar:-moz-lwtheme-brighttext .tab-icon-overlay[blocked]:not([crashed]):not([selected]):not(:hover),
+.tab-icon-overlay[blocked][selected]:-moz-lwtheme-brighttext:not(:hover) {
+	list-style-image: url("chrome://browser/skin/tabbrowser/tab-audio-small.svg#tab-audio-white-blocked");
+}
+
+.popup-notification-icon[popupid="xpinstall-disabled"],
+.popup-notification-icon[popupid="addon-progress"],
+.popup-notification-icon[popupid="addon-install-cancelled"],
+.popup-notification-icon[popupid="addon-install-blocked"],
+.popup-notification-icon[popupid="addon-install-origin-blocked"],
+.popup-notification-icon[popupid="addon-install-failed"],
+.popup-notification-icon[popupid="addon-install-complete"] {
+    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
+    width: 32px;
+    height: 32px;
+}
+
+@media (-moz-os-version: windows-xp) {
+	.popup-notification-icon[popupid="xpinstall-disabled"],
+	.popup-notification-icon[popupid="addon-progress"],
+	.popup-notification-icon[popupid="addon-install-cancelled"],
+	.popup-notification-icon[popupid="addon-install-blocked"],
+	.popup-notification-icon[popupid="addon-install-origin-blocked"],
+	.popup-notification-icon[popupid="addon-install-failed"],
+	.popup-notification-icon[popupid="addon-install-complete"] {
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+	}
+}
+
 /* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar:has(> .tabbrowser-tabs:not([overflow="true"])) #home-button 변경 */
