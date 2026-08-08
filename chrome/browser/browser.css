@@ -1248,35 +1248,37 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 }
 */
 
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain,
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
-	/* background-image: linear-gradient(rgb(221, 231, 246), rgb(206, 221, 242)); */
-	/* background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230)); */
-	background-image: linear-gradient(rgb(152, 191, 245), rgb(91, 149, 225));
-	/* border-color: rgb(155, 171, 190); */
-	border-color: rgb(64, 84, 125);
-	/* box-shadow: 0 1px 0 rgba(0, 0, 0, .1) inset; */
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
-	text-shadow: none;
-	/* color: rgb(95, 109, 137); */
-	color: white;
-}
+@media not all and (-moz-windows-compositor) {
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain,
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
+		/* background-image: linear-gradient(rgb(221, 231, 246), rgb(206, 221, 242)); */
+		/* background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230)); */
+		background-image: linear-gradient(rgb(152, 191, 245), rgb(91, 149, 225));
+		/* border-color: rgb(155, 171, 190); */
+		border-color: rgb(64, 84, 125);
+		/* box-shadow: 0 1px 0 rgba(0, 0, 0, .1) inset; */
+		box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
+		text-shadow: none;
+		/* color: rgb(95, 109, 137); */
+		color: white;
+	}
 
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]) {
-	background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
-}
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]) {
+		background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
+	}
 
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active) {
-	/* background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255)); */
-	background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
-}
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active) {
+		/* background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255)); */
+		background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
+	}
 
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active):has(> #padlock-ib-left[padshow="ib-left"]) {
-	background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255));
-}
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active):has(> #padlock-ib-left[padshow="ib-left"]) {
+		background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255));
+	}
 
-#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
-	box-shadow: 1px 2px 3px rgba(0, 0, 0, .5) inset;
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
+		box-shadow: 1px 2px 3px rgba(0, 0, 0, .5) inset;
+	}
 }
 
 #identity-box.verifiedIdentity {
@@ -1311,6 +1313,28 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 		position: relative;
 	}
 
+	#identity-box:not(:hover):not([open="true"]) {
+		background-image: -moz-linear-gradient(rgba(0, 0, 0, .15), transparent);
+	}
+
+	#identity-box.verifiedDomain,
+	#identity-box.verifiedIdentity,
+	#urlbar[security_level="broken"] #identity-box:not(:hover):not([open="true"]) {
+		background-image: -moz-linear-gradient(rgba(0, 0, 0, .25), transparent);
+	}
+
+	#identity-box:hover:not(:active):not([open="true"]) {
+		background-image: -moz-linear-gradient(rgba(0, 0, 0, .05), rgba(255, 255, 255, .1));
+	}
+
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain {
+		background-color: rgb(92, 150, 245);
+	}
+
+	#identity-box.mixedContent {
+		background-color: #fef9c6;
+	}
+
 	#identity-box::before {
 		content: '';
 		position: absolute;
@@ -1328,7 +1352,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 		position: absolute;
 	}
 
-	#identity-box > #identity-icon-labels {
+	#identity-box:not(.mixedContent) > #identity-icon-labels {
 		text-shadow: 0 0 1px rgba(0, 0, 0, .4), 0 0 1px rgba(0, 0, 0, .4);
 	}
 }
