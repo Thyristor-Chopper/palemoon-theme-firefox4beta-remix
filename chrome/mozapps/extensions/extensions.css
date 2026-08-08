@@ -180,10 +180,10 @@
 }
 
 @media (-moz-os-version: windows-vista),
-			 (-moz-os-version: windows-win7),
-			 (-moz-os-version: windows-win8),
-			 (-moz-os-version: windows-win10),
-			 (-moz-os-version: windows-win11) {
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
 	.category:-moz-locale-dir(ltr) {
 		border-top-left-radius: 5px;
 		border-bottom-left-radius: 5px;
@@ -320,10 +320,10 @@
 	}
 
 @media (-moz-os-version: windows-vista),
-			 (-moz-os-version: windows-win7),
-			 (-moz-os-version: windows-win8),
-			 (-moz-os-version: windows-win10),
-			 (-moz-os-version: windows-win11) {
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
 	#header-search {
 		border-radius: 2.5px;
 	}
@@ -648,8 +648,7 @@
 
 .addon[active="false"] {
 	background-color: rgba(135, 135, 135, 0.1);
-	background-image: linear-gradient(rgba(135, 135, 135, 0),
-																		rgba(135, 135, 135, 0.1));
+	background-image: linear-gradient(rgba(135, 135, 135, 0), rgba(135, 135, 135, 0.1));
 }
 
 .addon-view[active="false"],
@@ -658,33 +657,25 @@
 }
 
 .addon-view[notification="warning"] {
-	background-image: url("chrome://mozapps/skin/extensions/stripes-warning.png"),
-										linear-gradient(rgba(255, 255, 0, 0.04),
-																		rgba(255, 255, 0, 0));
+	background-image: url("chrome://mozapps/skin/extensions/stripes-warning.png"), linear-gradient(rgba(255, 255, 0, 0.04), rgba(255, 255, 0, 0));
 	background-repeat: repeat-x;
 }
 
 .addon-view[notification="error"] {
-	background-image: url("chrome://mozapps/skin/extensions/stripes-error.png"),
-										linear-gradient(rgba(255, 0, 0, 0.04),
-																		rgba(255, 0, 0, 0));
+	background-image: url("chrome://mozapps/skin/extensions/stripes-error.png"), linear-gradient(rgba(255, 0, 0, 0.04), rgba(255, 0, 0, 0));
 	background-repeat: repeat-x;
 }
 
 .addon-view[pending="enable"],
 .addon-view[pending="upgrade"],
 .addon-view[pending="install"] {
-	background-image: url("chrome://mozapps/skin/extensions/stripes-info-positive.png"),
-										linear-gradient(rgba(0, 255, 0, 0.04),
-																		rgba(0, 255, 0, 0));
+	background-image: url("chrome://mozapps/skin/extensions/stripes-info-positive.png"), linear-gradient(rgba(0, 255, 0, 0.04), rgba(0, 255, 0, 0));
 	background-repeat: repeat-x;
 }
 
 .addon-view[pending="disable"],
 .addon-view[pending="uninstall"] {
-	background-image: url("chrome://mozapps/skin/extensions/stripes-info-negative.png"),
-										linear-gradient(rgba(128, 128, 128, 0.04),
-																		rgba(128, 128, 128, 0));
+	background-image: url("chrome://mozapps/skin/extensions/stripes-info-negative.png"), linear-gradient(rgba(128, 128, 128, 0.04), rgba(128, 128, 128, 0));
 	background-repeat: repeat-x;
 }
 
@@ -811,16 +802,14 @@
 }
 
 #detail-screenshot[loading] {
-	background-image: url("chrome://global/skin/icons/loading_16.png"),
-										linear-gradient(rgba(255, 255, 255, 0.5), transparent);
+	background-image: url("chrome://global/skin/icons/loading_16.png"), linear-gradient(rgba(255, 255, 255, 0.5), transparent);
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	border-radius: 3px;
 }
 
 #detail-screenshot[loading="error"] {
-	background-image: url("chrome://global/skin/media/error.png"),
-										linear-gradient(rgba(255, 255, 255, 0.5), transparent);
+	background-image: url("chrome://global/skin/media/error.png"), linear-gradient(rgba(255, 255, 255, 0.5), transparent);
 }
 
 #detail-desc-container {
@@ -829,8 +818,7 @@
 
 #detail-desc, #detail-fulldesc {
 	-moz-margin-start: 6px;
-	/* This is necessary to fix layout issues with multi-line descriptions, see
-		 bug 592712*/
+	/* This is necessary to fix layout issues with multi-line descriptions, see bug 592712*/
 	outline: solid transparent;
 	white-space: pre-wrap;
 	min-width: 10em;
@@ -866,8 +854,7 @@
 	border-radius: 3px;
 	list-style-image: url("chrome://mozapps/skin/extensions/heart.png");
 	background-color: #2F73EF;
-	background-image: linear-gradient(rgba(251, 252, 253, 0.70), rgba(246, 247, 248, 0.27) 49%, 
-																		rgba(231, 232, 233, 0.25) 51%, rgba(225, 226, 229, 0.1));
+	background-image: linear-gradient(rgba(251, 252, 253, 0.70), rgba(246, 247, 248, 0.27) 49%, rgba(231, 232, 233, 0.25) 51%, rgba(225, 226, 229, 0.1));
 }
 
 #detail-contrib-btn .button-box {
@@ -881,19 +868,14 @@
 #detail-contrib-btn:not(:active):hover {
 	border-color: #4271FF;
 	background-color: #0459F7;
-	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1),
-							0 0 3.5px hsl(190, 90%, 80%);
-	transition: background-color .4s ease-in,
-							border-color .3s ease-in,
-							box-shadow .3s ease-in;
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1), 0 0 3.5px hsl(190, 90%, 80%);
+	transition: background-color .4s ease-in, border-color .3s ease-in, box-shadow .3s ease-in;
 }
 
 #detail-contrib-btn:active:hover {
 	background-color: #8FA1C1;
 	border-color: rgba(0, 0, 0, 0.65) rgba(0, 0, 0, 0.55) rgba(0, 0, 0, 0.5);
-	box-shadow: 0 0 6.5px rgba(0, 0, 0, 0.4) inset,
-							0 0 2px rgba(0, 0, 0, 0.4) inset,
-							0 1px 0 rgba(255, 255, 255, 0.4);
+	box-shadow: 0 0 6.5px rgba(0, 0, 0, 0.4) inset, 0 0 2px rgba(0, 0, 0, 0.4) inset, 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 
 #detail-grid {
@@ -925,8 +907,7 @@ setting {
 }
 
 #detail-view[active="false"]:not([pending]):not([notification]) {
-	background-image: linear-gradient(rgba(135, 135, 135, 0.1),
-																		rgba(135, 135, 135, 0));
+	background-image: linear-gradient(rgba(135, 135, 135, 0.1), rgba(135, 135, 135, 0));
 }
 
 setting[first-row="true"] {
@@ -996,14 +977,12 @@ menulist { /* Fixes some styling inconsistencies */
 
 .download-progress {
 	background-color: rgba(151,152,153,.05);
-	background-image: linear-gradient(rgba(251, 252, 253, 0.95), rgba(246, 247, 248, 0.47) 49%, 
-																		rgba(231, 232, 233, 0.45) 51%, rgba(225, 226, 229, 0.3));
+	background-image: linear-gradient(rgba(251, 252, 253, 0.95), rgba(246, 247, 248, 0.47) 49%, rgba(231, 232, 233, 0.45) 51%, rgba(225, 226, 229, 0.3));
 	background-clip: padding-box;
 	border-radius: 3px;
 	border: 1px solid;
 	border-color: rgba(0, 0, 0, 0.12) rgba(0, 0, 0, 0.19) rgba(0, 0, 0, 0.38);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset,
-							0 0 0 2px rgba(255, 255, 255, 0.1) inset;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.3) inset, 0 0 0 2px rgba(255, 255, 255, 0.1) inset;
 	width: 200px;
 	height: 21px;
 	margin: 0 8px;
@@ -1183,20 +1162,18 @@ button.button-link:not([disabled="true"]):active:hover {
 	padding: 1px 3px;
 	color: #444;
 	text-shadow: 0 0 3px white;
-	background: linear-gradient(rgba(251, 252, 253, 0.95), transparent 49%, 
-															rgba(211, 212, 213, 0.45) 51%, rgba(225, 226, 229, 0.3));
+	background: linear-gradient(rgba(251, 252, 253, 0.95), transparent 49%, rgba(211, 212, 213, 0.45) 51%, rgba(225, 226, 229, 0.3));
 	background-clip: padding-box;
 	border: 1px solid rgba(31, 64, 100, 0.4);
 	border-top-color: rgba(31, 64, 100, 0.3);
-	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset,
-							0 0 2px 1px rgba(255, 255, 255, 0.25) inset;
+	box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 0 2px 1px rgba(255, 255, 255, 0.25) inset;
 }
 
 @media (-moz-os-version: windows-vista),
-			 (-moz-os-version: windows-win7),
-			 (-moz-os-version: windows-win8),
-			 (-moz-os-version: windows-win10),
-			 (-moz-os-version: windows-win11) {
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
 	.header-button {
 		border-radius: 2.5px;
 	}
