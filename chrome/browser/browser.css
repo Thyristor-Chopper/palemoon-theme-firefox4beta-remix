@@ -1613,9 +1613,8 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 }
 
 #TabsToolbar #home-button {
-	-moz-border-image: url(tabbrowser/tabboth.png) 4 6 3 6 / 4px 6px 3px 6px;
 	padding: 0 6px 0 6px !important;
-	margin-left: 5px !important;
+	margin-left: 4px !important;
 }
 
 .tabbrowser-tab:not([selected="true"]):hover,
@@ -1746,6 +1745,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 
 .tab-throbber[progress] {
 	list-style-image: url("chrome://browser/skin/tabbrowser/loading.png");
+	filter: hue-rotate(105deg) saturate(0.9);
 }
 
 .tabbrowser-tab:not([pinned]) > .tab-icon-image {
@@ -1820,6 +1820,8 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	margin: 0;
 	padding-top: 0;
 	padding-bottom: 0;
+	border-width: 0;
+	-moz-appearance: none;
 }
 
 .tabbrowser-arrowscrollbox > .scrollbutton-up:not([disabled="true"]):hover,
@@ -1857,6 +1859,20 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 
 .tabbrowser-arrowscrollbox > .scrollbutton-down:-moz-locale-dir(rtl) {
 	list-style-image: url("chrome://browser/skin/tabbrowser/tab-arrow-left.png");
+}
+
+.tabbrowser-arrowscrollbox > .scrollbutton-up:not([disabled]),
+.tabbrowser-arrowscrollbox > .scrollbutton-down:not([disabled]) {
+	border-style: solid;
+	border-image: url("chrome://browser/skin/tabbrowser/tab-overflow-border.png") 0 2 0 2 fill;
+}
+
+.tabbrowser-arrowscrollbox > .scrollbutton-up:not([disabled]) {
+	border-right-width: 2px;
+}
+
+.tabbrowser-arrowscrollbox > .scrollbutton-down:not([disabled]) {
+	border-left-width: 2px;
 }
 
 .tabs-newtab-button > .toolbarbutton-icon,
@@ -2970,16 +2986,14 @@ toolbarbutton, .toolbarbutton-1 {
 	.tabbrowser-tab:not(:-moz-lwtheme):not([selected="true"]),
 	.tabs-newtab-button:not(:-moz-lwtheme),
 	#TabsToolbar #home-button {
-		background-image: -moz-linear-gradient(left, transparent, transparent 1px,
-																								 rgba(255,255,255,.4) 1px, rgba(255,255,255,.4));
+		background-image: -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.4) 1px, rgba(255,255,255,.4));
 		text-shadow: 0 1px 0 rgba(255,255,255,.4);
 	}
 
 	.tabbrowser-tab:not(:-moz-lwtheme):not([selected="true"]):hover,
 	.tabs-newtab-button:not(:-moz-lwtheme):hover,
 	#TabsToolbar #home-button:hover {
-		background-image: -moz-linear-gradient(left, transparent, transparent 1px,
-																								 rgba(255,255,255,.6) 1px, rgba(255,255,255,.6));
+		background-image: -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.6) 1px, rgba(255,255,255,.6));
 	}
 
 	#allTabs-panel,
@@ -3287,7 +3301,7 @@ toolbarbutton, .toolbarbutton-1 {
 				border-color: rgba(0, 0, 0, .35);
 			}
 
-			#main-window:not([sizemode="maximized"]) #browser:has(~ #browser-bottombox:not(:has(> toolbar:not([collapsed="true"])))) {
+			#main-window:not([sizemode="maximized"]) #browser:not(:has(~ #browser-bottombox > toolbar:not([collapsed="true"]))) {
 				border-bottom-left-radius: 4px;
 				border-bottom-right-radius: 4px;
 				border-bottom-width: 1px;
@@ -3334,6 +3348,11 @@ toolbarbutton, .toolbarbutton-1 {
 				border-width: 0 1px 0 1px !important;
 				border-style: solid !important;
 				border-color: rgba(0, 0, 0, .45) !important;
+			}
+
+			#navigator-toolbox:not([tabsontop="true"]) #nav-bar {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
 			}
 		}
 	}
@@ -3526,7 +3545,7 @@ toolbarbutton, .toolbarbutton-1 {
 		margin-right: 3px;
 	}
 
-	#main-window:not([sizemode="maximized"]) #browser:has(~ #browser-bottombox:not(:has(> toolbar:not([collapsed="true"])))) {
+	#main-window:not([sizemode="maximized"]) #browser:not(:has(~ #browser-bottombox > toolbar:not([collapsed="true"]))) {
 		border-bottom-left-radius: 4px;
 		border-bottom-right-radius: 4px;
 		border-bottom-width: 1px;
@@ -3552,6 +3571,11 @@ toolbarbutton, .toolbarbutton-1 {
 		border-width: 0 1px 0 1px !important;
 		border-style: solid !important;
 		border-color: rgba(0, 0, 0, .45) !important;
+	}
+
+	#navigator-toolbox:not([tabsontop="true"]) #nav-bar {
+		padding-left: 0 !important;
+		padding-right: 0 !important;
 	}
 }
 
@@ -3798,11 +3822,11 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 #navigator-toolbox[tabsontop="true"] {
-		border-bottom: 1px solid rgba(0, 0, 0, .15);
+	border-bottom: 1px solid rgba(0, 0, 0, .15);
 }
 
 #TabsToolbar #home-button {
-	margin-right: -4px !important;
+	margin-right: -3px !important;
 	-moz-transition: none !important;
 	box-shadow: none !important;
 	-moz-box-shadow: none !important;
@@ -3984,6 +4008,13 @@ toolbarbutton, .toolbarbutton-1 {
 	-moz-binding: url("chrome://global/content/bindings/toolbarbutton.xml#menu-vertical");
 }
 
-#toolbar-menubar[autohide="true"]:not([inactive="true"]) {
+#toolbar-menubar[autohide="true"]:not([inactive="true"]),
+#toolbar-menubar[autohide="true"][customizing] {
 	height: 19px;
 }
+
+.tabbrowser-tabs:not([overflow="true"]) {
+	margin-right: 1px;
+}
+
+/* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar:has(> .tabbrowser-tabs:not([overflow="true"])) #home-button 변경 */
