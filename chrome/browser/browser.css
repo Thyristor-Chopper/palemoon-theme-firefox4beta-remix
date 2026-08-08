@@ -1201,6 +1201,12 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	-moz-image-region: rect(0px 16px 16px 0px);
 }
 
+@media (-moz-os-version: windows-xp) {
+	#ub-feed-button {
+		list-style-image: url("chrome://browser/skin/feeds/feed-icons-16-XP.png");
+	}
+}
+
 #ub-feed-button:hover {
 	-moz-image-region: rect(0px 32px 16px 16px);
 }
@@ -2070,6 +2076,12 @@ toolbar[mode="text"] toolbarbutton.chevron > .toolbarbutton-icon {
 	min-width: 0px; 
 	list-style-image: url("chrome://browser/skin/feeds/feed-icons-16.png");
 	-moz-image-region: rect(0px 16px 16px 0px);
+}
+
+@media (-moz-os-version: windows-xp) {
+	#feed-button {
+		list-style-image: url("chrome://browser/skin/feeds/feed-icons-16-XP.png");
+	}
 }
 
 #feed-button:hover {
