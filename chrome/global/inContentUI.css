@@ -126,6 +126,13 @@ html|html {
     color: #505050;
   }
 
+  html|button:not([disabled]):hover,
+  button:not([disabled="true"]):hover,
+  menulist:not([open="true"]):not([disabled="true"]):hover,
+  colorpicker[type="button"]:not([open="true"]):not([disabled="true"]):hover {
+    background-color: #fdfeff99;
+  }
+
   html|button:not([disabled]):active:hover,
   button:not([disabled="true"]):active:hover,
   menulist[open="true"]:not([disabled="true"]),

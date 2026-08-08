@@ -1786,7 +1786,16 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 
 .tab-throbber[progress] {
 	list-style-image: url("chrome://browser/skin/tabbrowser/loading.png");
-	filter: hue-rotate(105deg) saturate(0.9);
+}
+
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
+	.tab-throbber[progress] {
+		filter: hue-rotate(105deg) saturate(0.8);
+	}
 }
 
 .tabbrowser-tab:not([pinned]) > .tab-icon-image {

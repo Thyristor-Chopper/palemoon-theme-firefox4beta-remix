@@ -3,72 +3,150 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 /* ===== dialog.css =====================================================
-  == Styles used by the XUL dialog element.
-  ======================================================================= */
+   == Styles used by the XUL dialog element.
+   ======================================================================= */
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
 /* ::::: dialog ::::: */
 
 dialog { 
-  padding-top: 8px;
-  padding-bottom: 10px;
-  -moz-padding-start: 8px;
-  -moz-padding-end: 10px;
+	padding-top: 8px;
+	padding-bottom: 10px;
+	-moz-padding-start: 8px;
+	-moz-padding-end: 10px;
 }
 
 /* ::::: dialog buttons ::::: */
 
 .dialog-button {
-  font: menu;
-  margin-top: 6px;
+	font: menu;
+	margin-top: 6px;
 }
 
 /* ::::: dialog header ::::: */
 
 dialogheader {
-  margin: 0px 5px 5px 5px;
-  border: 2px solid;
-  -moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
-  -moz-border-right-colors: ThreeDHighlight ThreeDDarkShadow;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDDarkShadow;
-  -moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
-  padding: 5px 8px;
-  background-color: Highlight;
-  color: HighlightText;
+	margin: 0px 5px 5px 5px;
+	border: 2px solid;
+	-moz-border-top-colors: ThreeDShadow ThreeDDarkShadow;
+	-moz-border-right-colors: ThreeDHighlight ThreeDDarkShadow;
+	-moz-border-bottom-colors: ThreeDHighlight ThreeDDarkShadow;
+	-moz-border-left-colors: ThreeDShadow ThreeDDarkShadow;
+	padding: 5px 8px;
+	background-color: Highlight;
+	color: HighlightText;
 }
 
 .dialogheader-title {
-  margin: 0px !important;
-  font-size: larger;
-  font-weight: bold;
+	margin: 0px !important;
+	font-size: larger;
+	font-weight: bold;
 }
 
 /* ::::: large dialog header ::::: */
 
 .header-large {
-  -moz-box-orient: vertical;
-  margin-top: -8px;
-  margin-bottom: 0;
-  -moz-margin-start: -8px;
-  -moz-margin-end: -10px;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  -moz-border-bottom-colors: ThreeDHighlight ThreeDShadow;
-  padding-top: 12px;
-  padding-bottom: 12px;
-  -moz-padding-start: 25px;
-  -moz-padding-end: 5px;
-  background-color: Window;
-  color: WindowText;
+	-moz-box-orient: vertical;
+	margin-top: -8px;
+	margin-bottom: 0;
+	-moz-margin-start: -8px;
+	-moz-margin-end: -10px;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+	-moz-border-bottom-colors: ThreeDHighlight ThreeDShadow;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	-moz-padding-start: 25px;
+	-moz-padding-end: 5px;
+	background-color: Window;
+	color: WindowText;
 }
 
 .header-large > .dialogheader-title {
-  font: inherit;
-  font-weight: bold;
+	font: inherit;
+	font-weight: bold;
 }
 
 .header-large > .dialogheader-description {
-  -moz-margin-start: 12px !important;
+	-moz-margin-start: 12px !important;
+}
+
+@media (-moz-windows-glass), (-moz-windows-compositor) {
+	dialog {
+		background-color: color-mix(in srgb, #CCD9EA, white 35%);
+		background-image: linear-gradient(rgba(255, 255, 255, 0.375), rgba(255, 255, 255, 0.7));
+	}
+
+	/* Buttons */
+	button,
+	menulist,
+	colorpicker[type="button"] {
+		-moz-appearance: none;
+		color: black;
+		background: linear-gradient(rgba(251, 252, 253, 0.95), transparent 49%, rgba(211, 212, 213, 0.45) 51%, rgba(225, 226, 229, 0.3));
+		background-clip: padding-box;
+		border-radius: 3px;
+		border: 1px solid rgba(31, 64, 100, 0.4);
+		border-top-color: rgba(31, 64, 100, 0.3);
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 0 2px 1px rgba(255, 255, 255, 0.25) inset;
+		padding: 1px;
+	}
+
+	button[default="true"]:not([disabled="true"]) {
+		border-color: #7aa5da;
+		background-color: #3d84dd04;
+	}
+
+	menulist {
+		-moz-padding-end: 0;
+	}
+
+	colorpicker[type="button"]:-moz-focusring:not([open="true"]) > .colorpicker-button-colorbox {
+		outline: 1px dotted ThreeDDarkShadow;
+	}
+
+	button[disabled="true"],
+	menulist[disabled="true"],
+	colorpicker[type="button"][disabled="true"] {
+		-moz-border-top-colors: rgba(31, 64, 100, 0.3) !important;
+		-moz-border-right-colors: rgba(31, 64, 100, 0.4) !important;
+		-moz-border-bottom-colors: rgba(31, 64, 100, 0.4) !important;
+		-moz-border-left-colors: rgba(31, 64, 100, 0.4) !important;
+		opacity: 0.8;
+		color: #505050;
+	}
+
+	button:not([disabled="true"]):hover,
+	menulist:not([open="true"]):not([disabled="true"]):hover,
+	colorpicker[type="button"]:not([open="true"]):not([disabled="true"]):hover {
+		background-color: #fdfeffcc;
+	}
+
+	button:not([disabled="true"]):hover:active,
+	menulist[open="true"]:not([disabled="true"]),
+	colorpicker[type="button"][open="true"]:not([disabled="true"]) {
+		background-color: rgba(61, 76, 92, 0.2);
+		border-color: rgba(39, 53, 68, 0.5);
+		box-shadow: 0 0 3px 1px rgba(39, 53, 68, 0.2) inset;
+	}
+
+	button > .button-box {
+		padding: 1px !important;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-button {
+		border-radius: 0;
+		padding: 0 4px;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-up {
+		list-style-image: url("chrome://global/skin/arrow/arrow-up.gif");
+		border-bottom-width: 0;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-down {
+		list-style-image: url("chrome://global/skin/arrow/arrow-dn.gif");
+	}
 }

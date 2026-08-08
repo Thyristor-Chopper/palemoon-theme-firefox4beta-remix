@@ -337,3 +337,10 @@ label[disabled="true"]:-moz-system-metric(windows-classic) {
 .close-icon:hover:active {
 	-moz-image-region: rect(0, 48px, 16px, 32px);
 }
+
+@media (-moz-windows-glass), (-moz-windows-compositor) {
+	dialog {
+		background-color: color-mix(in srgb, #CCD9EA, white 35%);
+		background-image: linear-gradient(rgba(255, 255, 255, 0.375), rgba(255, 255, 255, 0.7));
+	}
+}
