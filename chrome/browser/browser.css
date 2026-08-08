@@ -1600,22 +1600,6 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	list-style-image: url("chrome://global/skin/icons/notloading_16.png");
 }
 
-.web-notifications-notification-icon,
-#web-notifications-notification-icon {
-	list-style-image: url(chrome://browser/skin/web-notifications-tray.svg);
-	-moz-image-region: rect(0, 16px, 16px, 0);
-}
-
-.web-notifications-notification-icon:hover,
-#web-notifications-notification-icon:hover {
-	-moz-image-region: rect(0, 32px, 16px, 16px);
-}
-
-.web-notifications-notification-icon:hover:active,
-#web-notifications-notification-icon:hover:active {
-	-moz-image-region: rect(0, 48px, 16px, 32px);
-}
-
 /* Tabstrip */
 #TabsToolbar {
 	min-height: 0;
@@ -2253,16 +2237,21 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 .popup-notification-icon[popupid="web-notifications"] {
-	list-style-image: url("chrome://global/skin/icons/information-48.png");
+	list-style-image: url("chrome://browser/skin/notification-48.png");
+	width: 48px;
+	height: 48px;
+}
+
+.popup-notification-icon[popupid*="offline-app-requested"],
+.popup-notification-icon[popupid="offline-app-usage"] {
+	list-style-image: url("chrome://global/skin/icons/question-48.png");
 	width: 48px;
 	height: 48px;
 }
 
 .popup-notification-icon[popupid="indexedDB-permissions-prompt"],
-.popup-notification-icon[popupid="indexedDB-quota-prompt"],
-.popup-notification-icon[popupid*="offline-app-requested"],
-.popup-notification-icon[popupid="offline-app-usage"] {
-	list-style-image: url("chrome://global/skin/icons/question-48.png");
+.popup-notification-icon[popupid="indexedDB-quota-prompt"] {
+	list-style-image: url("chrome://browser/skin/indexed-db-48.png");
 	width: 48px;
 	height: 48px;
 }
@@ -3996,6 +3985,7 @@ toolbarbutton, .toolbarbutton-1 {
 	width: 16px;
 	height: 16px;
 	margin: 0 2px;
+	list-style-image: url("chrome://global/skin/icons/information-16.png");
 }
 
 .notification-anchor-icon:-moz-focusring {
@@ -4030,11 +4020,11 @@ toolbarbutton, .toolbarbutton-1 {
 
 .indexedDB-notification-icon,
 #indexedDB-notification-icon {
-	list-style-image: url(chrome://global/skin/icons/question-16.png);
+	list-style-image: url(chrome://browser/skin/indexed-db-16.png);
 }
 
 #password-notification-icon {
-	list-style-image: url(chrome://mozapps/skin/passwordmgr/key-16.png);
+	list-style-image: url(chrome://mozapps/skin/passwordmgr/key.png);
 }
 
 #plugins-notification-icon {
@@ -4065,6 +4055,22 @@ toolbarbutton, .toolbarbutton-1 {
 #alert-plugins-notification-icon:active,
 #blocked-plugins-notification-icon:active {
 	-moz-image-region: rect(0, 48px, 16px, 32px);
+}
+
+#mixed-content-blocked-notification-icon {
+	list-style-image: url("chrome://browser/skin/mixed-content-blocked-16.png");
+}
+
+#web-notifications-notification-icon {
+	list-style-image: url("chrome://browser/skin/notification-16.png");
+}
+
+#pointerLock-notification-icon {
+	list-style-image: url("chrome://browser/skin/pointerLock-16.png");
+}
+
+#servicesInstall-notification-icon {
+	list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-16.png");
 }
 
 #urlbar #identity-box > #padlock-ib-left {

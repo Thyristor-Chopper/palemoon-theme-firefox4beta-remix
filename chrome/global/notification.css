@@ -58,10 +58,6 @@ notification[type="critical"] .messageImage {
 
 /* Popup notification */
 
-.popup-notification-description {
-	max-width: 24em;
-}
-
 .popup-notification-learnmore-link {
 	margin-top: 1em !important;
 }
