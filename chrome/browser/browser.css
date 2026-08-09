@@ -1988,8 +1988,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	-moz-image-region: rect(0, 14px, 17px, 0);
 }
 
-#alltabs-button:hover:active,
-#alltabs-button[disabled="true"]:not([type="menu"]) {
+#alltabs-button:hover:active {
 	-moz-image-region: rect(0, 28px, 17px, 14px);
 }
 
