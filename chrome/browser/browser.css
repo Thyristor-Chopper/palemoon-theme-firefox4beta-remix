@@ -4353,14 +4353,16 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
-	filter: brightness(1.4) saturate(0.8);
+	filter: brightness(2.1) saturate(1.5) hue-rotate(-26deg);
 }
 
+/*
 @media (-moz-windows-compositor) {
 	#urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
 		filter: brightness(2.5) saturate(1.2) hue-rotate(174deg);
 	}
 }
+*/
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="broken"]:not([hidden="true"]) {
 	filter: brightness(2.1);
