@@ -3733,16 +3733,25 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 }
 
-#PersonalToolbar #bookmarks-menu-button {
+#PersonalToolbar #bookmarks-menu-button,
+#PersonalToolbar ~ toolbar #bookmarks-menu-button,
+#PersonalToolbar #history-menu-button,
+#PersonalToolbar ~ toolbar #history-menu-button {
 	display: block !important;
 	padding: 0 4px 0 4px !important;
 }
 
-#PersonalToolbar #bookmarks-menu-button .toolbarbutton-text {
-	display: none !important
+#PersonalToolbar #bookmarks-menu-button .toolbarbutton-text,
+#PersonalToolbar ~ toolbar #bookmarks-menu-button .toolbarbutton-text,
+#PersonalToolbar #history-menu-button .toolbarbutton-text,
+#PersonalToolbar ~ toolbar #history-menu-button .toolbarbutton-text {
+	display: none !important;
 }
 
-#PersonalToolbar #bookmarks-menu-button .toolbarbutton-menu-dropmarker {
+#PersonalToolbar #bookmarks-menu-button .toolbarbutton-menu-dropmarker,
+#PersonalToolbar ~ toolbar #bookmarks-menu-button .toolbarbutton-menu-dropmarker,
+#PersonalToolbar #history-menu-button .toolbarbutton-menu-dropmarker,
+#PersonalToolbar ~ toolbar #history-menu-button .toolbarbutton-menu-dropmarker {
 	display: block;
 }
 

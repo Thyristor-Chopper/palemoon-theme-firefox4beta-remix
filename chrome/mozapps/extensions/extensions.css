@@ -1206,3 +1206,11 @@ button.button-link:not([disabled="true"]):active:hover {
 #view-port-container {
 	border-radius: 5px;
 }
+
+.addon[native] .nativeAddon {
+	color: #2157C5;
+}
+
+.addon[native] .compatAddon {
+	color: #F2AE48;
+}
