@@ -4310,6 +4310,7 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 /* ---- :has() 구현되면 이 블록 삭제 ---- */
+/*
 #urlbar #identity-box:not(.verifiedIdentity) #identity-icon-labels {
 	display: none;
 }
@@ -4336,6 +4337,7 @@ toolbarbutton, .toolbarbutton-1 {
 	width: 16px;
 	height: 16px;
 }
+*/
 /* ------------- */
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="ev"]:not([hidden="true"]) {
