@@ -1986,13 +1986,11 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 #alltabs-button {
 	list-style-image: url("chrome://browser/skin/tabbrowser/alltabs.png");
 	-moz-image-region: rect(0, 14px, 17px, 0);
-	list-style-image: url("chrome://browser/skin/mainwindow-dropdown-arrow.png");
-	-moz-image-region: rect(0, 13px, 11px, 0);
 }
 
-#alltabs-button:hover:active {
+#alltabs-button:hover:active,
+#alltabs-button[disabled="true"]:not([type="menu"]) {
 	-moz-image-region: rect(0, 28px, 17px, 14px);
-	-moz-image-region: rect(0, 26px, 11px, 13px);
 }
 
 #alltabs-button[type="menu"] {
@@ -4313,7 +4311,6 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 /* ---- :has() 구현되면 이 블록 삭제 ---- */
-/*
 #urlbar #identity-box:not(.verifiedIdentity) #identity-icon-labels {
 	display: none;
 }
@@ -4340,7 +4337,6 @@ toolbarbutton, .toolbarbutton-1 {
 	width: 16px;
 	height: 16px;
 }
-*/
 /* ------------- */
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="ev"]:not([hidden="true"]) {
@@ -4381,4 +4377,4 @@ toolbarbutton, .toolbarbutton-1 {
 	filter: brightness(1.3) saturate(0.9);
 }
 
-/* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"]))로 변경 */
+/* TODO :has() 구현 시 #TabsToolbar #home-button -> #TabsToolbar:not([customizing]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"]))로 변경 */

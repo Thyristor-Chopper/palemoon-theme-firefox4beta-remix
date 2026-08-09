@@ -7,136 +7,220 @@
 
 /* Global Styles */
 #BrowserPreferences radio[pane] {
-  list-style-image: url("chrome://browser/skin/preferences/Options.png"); 
-  padding: 5px 3px 1px;
+	list-style-image: url("chrome://browser/skin/preferences/Options.png"); 
+	padding: 5px 3px 1px;
 }
 
 radio[pane=paneMain] {
-  -moz-image-region: rect(0, 32px,  32px, 0);
+	-moz-image-region: rect(0, 32px,	32px, 0);
 }
 
 radio[pane=paneTabs] {
-  -moz-image-region: rect(0, 64px, 32px, 32px);
+	-moz-image-region: rect(0, 64px, 32px, 32px);
 }
 
 radio[pane=paneContent] {
-  -moz-image-region: rect(0, 96px,  32px, 64px);
+	-moz-image-region: rect(0, 96px,	32px, 64px);
 }
 
 radio[pane=paneApplications] {
-  -moz-image-region: rect(0, 128px,  32px, 96px);
+	-moz-image-region: rect(0, 128px,	32px, 96px);
 }
 
 radio[pane=panePrivacy] {
-  -moz-image-region: rect(0, 160px,  32px, 128px);
+	-moz-image-region: rect(0, 160px,	32px, 128px);
 }
 
 radio[pane=paneSecurity] {
-  -moz-image-region: rect(0, 192px,  32px, 160px);
+	-moz-image-region: rect(0, 192px,	32px, 160px);
 }
 
 radio[pane=paneAdvanced] {
-  -moz-image-region: rect(0, 224px, 32px, 192px);
+	-moz-image-region: rect(0, 224px, 32px, 192px);
 }
 
 radio[pane=paneSync] {
-  list-style-image: url("chrome://browser/skin/preferences/Options-sync.png") !important;
+	list-style-image: url("chrome://browser/skin/preferences/Options-sync.png") !important;
 }
 
 /* Applications Pane */
 #BrowserPreferences[animated="true"] #handlersView {
-  height: 25em;
+	height: 25em;
 }
 
 #BrowserPreferences[animated="false"] #handlersView {
-  -moz-box-flex: 1;
+	-moz-box-flex: 1;
 }
 
 /* Privacy Pane */
 
 /* styles for the link elements copied from .text-link in global.css */
 .inline-link {
-  color: -moz-nativehyperlinktext;
-  text-decoration: none;
+	color: -moz-nativehyperlinktext;
+	text-decoration: none;
 }
 
 .inline-link:hover {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 /* Modeless Window Dialogs */
 .windowDialog,
 .windowDialog prefpane {
-  padding: 0;
+	padding: 0;
 }
 
 #browserHomePage:-moz-locale-dir(rtl) input {
-  unicode-bidi: plaintext;
-  direction: rtl;
+	unicode-bidi: plaintext;
+	direction: rtl;
 }
 
 .contentPane {
-  margin: 9px 8px 5px;
+	margin: 9px 8px 5px;
 }
 
 .actionButtons {
-  margin: 0 3px 6px !important;
+	margin: 0 3px 6px !important;
 }
 
 /* Cookies Manager */
 #cookiesChildren::-moz-tree-image(domainCol) {
-  width: 16px;
-  height: 16px;
-  margin: 0 2px;
-  list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png") !important;
+	width: 16px;
+	height: 16px;
+	margin: 0 2px;
+	list-style-image: url("chrome://mozapps/skin/places/defaultFavicon.png") !important;
 }
 
 #cookiesChildren::-moz-tree-image(domainCol, container) {
-  list-style-image: url("chrome://global/skin/icons/folder-item.png") !important;
-  -moz-image-region: rect(0, 32px, 16px, 16px);
+	list-style-image: url("chrome://global/skin/icons/folder-item.png") !important;
+	-moz-image-region: rect(0, 32px, 16px, 16px);
 }
 
 #cookiesChildren::-moz-tree-image(domainCol, container, open) {
-  -moz-image-region: rect(16px, 32px, 32px, 16px);
+	-moz-image-region: rect(16px, 32px, 32px, 16px);
 }
 
 #cookieInfoBox {
-  border: 1px solid ThreeDShadow;
-  border-radius: 0;
-  margin: 4px;
-  padding: 0;
+	border: 1px solid ThreeDShadow;
+	border-radius: 0;
+	margin: 4px;
+	padding: 0;
 }
 
 /* Advanced Pane */
 
-/* Adding padding-bottom prevents the bottom of the tabpanel from being cutoff
-   when browser.preferences.animateFadeIn = true */
+/* Adding padding-bottom prevents the bottom of the tabpanel from being cutoff when browser.preferences.animateFadeIn = true */
 #advancedPrefs {
-  padding-bottom: 8px;
+	padding-bottom: 8px;
 }
 
-/* bottom-most box containing a groupbox in a prefpane. Prevents the bottom
-   of the groupbox from being cutoff */
+/* bottom-most box containing a groupbox in a prefpane. Prevents the bottom of the groupbox from being cutoff */
 .bottomBox {
-  padding-bottom: 4px;
+	padding-bottom: 4px;
 }
 
 /* Sync Pane */
 
 #syncDesc {
-  padding: 0 8em;
+	padding: 0 8em;
 }
 
 .syncGroupBox {
-  padding: 10px;
+	padding: 10px;
 }
 
 #accountCaptionImage {
-  list-style-image: url("chrome://mozapps/skin/profile/profileicon.png");
+	list-style-image: url("chrome://mozapps/skin/profile/profileicon.png");
 }
 
 #syncAddDeviceLabel {
-  margin-top: 1em;
-  margin-bottom: 1em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 }
 
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
+	@media (-moz-windows-default-theme) {
+		dialog,
+		prefwindow {
+			background-color: color-mix(in srgb, #CCD9EA, white 35%);
+			background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.7));
+		}
+	}
+}
+
+@media (-moz-windows-glass), (-moz-windows-compositor) {
+	/* Buttons */
+	button,
+	menulist,
+	colorpicker[type="button"] {
+		-moz-appearance: none;
+		color: black;
+		background: linear-gradient(rgba(251, 252, 253, 0.95), transparent 49%, rgba(211, 212, 213, 0.45) 51%, rgba(225, 226, 229, 0.3));
+		background-clip: padding-box;
+		border-radius: 3px;
+		border: 1px solid rgba(31, 64, 100, 0.4);
+		border-top-color: rgba(31, 64, 100, 0.3);
+		box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25) inset, 0 0 2px 1px rgba(255, 255, 255, 0.25) inset;
+		padding: 1px;
+	}
+
+	button[default="true"]:not([disabled="true"]) {
+		border-color: #7aa5da;
+		background-color: #3d84dd04;
+	}
+
+	menulist {
+		-moz-padding-end: 0;
+	}
+
+	colorpicker[type="button"]:-moz-focusring:not([open="true"]) > .colorpicker-button-colorbox {
+		outline: 1px dotted ThreeDDarkShadow;
+	}
+
+	button[disabled="true"],
+	menulist[disabled="true"],
+	colorpicker[type="button"][disabled="true"] {
+		-moz-border-top-colors: rgba(31, 64, 100, 0.3) !important;
+		-moz-border-right-colors: rgba(31, 64, 100, 0.4) !important;
+		-moz-border-bottom-colors: rgba(31, 64, 100, 0.4) !important;
+		-moz-border-left-colors: rgba(31, 64, 100, 0.4) !important;
+		opacity: 0.8;
+		color: #505050;
+	}
+
+	button:not([disabled="true"]):hover,
+	menulist:not([open="true"]):not([disabled="true"]):hover,
+	colorpicker[type="button"]:not([open="true"]):not([disabled="true"]):hover {
+		background-color: #fdfeffcc;
+	}
+
+	button:not([disabled="true"]):hover:active,
+	menulist[open="true"]:not([disabled="true"]),
+	colorpicker[type="button"][open="true"]:not([disabled="true"]) {
+		background-color: rgba(61, 76, 92, 0.2);
+		border-color: rgba(39, 53, 68, 0.5);
+		box-shadow: 0 0 3px 1px rgba(39, 53, 68, 0.2) inset;
+	}
+
+	button > .button-box {
+		padding: 1px !important;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-button {
+		border-radius: 0;
+		padding: 0 4px;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-up {
+		list-style-image: url("chrome://global/skin/arrow/arrow-up.gif");
+		border-bottom-width: 0;
+	}
+
+	spinbuttons > .spinbuttons-box > .spinbuttons-down {
+		list-style-image: url("chrome://global/skin/arrow/arrow-dn.gif");
+	}
+}
