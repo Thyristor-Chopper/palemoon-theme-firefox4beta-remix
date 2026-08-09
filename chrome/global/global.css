@@ -341,6 +341,6 @@ label[disabled="true"]:-moz-system-metric(windows-classic) {
 @media (-moz-windows-glass), (-moz-windows-compositor) {
 	dialog {
 		background-color: color-mix(in srgb, #CCD9EA, white 35%);
-		background-image: linear-gradient(rgba(255, 255, 255, 0.375), rgba(255, 255, 255, 0.7));
+		background-image: linear-gradient(rgba(255, 255, 255, 0.375), rgba(255, 255, 255, 0.75));
 	}
 }

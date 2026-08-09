@@ -141,6 +141,12 @@ treechildren::-moz-tree-image(title, query, OrganizerQuery_History) {
 	list-style-image: url("chrome://browser/skin/places/history.png");
 }
 
+@media (-moz-os-version: windows-xp) {
+	treechildren::-moz-tree-image(title, query, OrganizerQuery_History) {
+		list-style-image: url("chrome://browser/skin/places/history-XP.png");
+	}
+}
+
 /* We want some queries to look like ordinary folders. This must come
 	 after the (title, query) selector, or it would get overridden. */
 treechildren::-moz-tree-image(title, query, folder) {
