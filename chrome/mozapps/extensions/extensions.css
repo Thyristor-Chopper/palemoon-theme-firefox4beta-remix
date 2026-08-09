@@ -255,6 +255,11 @@
 #category-discover > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-discover.png");
 }
+@media (-moz-os-version: windows-xp) {
+	#category-discover > .category-icon {
+		list-style-image: url("chrome://mozapps/skin/extensions/category-discover-XP.png");
+	}
+}
 #category-locale > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-languages.png");
 }
