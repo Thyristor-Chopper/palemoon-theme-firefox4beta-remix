@@ -633,6 +633,11 @@ menuitem.bookmark-item {
 	-moz-image-region: auto;
 }
 
+.bookmark-item[container][livemark] .bookmark-item[visited] > .menu-iconic-left > .menu-iconic-icon {
+	opacity: .4;
+	filter: saturate(0.6);
+}
+
 .bookmark-item[container][query] {
 	list-style-image: url("chrome://browser/skin/places/query.png");
 	-moz-image-region: auto;
