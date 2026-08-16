@@ -1,45 +1,6 @@
-/* ***** BEGIN LICENSE BLOCK *****
- * Version: MPL 1.1/GPL 2.0/LGPL 2.1
- *
- * The contents of this file are subject to the Mozilla Public License Version
- * 1.1 (the "License"); you may not use this file except in compliance with
- * the License. You may obtain a copy of the License at
- * http://www.mozilla.org/MPL/
- *
- * Software distributed under the License is distributed on an "AS IS" basis,
- * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
- * for the specific language governing rights and limitations under the
- * License.
- *
- * The Original Code is mozilla.org code.
- *
- * The Initial Developer of the Original Code is
- * Netscape Communications Corporation.
- * Portions created by the Initial Developer are Copyright (C) 1998-1999
- * the Initial Developer. All Rights Reserved.
- *
- * Contributor(s):
- *	 Joe Hewitt (hewitt@netscape.com)
- *	 Jason Kersey (kerz@netscape.com)
- *	 Pierre Chanial (chanial@noos.fr)
- *	 Dean Tessman (dean_tessman@hotmail.com)
- *	 Blake Ross (blake@cs.stanford.edu)
- *	 Pamela Greene (pamg.bugs@gmail.com)
- *	 Dão Gottwald (dao@mozilla.com)
- *
- * Alternatively, the contents of this file may be used under the terms of
- * either the GNU General Public License Version 2 or later (the "GPL"), or
- * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
- * in which case the provisions of the GPL or the LGPL are applicable instead
- * of those above. If you wish to allow use of your version of this file only
- * under the terms of either the GPL or the LGPL, and not to allow others to
- * use your version of this file under the terms of the MPL, indicate your
- * decision by deleting the provisions above and replace them with the notice
- * and other provisions required by the GPL or the LGPL. If you do not delete
- * the provisions above, a recipient may use your version of this file under
- * the terms of any one of the MPL, the GPL or the LGPL.
- *
- * ***** END LICENSE BLOCK ***** */
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 @import url("chrome://global/skin/");
 
@@ -230,8 +191,6 @@ statusbarpanel#statusbar-display {
 #main-window[privatebrowsingmode=temporary] #appmenu-button[open] {
 	background-image: linear-gradient(rgb(144,20,207), rgb(95,0,158) 95%);
 }
-
-
 
 #appmenu-button > .button-box {
 	border-style: none;
@@ -1266,15 +1225,10 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 @media not all and (-moz-windows-compositor) {
 	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain,
 	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
-		/* background-image: linear-gradient(rgb(221, 231, 246), rgb(206, 221, 242)); */
-		/* background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230)); */
 		background-image: linear-gradient(rgb(152, 191, 245), rgb(91, 149, 225));
-		/* border-color: rgb(155, 171, 190); */
 		border-color: rgb(64, 84, 125);
-		/* box-shadow: 0 1px 0 rgba(0, 0, 0, .1) inset; */
 		box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
 		text-shadow: none;
-		/* color: rgb(95, 109, 137); */
 		color: white;
 	}
 
@@ -1283,7 +1237,6 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	}
 
 	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active) {
-		/* background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255)); */
 		background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
 	}
 
@@ -1647,12 +1600,12 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 #TabsToolbar {
 	min-height: 0;
 	padding: 0;
-	/*box-shadow: 0 -1px ThreeDShadow inset;*/
+	/* box-shadow: 0 -1px ThreeDShadow inset; */
 }
 
 #TabsToolbar:not(:-moz-lwtheme),
 #navigator-toolbox:not([tabsontop="true"]) > #TabsToolbar {
-	/*box-shadow: 0 -1px 1px ThreeDShadow inset;*/
+	/* box-shadow: 0 -1px 1px ThreeDShadow inset; */
 	background-image: -moz-linear-gradient(transparent, transparent 10%, rgba(0,0,0,.03) 50%, rgba(0,0,0,.08) 90%, rgba(0,0,0,.15));
 }
 
@@ -1677,7 +1630,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	padding: 0px 4px 0px 4px !important;
 	-moz-border-image: url(tabbrowser/tab.png) 4 5 3 6 / 4px 5px 3px 6px;
 	border-radius: 10px 8px 0 0 !important;
-	/*-moz-transition: none !important;*/
+	/* -moz-transition: none !important; */
 	min-height: 24px;
 	margin-top: 1px !important;
 }
@@ -2531,9 +2484,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 .devtools-responsiveui-toolbar {
 	-moz-appearance: none;
 	background: transparent;
-	/* text color is textColor from dark theme, since no theme is applied to
-	 * the responsive toolbar.
-	 */
+	/* text color is textColor from dark theme, since no theme is applied to the responsive toolbar. */
 	color: hsl(210,30%,85%);
 	margin: 10px 0;
 	padding: 0;
@@ -2962,8 +2913,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 #developer-toolbar-closebutton > .toolbarbutton-icon {
-	/* XXX Buttons have padding in widget/ that we don't want here but can't override with good CSS, so we must
-		 use evil CSS to give the impression of smaller content */
+	/* XXX Buttons have padding in widget/ that we don't want here but can't override with good CSS, so we must use evil CSS to give the impression of smaller content */
 	margin: -4px;
 }
 
@@ -3111,15 +3061,6 @@ toolbarbutton, .toolbarbutton-1 {
 		border-right: 1px solid ThreeDShadow;
 	}
 
-	/* Make the window draggable by glassed toolbars (bug 555081) */
-	#toolbar-menubar:not([autohide="true"]),
-	#TabsToolbar[tabsontop="true"],
-	#navigator-toolbox:not([tabsontop="true"]) > #nav-bar,
-	#nav-bar + #customToolbars + #PersonalToolbar[collapsed="true"] + #TabsToolbar:not([tabsontop="true"]):last-child,
-	#navigator-toolbox > toolbar:not(#toolbar-menubar):-moz-lwtheme {
-		-moz-binding: url("chrome://global/content/bindings/toolbar.xml#toolbar-drag");
-	}
-
 	#browser:not(:-moz-lwtheme),
 	#browser-bottombox:not(:-moz-lwtheme) {
 		background-color: var(--dialog-background);
@@ -3167,26 +3108,6 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 }
 
-/*
-#urlbar[level="high"][pageproxystate="valid"],
-#urlbar[level="low"][pageproxystate="valid"] {
-	/* background-color: rgba(250, 248, 199, .8); */
-	/* background-color: rgba(231, 237, 250, .8); */
-	/* background-color: rgba(241, 244, 252, .8); */
-	/* background-color: rgba(243, 245, 252, .8); */
-	/* background-color: rgba(239, 242, 255, .85); */
-	/* background-color: rgba(246, 248, 255, .85); * /
-
-	--ssl-urlbar-background: 251, 252, 255;
-	background-color: rgb(var(--ssl-urlbar-background));
-}
-
-#urlbar[level="high"][pageproxystate="valid"]:-moz-lwtheme,
-#urlbar[level="low"][pageproxystate="valid"]:-moz-lwtheme {
-	background-color: rgba(var(--ssl-urlbar-background), .85);
-}
-*/
-
 #urlbar[level="high"][security_level="ev"][pageproxystate="valid"],
 #urlbar[level="low"][security_level="ev"][pageproxystate="valid"] {
 	--ev-ssl-urlbar-background: 234, 242, 219;
@@ -3205,26 +3126,6 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 }
 
-/*
-#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"],
-#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"] {
-	--mixed-ssl-urlbar-background: 250, 248, 199;
-	background-color: rgb(var(--mixed-ssl-urlbar-background));
-}
-
-#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"]:-moz-lwtheme,
-#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"]:-moz-lwtheme {
-	background-color: rgba(var(--mixed-ssl-urlbar-background), .8);
-}
-
-@media all and (-moz-windows-compositor) {
-	#urlbar[level="high"][security_level="mixed"][pageproxystate="valid"]:not(:-moz-lwtheme),
-	#urlbar[level="low"][security_level="mixed"][pageproxystate="valid"]:not(:-moz-lwtheme) {
-		background-color: rgba(var(--mixed-ssl-urlbar-background), .8);
-	}
-}
-*/
-
 #urlbar[security_level="broken"] {
 	--broken-ssl-urlbar-background: 255, 235, 233;
 	background-color: rgb(var(--broken-ssl-urlbar-background));
@@ -3239,14 +3140,6 @@ toolbarbutton, .toolbarbutton-1 {
 		background-color: rgba(var(--broken-ssl-urlbar-background), .8);
 	}
 }
-
-/*
-#urlbar[level="high"][pageproxystate="valid"][focused="true"]:-moz-lwtheme,
-#urlbar[level="low"][pageproxystate="valid"][focused="true"]:-moz-lwtheme {
-	/* background-color: rgba(249, 250, 253, .95); * /
-	background-color: rgba(255, 255, 255, .95);
-}
-*/
 
 #urlbar[level="high"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme,
 #urlbar[level="low"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme {
@@ -3569,33 +3462,15 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 	
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
-		/* background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, .05) calc(100% - 2px), rgb(246, 249, 255) calc(100% - 3px)); */
 		background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, .05) calc(100% - 3px), rgba(255, 255, 255, .85) calc(100% - 4px)), linear-gradient(transparent 0%, transparent calc(100% - 3px), rgba(0, 0, 0, .05) calc(100% - 4px));
 		background-color: rgba(255, 255, 255, .5);
 		border-width: 0 1px 1px 1px !important;
 		padding-bottom: 3px;
 	}
-	
-	/*
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabbrowser-tab:not([selected="true"]):not(:-moz-lwtheme):hover,
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabs-newtab-button:not(:-moz-lwtheme):hover,
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not([customizing]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):not(:-moz-lwtheme):hover {
-		background-image: linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)), linear-gradient(rgba(197, 208, 223, .7), rgba(171, 180, 194, .7));
-	}
-	*/
-	
+
 	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab[selected="true"]:not(:-moz-lwtheme) {
-		/* background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 65%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgb(244, 248, 255) 1px, rgb(244, 248, 255)); */
 		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.0) 1px, rgba(255,255,255,.0)), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255, 255, 255, .85) 1px, rgba(255, 255, 255, .85));
 	}
-	
-	/*
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not([customizing]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):not(:-moz-lwtheme):not(:hover),
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabbrowser-tab:not(:-moz-lwtheme):not([selected="true"]):not(:hover), 
-	#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabs-newtab-button:not(:-moz-lwtheme):not(:hover) {
-		background-image: linear-gradient(rgba(197, 208, 223, .7), rgb(171, 180, 194, .7));
-	}
-	*/
 
 	#navigator-toolbox[tabsontop="true"] toolbar:not(#toolbar-menubar):not(#TabsToolbar):not(:-moz-lwtheme) {
 		background-color: rgba(255, 255, 255, .65) !important;
@@ -3684,7 +3559,8 @@ toolbarbutton, .toolbarbutton-1 {
 		background-color: var(--dialog-background);
 	}
 	
-	#browser:not(:-moz-lwtheme) {
+	#browser:not(:-moz-lwtheme),
+	#appcontent:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
 	}
 	
@@ -3808,11 +3684,10 @@ toolbarbutton, .toolbarbutton-1 {
 	border-bottom-left-radius: 2px;
 }
 
-#urlbar > toolbarbutton:not([disabled]):active:hover {
+#urlbar > toolbarbutton:not([disabled]):hover:active {
 	-moz-padding-start: 4px;
 	-moz-border-start: none;
-	box-shadow: 0 0 6.5px rgba(0,0,0,.4) inset,
-							0 0 2px rgba(0,0,0,.4) inset;
+	box-shadow: 0 0 6.5px rgba(0,0,0,.4) inset, 0 0 2px rgba(0,0,0,.4) inset;
 }
 
 #urlbar-go-button {
@@ -4226,18 +4101,6 @@ toolbarbutton, .toolbarbutton-1 {
 		background-image: url("chrome://browser/skin/notification-popup-box-arrow-aero.svg");
 		filter: none;
 	}
-}
-
-@media all and (-moz-windows-compositor) {
-	/*
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) {
-		background-image: linear-gradient(transparent calc(100% - 1px), rgba(0, 0, 0, .45) calc(100% - 2px)) !important;
-	}
-
-	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) .tabbrowser-tab[selected="true"] {
-		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.5) 1px, rgba(255,255,255,.5)), -moz-linear-gradient(left, transparent, transparent 1px, white 1px, white) !important;
-	}
-	*/
 
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) .tabbrowser-tab[selected="true"] {
 		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.0) 1px, rgba(255,255,255,.0)), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255, 255, 255, .85) 1px, rgba(255, 255, 255, .85)) !important;
@@ -4375,7 +4238,7 @@ toolbarbutton, .toolbarbutton-1 {
 @media (-moz-windows-compositor) {
 	#urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
 		/* filter: brightness(2.5) saturate(1.2) hue-rotate(174deg); */
-		filter: brightness(2.1) saturate(0.15) hue-rotate(174deg);
+		filter: brightness(2.0) saturate(0.05) hue-rotate(174deg);
 	}
 }
 
