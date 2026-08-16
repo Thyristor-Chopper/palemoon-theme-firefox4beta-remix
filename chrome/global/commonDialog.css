@@ -24,24 +24,41 @@
 	min-width: 32em !important;
 }
 
-#commonDialog:has(#loginContainer:not([hidden="true"])) #iconContainer #info\.icon {
+#commonDialog:has(#loginContainer:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
 	list-style-image: url("chrome://global/skin/icons/alert-prompt.png");
 }
 
-#commonDialog:has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon,
-#commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon {
+#commonDialog:has(#password1Container:not([hidden="true"])) #iconContainer .question-icon#info\.icon,
+#commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
 	list-style-image: url("chrome://global/skin/icons/alert-auth.gif");
 }
 
-button {
+#commonDialog:has(#password1Container[hidden="true"]) #loginContainer:not([hidden="true"]) {
+	margin-top: -8px;
+}
+
+.dialog-button-box button.dialog-button {
 	min-width: 88px;
 }
 
-button > .button-box {
+.dialog-button-box button.dialog-button > .button-box {
 	padding-top: 0;
 	padding-bottom: 1px;
 }
 
-#checkboxContainer {
-	margin-top: -5px;
+#commonDialog:has(#loginContainer[hidden="true"]):has(#password1Container[hidden="true"]) #checkboxContainer:not([hidden="true"]) {
+	margin-top: -7px;
+}
+
+#commonDialog:has(#loginContainer:not([hidden="true"])) #checkboxContainer:not([hidden="true"]),
+#commonDialog:has(#password1Container:not([hidden="true"])) #checkboxContainer:not([hidden="true"]) {
+	margin-bottom: -1px;
+}
+
+#commonDialog:has(#loginContainer[hidden="true"]):has(#password1Container[hidden="true"]) .dialog-button-box {
+	margin-top: -1px;
+}
+
+#commonDialog:has(#loginContainer[hidden="true"]):has(#password1Container[hidden="true"]):has(#checkboxContainer[hidden="true"]) .dialog-button-box {
+	margin-top: -2px;
 }
