@@ -60,9 +60,9 @@
 
 	<binding id="add-messagebox-button-margins">
 		<content>
-			<xul:spacer class="common-dialog-button-spacer" />
+			<xul:spacer class="messagebox-button-spacer" />
 			<children />
-			<xul:spacer class="common-dialog-button-spacer" />
+			<xul:spacer class="messagebox-button-spacer" />
 		</content>
 	</binding>
 </bindings>

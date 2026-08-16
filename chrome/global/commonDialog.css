@@ -15,7 +15,7 @@
 	-moz-binding: url("chrome://global/skin/globalBindings.xml#add-messagebox-button-margins");
 }
 
-.common-dialog-button-spacer {
+.messagebox-button-spacer {
 	width: 1.5em;
 }
 
@@ -39,15 +39,7 @@ button {
 
 button > .button-box {
 	padding-top: 0;
-	padding-bottom: 0;
-}
-
-@media (-moz-os-version: windows-xp) {
-	@media (-moz-windows-default-theme) {
-		button > .button-box {
-			padding-bottom: 1px;
-		}
-	}
+	padding-bottom: 1px;
 }
 
 #checkboxContainer {

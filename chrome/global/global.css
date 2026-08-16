@@ -72,15 +72,15 @@ window.dialog {
 @media (-moz-os-version: windows-xp) {
 	.alert-dialog #info\.icon,
 	.alert-icon {
-		list-style-image: url("chrome://global/skin/icons/alert-exclam.png");
+		list-style-image: url("chrome://global/skin/icons/Warning-XP.png");
 	}
 
 	.error-icon {
-		list-style-image: url("chrome://global/skin/icons/alert-error.png");
+		list-style-image: url("chrome://global/skin/icons/Error-XP.png");
 	}
 
 	.question-icon {
-		list-style-image: url("chrome://global/skin/icons/alert-question.png");
+		list-style-image: url("chrome://global/skin/icons/Question-XP.png");
 	}
 }
 
