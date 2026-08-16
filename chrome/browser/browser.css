@@ -4075,7 +4075,7 @@ toolbarbutton, .toolbarbutton-1 {
 
 @media (-moz-windows-compositor) {
 	#notification-popup-box {
-		background-color: rgb(226, 233, 243);
+		background-color: rgb(229, 233, 240);
 		border-color: rgb(141, 162, 186);
 	}
 

@@ -8,7 +8,15 @@
 }
 
 #filler spacer {
-	width: 19em !important;
+	width: 16em !important;
+}
+
+.dialog-button-box {
+	-moz-binding: url("chrome://global/skin/globalBindings.xml#add-messagebox-button-margins");
+}
+
+.common-dialog-button-spacer {
+	width: 1.5em;
 }
 
 #loginContainer:not([hidden="true"]),
@@ -16,6 +24,11 @@
 	min-width: 32em !important;
 }
 
+#commonDialog:has(#loginContainer:not([hidden="true"])) #iconContainer #info\.icon {
+	list-style-image: url("chrome://global/skin/icons/alert-prompt.png");
+}
+
+#commonDialog:has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon,
 #commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon {
 	list-style-image: url("chrome://global/skin/icons/alert-auth.gif");
 }

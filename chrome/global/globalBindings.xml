@@ -57,4 +57,12 @@
 			</xul:toolbarbutton>
 		</content>
 	</binding>
+
+	<binding id="add-messagebox-button-margins">
+		<content>
+			<xul:spacer class="common-dialog-button-spacer" />
+			<children />
+			<xul:spacer class="common-dialog-button-spacer" />
+		</content>
+	</binding>
 </bindings>
