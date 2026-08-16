@@ -13,7 +13,7 @@
 
 #loginContainer:not([hidden="true"]),
 #password1Container:not([hidden="true"]) {
-	min-width: 36em !important;
+	min-width: 32em !important;
 }
 
 #commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer #info\.icon {
@@ -25,8 +25,16 @@ button {
 }
 
 button > .button-box {
-	padding-top: 0px;
-	padding-bottom: 1px;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+@media (-moz-os-version: windows-xp) {
+	@media (-moz-windows-default-theme) {
+		button > .button-box {
+			padding-bottom: 1px;
+		}
+	}
 }
 
 #checkboxContainer {
