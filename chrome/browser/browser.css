@@ -4806,3 +4806,10 @@ toolbarbutton, .toolbarbutton-1 {
 		}
 	}
 }
+
+#main-window[sizemode=fullscreen] #TabsToolbar:not(:-moz-lwtheme),
+#main-window[sizemode=fullscreen] #navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
+	background-image: none !important;
+	background-color: transparent !important;
+	padding-bottom: 0 !important;
+}
