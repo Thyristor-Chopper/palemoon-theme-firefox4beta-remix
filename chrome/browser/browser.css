@@ -8,6 +8,9 @@
 @namespace html url("http://www.w3.org/1999/xhtml");
 
 :root {
+	--fullscreen-background-color: #556;
+	--fullscreen-text-color: #fff;
+
 	--dialog-background: -moz-Dialog;
 
 	--toolbox-after-color: ThreeDShadow;
@@ -145,7 +148,7 @@ statusbarpanel#statusbar-display {
        (-moz-os-version: windows-win10),
        (-moz-os-version: windows-win11) {
 	#appmenu-button {
-		border-radius: 0 0 4px 4px;
+		border-radius: 0 0 5px 5px;
 	}
 }
 
@@ -155,24 +158,19 @@ statusbarpanel#statusbar-display {
 	}
 }
 
-#appmenu-button:hover:active,
-#appmenu-button[open] {
-	border-radius: 0;
-}
-
 #appmenu-button {
-	background-image: linear-gradient(hsl(211,33%,32%), hsl(209,53%,10%) 95%);
-	border-color: hsla(210,59%,13%,.9);
-	box-shadow: 0 1px 0 hsla(210,48%,90%,.15) inset, 0 0 2px 1px hsla(211,65%,85%,.15) inset;
+	background-image: linear-gradient(rgb(82,182,247), rgb(10,98,215) 95%);
+	border-color: rgba(6,42,83,.9);
+	box-shadow: 0 1px 0 rgba(255,255,255,.25) inset, 0 0 0 1px rgba(255,255,255,.25) inset;
 }
 #appmenu-button:hover:not(:active):not([open]) {
-	background-image: radial-gradient(farthest-side at bottom, hsla(210,48%,90%,.5) 10%, hsla(210,48%,90%,0) 70%), radial-gradient(farthest-side at bottom, hsla(211,70%,83%,.5), hsla(211,70%,83%,0)), linear-gradient(hsl(211,33%,32%), hsl(209,53%,10%) 95%);
-	border-color: hsla(210,59%,13%,.9);
-	box-shadow: 0 1px 0 hsla(210,48%,90%,.15) inset, 0 0 2px 1px hsla(210,48%,90%,.4) inset, 0 -1px 0 hsla(210,48%,90%,.2) inset;
+	background-image: radial-gradient(farthest-side at bottom, rgba(89,240,252,.5) 10%, rgba(89,240,252,0) 70%), radial-gradient(farthest-side at bottom, rgb(60,68,236), rgba(172,229,255,0)), linear-gradient(rgb(69,170,246), rgb(30,40,209) 95%);
+	border-color: rgba(6,42,83,.9);
+	box-shadow: 0 1px 0 rgba(255,255,255,.1) inset, 0 0 2px 1px rgba(169,234,250,.7) inset, 0 -1px 0 rgba(169,234,250,.5) inset;
 }
 #appmenu-button:hover:active,
 #appmenu-button[open] {
-	background-image: linear-gradient(hsl(211,33%,26%), hsl(209,53%,6%) 95%);
+	background-image: linear-gradient(rgb(69,170,246), rgb(0,74,209) 95%);
 	box-shadow: 0 2px 3px rgba(0,0,0,.4) inset, 0 1px 1px rgba(0,0,0,.2) inset;
 }
 
@@ -249,7 +247,6 @@ statusbarpanel#statusbar-display {
 		padding-inline-end: 2px;
 		padding-top: 2px;
 		padding-bottom: 2px;
-		font-family: "Segoe UI Semibold", "Segoe UI", sans-serif;
 	}
 	#appmenuSecondaryPane:-moz-locale-dir(rtl) {
 		box-shadow: -1px 0 2px rgb(204,214,234) inset;
@@ -484,6 +481,62 @@ statusbarpanel#statusbar-display {
 #sanitizeItem,
 #HMB_sanitizeItem {
 	list-style-image: url("chrome://browser/skin/sanitize.png");
+}
+
+/* ::::: titlebar ::::: */
+
+#main-window[sizemode="normal"] > #titlebar {
+	-moz-appearance: -moz-window-titlebar;
+}
+
+#main-window[sizemode="maximized"] > #titlebar {
+	-moz-appearance: -moz-window-titlebar-maximized;
+}
+
+@media (-moz-windows-classic) {
+	#main-window[sizemode="normal"] > #titlebar > #titlebar-content > #appmenu-button-container {
+		margin-top: 4px;
+	}
+}
+
+#titlebar-buttonbox {
+	-moz-appearance: -moz-window-button-box;
+}
+
+#main-window[sizemode="maximized"] #titlebar-buttonbox {
+	-moz-appearance: -moz-window-button-box-maximized;
+}
+
+.titlebar-placeholder[type="appmenu-button"] {
+	margin-left: 4px;
+}
+
+.titlebar-placeholder[type="caption-buttons"] {
+	margin-left: 22px; /* additional space for Aero Snap */
+}
+
+/* titlebar command buttons */
+
+#titlebar-min {
+	-moz-appearance: -moz-window-button-minimize;
+}
+
+#titlebar-max {
+	-moz-appearance: -moz-window-button-maximize;
+}
+
+#main-window[sizemode="maximized"] #titlebar-max {
+	-moz-appearance: -moz-window-button-restore;
+}
+
+#titlebar-close {
+	-moz-appearance: -moz-window-button-close;
+}
+
+@media not all and (-moz-windows-classic) {
+	#titlebar-min {
+		margin-inline-end: 2px;
+	}
 }
 
 /* ::::: bookmark buttons ::::: */
@@ -1600,12 +1653,10 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 #TabsToolbar {
 	min-height: 0;
 	padding: 0;
-	/* box-shadow: 0 -1px ThreeDShadow inset; */
 }
 
 #TabsToolbar:not(:-moz-lwtheme),
 #navigator-toolbox:not([tabsontop="true"]) > #TabsToolbar {
-	/* box-shadow: 0 -1px 1px ThreeDShadow inset; */
 	background-image: -moz-linear-gradient(transparent, transparent 10%, rgba(0,0,0,.03) 50%, rgba(0,0,0,.08) 90%, rgba(0,0,0,.15));
 }
 
@@ -1630,7 +1681,6 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	padding: 0px 4px 0px 4px !important;
 	-moz-border-image: url(tabbrowser/tab.png) 4 5 3 6 / 4px 5px 3px 6px;
 	border-radius: 10px 8px 0 0 !important;
-	/* -moz-transition: none !important; */
 	min-height: 24px;
 	margin-top: 1px !important;
 }
@@ -2974,67 +3024,14 @@ toolbarbutton, .toolbarbutton-1 {
 	max-height: 30px !important;
 }
 
-#main-window[sizemode="normal"] > #titlebar {
-	-moz-appearance: -moz-window-titlebar;
-}
-
-#main-window[sizemode="maximized"] > #titlebar {
-	-moz-appearance: -moz-window-titlebar-maximized;
-}
-
-#titlebar-min {
-	-moz-appearance: -moz-window-button-minimize;
-}
-
-@media not all and (-moz-windows-classic) {
-	#titlebar-min {
-		margin-inline-end: 2px;
-	}
-}
-
-#titlebar-max {
-	-moz-appearance: -moz-window-button-maximize;
-}
-
-#main-window[sizemode="maximized"] #titlebar-max {
-	-moz-appearance: -moz-window-button-restore;
-}
-
-#titlebar-close {
-	-moz-appearance: -moz-window-button-close;
-}
-
-@media (-moz-windows-classic) {
-	#main-window[sizemode="normal"] > #titlebar > #titlebar-content > #appmenu-button-container {
-		margin-top: 4px;
-	}
-}
-
-#sessionmanager-titlebar-label {
-	display: none;
-}
-
-#titlebar-buttonbox {
-	-moz-appearance: -moz-window-button-box;
-}
-
-#main-window[sizemode="maximized"] #titlebar-buttonbox {
-	-moz-appearance: -moz-window-button-box-maximized;
-}
-
 @media all and (-moz-windows-compositor) {
 	#main-window:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-borderless-glass;
 		background: transparent;
 	}
 
-	/* the new titlebar requires this, or content will be clipped at the top of the screen. */
-	#main-window[sizemode="maximized"][chromemargin^="0,"] {
-		margin-top: 8px;
-	}
-
 	#main-window[sizemode="normal"][chromemargin^="0,"] {
-		margin-top: 2px;
+		margin-top: 1px;
 	}
 
 	#main-window:not(:-moz-lwtheme)[inFullscreen="true"] {
@@ -3174,7 +3171,7 @@ toolbarbutton, .toolbarbutton-1 {
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
 		background-clip: padding-box !important;
 	}
-	
+
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
 		background-image: none !important;
 		border-width: 0 0 1px 0 !important;
@@ -3197,28 +3194,28 @@ toolbarbutton, .toolbarbutton-1 {
 	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 		-moz-border-bottom-colors: ThreeDShadow !important;
 	}
-	
+
 	#main-window:not([sizemode="maximized"]) #browser:not(:-moz-lwtheme) {
 		background-clip: padding-box !important;
 	}
-	
+
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar #tabbrowser-tabs:not(:-moz-lwtheme),
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox:not(:-moz-lwtheme) {
 		max-height: 26px !important;
 	}
-	
+
 	@media not all and (-moz-windows-compositor) {
 		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
 			background-image: linear-gradient(transparent 0%, transparent calc(100% - 3px), rgb(246, 248, 249) calc(100% - 4px)) !important;
 			padding-bottom: 3px;
 			border-width: 0 0 1px 0 !important;
 		}
-		
+
 		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar #tabbrowser-tabs:not(:-moz-lwtheme),
 		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox:not(:-moz-lwtheme) {
 			max-height: 26px !important;
 		}
-		
+
 		@media (-moz-windows-default-theme) {
 			#main-window:not(:-moz-lwtheme),
 			#tab-view-deck:not(:-moz-lwtheme),
@@ -3229,12 +3226,12 @@ toolbarbutton, .toolbarbutton-1 {
 			#browser-bottombox:not(:-moz-lwtheme) {
 				background-color: rgb(185, 209, 234) !important;
 			}
-			
+
 			#navigator-toolbox:not([tabsontop="true"]) > toolbar:not(:-moz-lwtheme),
 			#navigator-toolbox[tabsontop="true"] > #toolbar-menubar:not(:-moz-lwtheme) {
 				background-image: none !important;
 			}
-			
+
 			#main-window:not(:-moz-lwtheme):-moz-window-inactive,
 			#tab-view-deck:not(:-moz-lwtheme):-moz-window-inactive,
 			#navigator-toolbox:not(:-moz-lwtheme):-moz-window-inactive,
@@ -3270,17 +3267,17 @@ toolbarbutton, .toolbarbutton-1 {
 				background-clip: padding-box;
 				padding-bottom: 3px;
 			}
-			
+
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabbrowser-tab:not([selected="true"]):not(:-moz-lwtheme):hover,
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabs-newtab-button:not(:-moz-lwtheme):hover,
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not([customizing]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):not(:-moz-lwtheme):hover {
 				background-image: linear-gradient(rgba(255, 255, 255, .4), rgba(255, 255, 255, .4)), linear-gradient(rgb(197, 208, 223), rgb(171, 180, 194));
 			}
-			
+
 			#navigator-toolbox:not([tabsontop="true"]) > #TabsToolbar > #tabbrowser-tabs > .tabbrowser-tab[selected="true"]:not(:-moz-lwtheme) {
 				background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.2) 1px, rgba(255,255,255,.2)), -moz-linear-gradient(left, transparent, transparent 1px, rgb(243, 246, 252) 1px, rgb(243, 246, 252));
 			}
-			
+
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not([customizing]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):not(:-moz-lwtheme):not(:hover),
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabbrowser-tab:not(:-moz-lwtheme):not([selected="true"]):not(:hover), 
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar .tabs-newtab-button:not(:-moz-lwtheme):not(:hover) {
@@ -3293,60 +3290,60 @@ toolbarbutton, .toolbarbutton-1 {
 				border-color: rgba(0, 0, 0, .45);
 				border-radius: 0 0 4px 4px !important;
 			}
-			
+
 			#main-window[sizemode="maximized"] #browser-bottombox:not(:-moz-lwtheme) {
 				border-width: 0;
 				border-radius: 0 !important;
 			}
-			
+
 			#main-window:not([sizemode="maximized"]) #browser:not(:-moz-lwtheme) {
 				border-width: 0 1px 0 1px;
 				border-style: solid;
 				border-color: rgba(0, 0, 0, .45);
 			}
-			
+
 			#main-window[sizemode="maximized"] #browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 				border: none !important;
 				border-radius: 0;
 			}
-			
+
 			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme) {
 				border-radius: 0;
 			}
-			
+
 			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme),
 			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 				border-left: none !important;
 				border-right: none !important;
 			}
-			
+
 			#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
 				border-left: none !important;
 				border-right: none !important;
 			}
-			
+
 			#FindToolbar:not(:-moz-lwtheme) {
 				background-color: var(--dialog-background);
 			}
-			
+
 			#sidebar-splitter:not(:-moz-lwtheme), #sidebar-box:not(:-moz-lwtheme) {
 				border-left: none !important;
 			}
-			
+
 			#main-window[chromehidden~="status"] #browser-bottombox:not(:-moz-lwtheme),
 			#main-window[chromehidden~="directories"] #browser-bottombox:not(:-moz-lwtheme) {
 				background-color: var(--dialog-background);
 			}
-			
+
 			#main-window[chromehidden~="status"] #browser:not(:-moz-lwtheme),
 			#main-window[chromehidden~="directories"] #browser:not(:-moz-lwtheme) {
 				border: none !important;
 			}
-			
+
 			#main-window:not([sizemode="maximized"]) #browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 				border-radius: 0 0 4px 4px !important;
 			}
-			
+
 			#urlbar:not(:-moz-lwtheme):not([focused="true"]),
 			.searchbar-textbox:not(:-moz-lwtheme):not([focused="true"]) {
 				background-color: rgba(255, 255, 255, .7);
@@ -3380,11 +3377,11 @@ toolbarbutton, .toolbarbutton-1 {
 				border-left: 1px solid rgba(0, 0, 0, .45);
 				border-right: 1px solid rgba(0, 0, 0, .45);
 			}
-			
+
 			#navigator-toolbox[tabsontop="true"] #TabsToolbar {
 				background-image: linear-gradient(transparent 0%, transparent calc(100% - 1px), rgba(0, 0, 0, .2) calc(100% - 2px));
 			}
-			
+
 			#main-window:not([sizemode="maximized"]) #navigator-toolbox[tabsontop="true"] #TabsToolbar {
 				margin-left: 3px;
 				margin-right: 3px;
@@ -3426,7 +3423,7 @@ toolbarbutton, .toolbarbutton-1 {
 			}
 
 			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
-				
+
 			}
 
 			#main-window:not([sizemode="maximized"]) #navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
@@ -3449,7 +3446,7 @@ toolbarbutton, .toolbarbutton-1 {
 		border-style: solid !important;
 		border-color: rgba(0, 0, 0, .45);
 	}
-	
+
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
 		background-color: transparent !important;
 	}
@@ -3460,7 +3457,7 @@ toolbarbutton, .toolbarbutton-1 {
 		border-width: 1px 1px 0 1px !important;
 		border-radius: 4px 4px 0 0;
 	}
-	
+
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
 		background-image: linear-gradient(transparent 0%, rgba(0, 0, 0, .05) calc(100% - 3px), rgba(255, 255, 255, .85) calc(100% - 4px)), linear-gradient(transparent 0%, transparent calc(100% - 3px), rgba(0, 0, 0, .05) calc(100% - 4px));
 		background-color: rgba(255, 255, 255, .5);
@@ -3514,7 +3511,7 @@ toolbarbutton, .toolbarbutton-1 {
 		background-color: rgba(255, 255, 255, .4);
 		padding: 0 !important;
 	}
-	
+
 	#browser-bottombox:not(:-moz-lwtheme) {
 		background-color: transparent;
 		border-width: 0 1px 1px 1px;
@@ -3522,71 +3519,71 @@ toolbarbutton, .toolbarbutton-1 {
 		border-color: rgba(0, 0, 0, .45);
 		border-radius: 0 0 4px 4px !important;
 	}
-	
+
 	#main-window[sizemode="maximized"] #browser-bottombox:not(:-moz-lwtheme) {
 		border-width: 0;
 		border-radius: 0 !important;
 	}
-	
+
 	#main-window:not([sizemode="maximized"]) #browser:not(:-moz-lwtheme) {
 		border-width: 0 1px 0 1px;
 		border-style: solid;
 		border-color: rgba(0, 0, 0, .45);
 	}
-	
+
 	#main-window[sizemode="maximized"] #browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
 		border: none !important;
 		border-radius: 0;
 	}
-	
+
 	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme) {
 		border-radius: 0;
 	}
-	
+
 	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not(:-moz-lwtheme),
 	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 		border-left: none !important;
 		border-right: none !important;
 	}
-	
+
 	#main-window[sizemode="maximized"] #navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar:not(:-moz-lwtheme) {
 		border-left: none !important;
 		border-right: none !important;
 	}
-	
+
 	#FindToolbar:not(:-moz-lwtheme) {
 		background-color: var(--dialog-background);
 	}
-	
+
 	#browser:not(:-moz-lwtheme),
 	#appcontent:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
 	}
-	
+
 	#sidebar-splitter:not(:-moz-lwtheme), 
 	#sidebar-box:not(:-moz-lwtheme) {
 		border-left: none !important;
 	}
-	
+
 	#main-window[chromehidden~="status"] #browser-bottombox:not(:-moz-lwtheme),
 	#main-window[chromehidden~="directories"] #browser-bottombox:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-exclude-glass;
 		background-color: var(--dialog-background);
 	}
-	
+
 	#main-window[chromehidden~="status"] #browser:not(:-moz-lwtheme),
 	#main-window[chromehidden~="directories"] #browser:not(:-moz-lwtheme),
 	#main-window[inFullscreen="true"] #browser:not(:-moz-lwtheme),
 	#main-window[inFullscreen="true"] #browser-bottombox:not(:-moz-lwtheme) {
 		border: none !important;
 	}
-	
+
 	#main-window[chromehidden~="status"]:not(:-moz-lwtheme),
 	#main-window[chromehidden~="directories"]:not(:-moz-lwtheme) {
 		-moz-appearance: -moz-win-glass !important;
 	}
-	
+
 	#main-window:not([sizemode="maximized"]) #browser-bottombox > toolbar#addon-bar:not(:-moz-lwtheme) {
 		border-radius: 0 0 4px 4px !important;
 	}
@@ -4238,7 +4235,7 @@ toolbarbutton, .toolbarbutton-1 {
 @media (-moz-windows-compositor) {
 	#urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
 		/* filter: brightness(2.5) saturate(1.2) hue-rotate(174deg); */
-		filter: brightness(2.0) saturate(0.05) hue-rotate(174deg);
+		filter: brightness(1.7) saturate(0.075) hue-rotate(174deg);
 	}
 }
 
@@ -4256,4 +4253,556 @@ toolbarbutton, .toolbarbutton-1 {
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="low"][padstyle="classic"]:not([hidden="true"]) {
 	filter: brightness(1.3) saturate(0.9);
+}
+
+@media (-moz-windows-compositor) {
+	@media (-moz-os-version: windows-win10),
+           (-moz-os-version: windows-win11) {
+		/* Draw XUL caption buttons and background on Win10/11 */
+		@media (-moz-windows-accent-color-applies: 0) {
+			/* Default styling for when no accent color is applied */
+			#main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+				background-color: white;
+			}
+			@media (-moz-os-version: windows-win11) {
+				#main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+					/* Windows 11 defaults to RGB 243 */
+					background-color: rgb(243,243,243);
+				}
+			}
+
+			:root:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+				--window-text-color: black;
+			}
+
+			#titlebar-min:not(:-moz-window-inactive):not(:-moz-lwtheme),
+			#minimize-button:not(:-moz-lwtheme) {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize);
+			}
+
+			#titlebar-max:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize);
+			}
+
+			#main-window[sizemode="maximized"] #titlebar-max:not(:-moz-window-inactive):not(:-moz-lwtheme),
+			#restore-button:not(:-moz-lwtheme) {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore);
+			}
+
+			#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme),
+			#close-button:not(:-moz-lwtheme) {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#close);
+			}
+
+			/* Windows 10 caption button effects */
+			@media (-moz-os-version: windows-win10) {
+				.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+				#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover {
+					background-color: hsla(0, 0%, 0%, .17);
+				}
+
+				.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+				#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover:active	{
+					background-color: hsla(0, 0%, 0%, .27);
+					transition: none;
+				}
+
+				#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+				#close-button:not(:-moz-lwtheme):hover {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+					background-color: hsla(0, 86%, 49%, 1);
+				}
+
+				#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+				#close-button:not(:-moz-lwtheme):hover:active	{
+					background-color: hsla(0, 60%, 49%, 0.6);
+					transition: none;
+				}
+			}
+
+			/* Windows 11 caption button effects */
+			@media (-moz-os-version: windows-win11) {
+				.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+				#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover {
+					background-color: hsla(0, 0%, 0%, .17);
+				}
+
+				.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+				#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover:active	{
+					background-color: hsla(0, 0%, 0%, .07);
+					transition: none;
+				}
+
+				#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+				#close-button:not(:-moz-lwtheme):hover {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+					background-color: hsla(0, 75%, 44%, 1);
+				}
+
+				#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+				#close-button:not(:-moz-lwtheme):hover:active	{
+					background-color: hsla(0, 61%, 48%, 1);
+					transition: none;
+				}
+			}
+		}
+
+		@media (-moz-windows-accent-color-applies) {
+			/* Styling for when an accent color is applied to the titlebar */
+			#main-window:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+				background-color: -moz-win-accentcolor;
+			}
+
+			:root:not(:-moz-window-inactive):not(:-moz-lwtheme) {
+				--window-text-color: -moz-win-accentcolortext;
+			}
+
+			#main-window[sizemode=fullscreen]:not(:-moz-lwtheme) {
+				--fullscreen-background-color: -moz-win-accentcolor;
+				--fullscreen-text-color: -moz-win-accentcolortext;
+			}
+
+			#titlebar-min,
+			#minimize-button {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize);
+			}
+
+			#titlebar-max {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize);
+			}
+
+			#main-window[sizemode="maximized"] #titlebar-max,
+			#restore-button {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore);
+			}
+
+			#titlebar-close,
+			#close-button {
+				list-style-image: url(chrome://browser/skin/caption-buttons.svg#close);
+			}
+
+			.titlebar-button:hover,
+			#window-controls > toolbarbutton:not(#close-button):hover {
+				background-color: hsla(0, 0%, 0%, .17);
+			}
+
+			.titlebar-button:hover:active,
+			#window-controls > toolbarbutton:not(#close-button):hover:active {
+				background-color: hsla(0, 0%, 0%, .27);
+				transition: none;
+			}
+
+			@media (-moz-windows-accent-color-is-dark) {
+				/* dark accent color */
+				#titlebar-min,
+				#minimize-button {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-highlight);
+				}
+
+				#titlebar-max {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize-highlight);
+				}
+
+				#main-window[sizemode="maximized"] #titlebar-max,
+				#restore-button {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore-highlight);
+				}
+
+				#titlebar-close {
+					list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+				}
+
+				/* Windows 10 caption button effects */
+				@media (-moz-os-version: windows-win10) {
+					.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+					#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover {
+						background-color: hsla(0, 0%, 100%, .17);
+					}
+
+					.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+					#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover:active	{
+						background-color: hsla(0, 0%, 100%, .27);
+						transition: none;
+					}
+
+					#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+					#close-button:not(:-moz-lwtheme):hover {
+						list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+						background-color: hsla(0, 86%, 45%, 1);
+					}
+
+					#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+					#close-button:not(:-moz-lwtheme):hover:active	{
+						background-color: hsla(0, 60%, 49%, 0.6);
+						transition: none;
+					}
+				}
+
+				/* Windows 11 caption button effects */
+				@media (-moz-os-version: windows-win11) {
+					.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+					#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover {
+						background-color: hsla(0, 0%, 0%, .17);
+					}
+
+					.titlebar-button:not(#titlebar-close):not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+					#window-controls > toolbarbutton:not(#close-button):not(:-moz-lwtheme):hover:active	{
+						background-color: hsla(0, 0%, 0%, .07);
+						transition: none;
+					}
+
+					#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover,
+					#close-button:not(:-moz-lwtheme):hover {
+						list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+						background-color: hsla(4, 75%, 44%, 1);
+					}
+
+					#titlebar-close:not(:-moz-window-inactive):not(:-moz-lwtheme):hover:active,
+					#close-button:not(:-moz-lwtheme):hover:active	{
+						background-color: hsla(4, 61%, 48%, 1);
+						transition: none;
+					}
+				}
+
+			}
+		}
+
+		#main-window:-moz-window-inactive:not(:-moz-lwtheme) {
+			background-color: hsl(0, 0%, 95%);
+		}
+
+		#main-window:not([chromemargin^="0,"]):not(:-moz-lwtheme) {
+			background-color: transparent;
+		}
+
+		#titlebar-buttonbox,
+		.titlebar-button {
+			appearance: none !important;
+		}
+
+		.titlebar-button {
+			border: none;
+			margin: 0 !important;
+			padding: 9px 17px;
+			transition: background-color linear 120ms;
+		}
+
+		#main-window[sizemode=maximized] .titlebar-button {
+			padding-top: 8px;
+			padding-bottom: 8px;
+		}
+
+		.titlebar-button > .toolbarbutton-icon {
+			width: 12px;
+			height: 12px;
+		}
+
+		.titlebar-button:not(:hover) > .toolbarbutton-icon:-moz-window-inactive {
+			opacity: 0.5;
+		}
+
+		#main-window[sizemode="maximized"] #titlebar-close {
+			padding-right: 19px;
+		}
+
+		#titlebar-close:hover,
+		#close-button:hover {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-highlight);
+			background-color: hsla(0, 86%, 49%, 1);
+			transition: background-color linear 160ms;
+		}
+
+		#titlebar-close:hover:active,
+		#close-button:hover:active {
+			background-color: hsla(0, 86%, 49%, 0.6); 
+			transition: none;
+		}
+
+		/* inactive window */
+
+		#titlebar-min:-moz-window-inactive:not(:-moz-lwtheme) {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-inactive);
+		}
+
+		#titlebar-max:-moz-window-inactive:not(:-moz-lwtheme) {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize-inactive);
+		}
+
+		#main-window[sizemode="maximized"] #titlebar-max:-moz-window-inactive:not(:-moz-lwtheme) {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore-inactive);
+		}
+
+		#titlebar-close:-moz-window-inactive:not(:-moz-lwtheme):not(:hover) {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-inactive);
+		}
+
+		.titlebar-button:-moz-window-inactive:not(:-moz-lwtheme):hover {
+			background-color: hsla(0, 0%, 0%, .17);
+		}
+
+		.titlebar-button:-moz-window-inactive:not(:-moz-lwtheme):hover:active {
+			background-color: hsla(0, 0%, 0%, .27);
+			transition: none;
+		}
+
+		/* light persona */
+
+		.titlebar-button:-moz-lwtheme-darktext:hover,
+		#window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-darktext:hover {
+			background-color: hsla(0, 0%, 0%, .17);
+		}
+
+		.titlebar-button:-moz-lwtheme-darktext:hover:active,
+		#window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-darktext:hover:active {
+			background-color: hsla(0, 0%, 0%, .27);
+			transition: none;
+		}
+
+		#titlebar-min:-moz-lwtheme-darktext,
+		#minimize-button:-moz-lwtheme-darktext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-outline);
+		}
+
+		#titlebar-max:-moz-lwtheme-darktext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize-outline);
+		}
+
+		#main-window[sizemode="maximized"]:-moz-lwtheme-darktext #titlebar-max:-moz-lwtheme-darktext,
+		#restore-button:-moz-lwtheme-darktext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore-outline);
+		}
+
+		#titlebar-close:-moz-lwtheme-darktext,
+		#close-button:-moz-lwtheme-darktext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-outline);
+		}
+		#titlebar-close:hover:-moz-lwtheme-darktext,
+		#close-button:hover:-moz-lwtheme-darktext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-outline);
+		}
+
+		/* dark persona */
+
+		.titlebar-button:-moz-lwtheme-brighttext:hover,
+		#window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-brighttext:hover {
+			background-color: hsla(0, 0%, 100%, .27);
+		}
+
+		.titlebar-button:-moz-lwtheme-brighttext:hover:active,
+		#window-controls > toolbarbutton:not(#close-button):-moz-lwtheme-brighttext:hover:active {
+			background-color: hsla(0, 0%, 100%, .37);
+			transition: none;
+		}
+
+		#titlebar-min:-moz-lwtheme-brighttext,
+		#minimize-button:-moz-lwtheme-brighttext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#minimize-outline-inverted);
+		}
+
+		#titlebar-max:-moz-lwtheme-brighttext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#maximize-outline-inverted);
+		}
+
+		#main-window[sizemode="maximized"]:-moz-lwtheme-brighttext #titlebar-max:-moz-lwtheme-brighttext,
+		#restore-button:-moz-lwtheme-brighttext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#restore-outline-inverted);
+		}
+
+		#titlebar-close:-moz-lwtheme-brighttext,
+		#close-button:-moz-lwtheme-brighttext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-outline-inverted);
+		}
+		#titlebar-close:hover:-moz-lwtheme-brighttext,
+		#close-button:hover:-moz-lwtheme-brighttext {
+			list-style-image: url(chrome://browser/skin/caption-buttons.svg#close-outline-inverted);
+		}
+
+		/* the 12px image renders a 10px icon, and the 10px upscaled gets rounded to 12.5, which
+		 * rounds up to 13px, which makes the icon one pixel too big on 1.25dppx. Fix: */
+		@media (min-resolution: 1.20dppx) and (max-resolution: 1.45dppx) {
+			.titlebar-button > .toolbarbutton-icon {
+				width: 11.5px;
+				height: 11.5px;
+			}
+		}
+
+		/* 175% dpi should result in the same device pixel sizes as 150% dpi. */
+		@media (min-resolution: 1.70dppx) and (max-resolution: 1.95dppx) {
+			.titlebar-button {
+				padding-left: 14.1px;
+				padding-right: 14.1px;
+			}
+
+			.titlebar-button > .toolbarbutton-icon {
+				width: 10.8px;
+				height: 10.8px;
+			}
+		}
+
+		/* 225% dpi should result in the same device pixel sizes as 200% dpi. */
+		@media (min-resolution: 2.20dppx) and (max-resolution: 2.45dppx) {
+			.titlebar-button {
+				padding-left: 15.3333px;
+				padding-right: 15.3333px;
+			}
+
+			.titlebar-button > .toolbarbutton-icon {
+				width: 10.8px;
+				height: 10.8px;
+			}
+		}
+
+		/* 275% dpi should result in the same device pixel sizes as 250% dpi. */
+		@media (min-resolution: 2.70dppx) and (max-resolution: 2.95dppx) {
+			.titlebar-button > .toolbarbutton-icon {
+				width: 10.8px;
+				height: 10.8px;
+			}
+		}
+
+		#appmenu-button {
+			margin-top: -1px;
+			margin-bottom: 5px;
+		}		
+	}
+
+	@media (-moz-os-version: windows-vista),
+           (-moz-os-version: windows-win7),
+           (-moz-os-version: windows-win8) {
+		/* These should be hidden w/ glass enabled. Windows draws its own buttons. */
+		.titlebar-button {
+			display: none;
+		}
+
+		#main-window[chromemargin^="0,"][sizemode=normal] #navigator-toolbox {
+			margin-top: -7px;
+		}
+
+		/* Artificially draw window borders that are covered by lwtheme, see bug 591930. */
+		#main-window[sizemode="normal"] > #titlebar > #titlebar-content:-moz-lwtheme {
+			border-top: 2px solid;
+			-moz-border-top-colors: rgb(37, 44, 51) rgba(255,255,255,.6);
+		}
+
+		#main-window[sizemode="normal"] > #titlebar > #titlebar-content:-moz-lwtheme:-moz-window-inactive {
+			-moz-border-top-colors: rgb(102, 102, 102) rgba(255,255,255,.6);
+		}
+
+		#main-window[sizemode="normal"] > #titlebar > #titlebar-content > #appmenu-button-container:-moz-lwtheme {
+			margin-top: -1px;
+		}
+
+		#main-window[sizemode="normal"] #titlebar-buttonbox:-moz-lwtheme {
+			margin-top: -2px;
+		}
+
+		#appmenu-button {
+			margin-bottom: -1px; /* compensate white outer border */
+		}
+	}
+
+	#main-window[sizemode=fullscreen]:not(:-moz-lwtheme) {
+		--window-text-color: var(--fullscreen-text-color);
+		-moz-appearance: none;
+		background-color: var(--fullscreen-background-color);
+	}
+
+	#allTabs-panel,
+	#ctrlTab-panel {
+		background: transparent;
+		-moz-appearance: -moz-win-glass;
+		border-radius: 0;
+		border: none;
+		font: normal 1.2em "Segoe UI";
+		color: black;
+		text-shadow: white -1px -1px .35em, white -1px 1px .35em, white 1px 1px .35em, white 1px -1px .35em;
+	}
+
+	#main-window[chromemargin^="0,"]:-moz-lwtheme {
+		-moz-appearance: -moz-win-borderless-glass;
+		margin-top: 0px;
+	}
+
+	@media (-moz-os-version: windows-vista),
+	       (-moz-os-version: windows-win7),
+	       (-moz-os-version: windows-win8) {
+		#main-window[chromemargin^="0,"][sizemode=maximized]:-moz-lwtheme #titlebar {
+			margin-right: 3px;
+		}
+	}
+}
+
+/* ::::: splitmenu highlight style that imitates Windows 7 start menu ::::: */
+@media (-moz-os-version: windows-vista),
+       (-moz-os-version: windows-win7),
+       (-moz-os-version: windows-win8),
+       (-moz-os-version: windows-win10),
+       (-moz-os-version: windows-win11) {
+	@media (-moz-windows-default-theme) {
+		.splitmenu-menuitem,
+		.splitmenu-menu {
+			appearance: none;
+			padding-top: 2px;
+			padding-bottom: 2px;
+			border: 1px solid transparent;
+		}
+		.splitmenu-menuitem {
+			margin-inline-end: 0;
+		}
+		.splitmenu-menu {
+			margin-inline-start: -1px;
+		}
+		.splitmenu-menuitem:-moz-locale-dir(ltr),
+		.splitmenu-menu:-moz-locale-dir(rtl) {
+			border-top-left-radius: 3px;
+			border-bottom-left-radius: 3px;
+		}
+		.splitmenu-menu:-moz-locale-dir(ltr),
+		.splitmenu-menuitem:-moz-locale-dir(rtl) {
+			border-top-right-radius: 3px;
+			border-bottom-right-radius: 3px;
+		}
+
+		.splitmenu-menuitem > .menu-text {
+			margin-inline-start: 1px !important;
+			margin-inline-end: 3px !important;
+		}
+		.splitmenu-menu > .menu-right {
+			margin-inline-end: -3px;
+		}
+
+		.splitmenu-menuitem[iconic],
+		.splitmenu-menu[iconic] {
+			padding-bottom: 1px;
+		}
+		.splitmenu-menuitem[iconic] > .menu-iconic-left {
+			margin-top: -3px;
+			margin-bottom: -2px;
+			margin-inline-start: -1px;
+		}
+		.splitmenu-menuitem[iconic] > .menu-iconic-text {
+			margin-inline-start: 2px !important;
+			margin-inline-end: 3px !important;
+		}
+		.splitmenu-menu[iconic] > .menu-right {
+			margin-top: -1px;
+		}
+
+		.splitmenu-menuitem[_moz-menuactive],
+		.splitmenu-menu[_moz-menuactive] {
+			background-color: transparent;
+			background-image: linear-gradient(#fafbfd, #ebf3fd);
+			border-color: #aeccf1;
+		}
+
+		.splitmenu-menuitem[disabled][_moz-menuactive],
+		.splitmenu-menu[disabled][_moz-menuactive] {
+			background-image: linear-gradient(#f8f9f9, #eaeaea);
+			border-color: #d8d7d7;
+		}
+
+		.splitmenu-menu[_moz-menuactive]:not(:hover):not([open]) {
+			background-image: none;
+		}
+	}
 }
