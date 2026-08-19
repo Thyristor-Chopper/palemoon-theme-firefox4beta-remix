@@ -19,24 +19,6 @@
 	width: 1.5em;
 }
 
-#loginContainer:not([hidden="true"]),
-#password1Container:not([hidden="true"]) {
-	min-width: 32em !important;
-}
-
-#commonDialog:has(#loginContainer:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
-	list-style-image: url("chrome://global/skin/icons/alert-prompt.png");
-}
-
-#commonDialog:has(#password1Container:not([hidden="true"])) #iconContainer .question-icon#info\.icon,
-#commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
-	list-style-image: url("chrome://global/skin/icons/alert-auth.gif");
-}
-
-#commonDialog:has(#password1Container[hidden="true"]) #loginContainer:not([hidden="true"]) {
-	margin-top: -8px;
-}
-
 .dialog-button-box button.dialog-button {
 	min-width: 88px;
 }
@@ -46,8 +28,43 @@
 	padding-bottom: 1px;
 }
 
+#loginContainer:not([hidden="true"]),
+#password1Container:not([hidden="true"]) {
+	min-width: 32em !important;
+}
+
+#commonDialog:has(#loginContainer:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
+	list-style-image: url("chrome://global/skin/icons/alert-prompt.png");
+}
+
+#commonDialog:has(#password1Container:not([hidden="true"])) #iconContainer .question-icon#info\.icon {
+	list-style-image: url("chrome://global/skin/icons/alert-auth.gif");
+}
+
+#commonDialog:has(#password1Container[hidden="true"]) #loginContainer:not([hidden="true"]) {
+	margin-top: -7px;
+}
+
 #commonDialog:has(#loginContainer[hidden="true"]):has(#password1Container[hidden="true"]) #checkboxContainer:not([hidden="true"]) {
 	margin-top: -7px;
+}
+
+#infoContainer {
+	max-width: 60em;
+}
+
+#commonDialog:has(#loginContainer:not([hidden="true"])) #infoContainer,
+#commonDialog:has(#password1Container:not([hidden="true"])) #infoContainer {
+	max-width: 45em;
+}
+
+#commonDialog:has(#loginContainer:not([hidden="true"])):has(#password1Container:not([hidden="true"])) #infoContainer {
+	max-width: 40em;
+}
+
+#commonDialog:has(#loginContainer:not([hidden="true"])) #infoContainer #info\.body,
+#commonDialog:has(#password1Container:not([hidden="true"])) #infoContainer #info\.body {
+	margin-right: 1em;
 }
 
 #commonDialog:has(#loginContainer:not([hidden="true"])) #checkboxContainer:not([hidden="true"]),
@@ -61,4 +78,9 @@
 
 #commonDialog:has(#loginContainer[hidden="true"]):has(#password1Container[hidden="true"]):has(#checkboxContainer[hidden="true"]) .dialog-button-box {
 	margin-top: -2px;
+}
+
+#loginLabel,
+#password1Label {
+	text-align: left;
 }

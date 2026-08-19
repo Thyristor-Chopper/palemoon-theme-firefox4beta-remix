@@ -38,10 +38,10 @@
 
 /*
 @media (-moz-os-version: windows-vista), 
-			 (-moz-os-version: windows-win7), 
-			 (-moz-os-version: windows-win8), 
-			 (-moz-os-version: windows-win10), 
-			 (-moz-os-version: windows-win11) {
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	@media (-moz-windows-default-theme) {
 		:root {
 			--dialog-background: rgb(235, 244, 252);
@@ -235,11 +235,13 @@ statusbarpanel#statusbar-display {
 		background: white;
 		border: 1px solid ThreeDShadow;
 	}
+
 	#appmenuPrimaryPane {
 		background-color: rgba(255,255,255,0.5);
 		padding: 2px;
 		border-inline-end: none;
 	}
+
 	#appmenuSecondaryPane {
 		background-color: #f1f5fb;
 		box-shadow: 1px 0 2px rgb(204,214,234) inset;
@@ -248,6 +250,7 @@ statusbarpanel#statusbar-display {
 		padding-top: 2px;
 		padding-bottom: 2px;
 	}
+
 	#appmenuSecondaryPane:-moz-locale-dir(rtl) {
 		box-shadow: -1px 0 2px rgb(204,214,234) inset;
 	}
@@ -275,6 +278,7 @@ statusbarpanel#statusbar-display {
 	#appmenuPrimaryPane menupopup:-moz-locale-dir(rtl) {
 		background-image: linear-gradient(to left, white 26px, ThreeDLightShadow 26px, ThreeDLightShadow 27px, ThreeDHighlight 27px, ThreeDHighlight 28px, white 28px);
 	}
+
 	#appmenuSecondaryPane menupopup:-moz-locale-dir(rtl) {
 		background-image: linear-gradient(to left, #f1f5fb 26px, ThreeDLightShadow 26px, ThreeDLightShadow 27px, ThreeDHighlight 27px, ThreeDHighlight 28px, #f1f5fb 28px);
 	}
@@ -340,11 +344,13 @@ statusbarpanel#statusbar-display {
 			margin-inline-start: 25px;
 		}
 	}
+
 	@media (min-resolution: 1.5dppx) {
 		.appmenu-menuseparator {
 			margin-inline-start: 24px;
 		}
 	}
+
 	@media (min-resolution: 2dppx) {
 		.appmenu-menuseparator {
 			margin-inline-start: 22px;
@@ -634,7 +640,8 @@ menuitem.bookmark-item {
 }
 
 .bookmark-item[container][livemark] .bookmark-item[visited] > .menu-iconic-left > .menu-iconic-icon {
-	opacity: .4;
+	list-style-image: url("chrome://browser/skin/livemark-item-read.png");
+	opacity: .6;
 	filter: saturate(0.6);
 }
 
@@ -794,10 +801,10 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	min-width: 57px;
 }
 
-#TabsToolbar > #home-button:not(:has(+ .tabbrowser-tabs:not([overflow="true"]))),
 #PersonalToolbar .toolbarbutton-1,
 #PersonalToolbar ~ toolbar:not(#TabsToolbar) .toolbarbutton-1,
 #TabsToolbar .toolbarbutton-1:not(#home-button),
+#TabsToolbar > #home-button:not(:has(+ .tabbrowser-tabs:not([overflow="true"]))),
 #TabsToolbar[customizing="true"] .toolbarbutton-1#home-button {
 	-moz-appearance: toolbarbutton;
 	margin: 0;
@@ -820,7 +827,6 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 #TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):hover:not(:active) {
 	box-shadow: none;
 }
-
 
 /* unified back/forward button */
 
@@ -851,7 +857,7 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	border-bottom-left-radius: 0;
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #back-button {
+toolbar[mode="icons"]:not([iconsize="small"]) #back-button {
 	border-radius: 100%;
 	padding: 0;
 	width: 30px;
@@ -866,31 +872,31 @@ toolbar:not([iconsize="small"])[mode="icons"] #back-button {
 	-moz-image-region: rect(18px, 20px, 38px, 0);
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #back-button:not([disabled="true"]):not([checked="true"]):not(:active):hover {
+toolbar[mode="icons"]:not([iconsize="small"]) #back-button:not([disabled="true"]):not([checked="true"]):hover:not(:active) {
 	box-shadow: 0 0 0 1px rgba(255,255,255,.3) inset, 0 0 0 2px rgba(255,255,255,.1) inset, 0 0 0 1px hsla(190,50%,40%,.3), 0 1px 0 rgba(0,0,0,.4), 0 1px 1px rgba(0,0,0,.3), 1px 2px 1px rgba(0,0,0,.2), 0 0 5px 1px hsl(190,90%,80%);
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #back-button:not([disabled="true"]):hover:active {
+toolbar[mode="icons"]:not([iconsize="small"]) #back-button:not([disabled="true"]):hover:active {
 	box-shadow: 0 0 9px rgba(0,0,0,.4) inset, 0 0 3px rgba(0,0,0,.4) inset, 0 0 0 1px rgba(0,0,0,.65), 0 2px 0 rgba(255,255,255,.4);
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #back-button > .toolbarbutton-icon {
+toolbar[mode="icons"]:not([iconsize="small"]) #back-button > .toolbarbutton-icon {
 	width: auto;
 	height: auto;
 }
 
-toolbar:not([iconsize="small"])[mode="icons"][currentset*="unified-back-forward-button"],
-#nav-bar:not([iconsize="small"])[mode="icons"]:not([currentset]) {
+toolbar[mode="icons"][currentset*="unified-back-forward-button"]:not([iconsize="small"]),
+#nav-bar[mode="icons"]:not([iconsize="small"]):not([currentset]) {
 	padding-top: 3px;
 	padding-bottom: 5px;
 }
 
-#navigator-toolbox[tabsontop="true"] > toolbar:not([iconsize="small"])[mode="icons"][currentset*="unified-back-forward-button"],
-#navigator-toolbox[tabsontop="true"] > #nav-bar:not([iconsize="small"])[mode="icons"]:not([currentset]) {
+#navigator-toolbox[tabsontop="true"] > toolbar[mode="icons"][currentset*="unified-back-forward-button"]:not([iconsize="small"]),
+#navigator-toolbox[tabsontop="true"] > #nav-bar[mode="icons"]:not([iconsize="small"]):not([currentset]) {
 	padding-top: 5px;
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #forward-button {
+toolbar[mode="icons"]:not([iconsize="small"]) #forward-button {
 	mask: url(keyhole-forward-mask.svg#mask);
 	clip-path: url(chrome://browser/skin/browser.xul#winstripe-keyhole-forward-mask);
 	-moz-margin-start: -6px !important;
@@ -900,11 +906,15 @@ toolbar:not([iconsize="small"])[mode="icons"] #forward-button {
 	padding-right: 3px;
 }
 
-toolbar:not([iconsize="small"])[mode="icons"] #forward-button:not([disabled="true"]):not(:active):hover {
+toolbar[mode="icons"]:not([iconsize="small"]) #forward-button:not([disabled="true"]):hover:not(:active) {
 	mask: url(keyhole-forward-mask.svg#mask-hover);
 	clip-path: url(chrome://browser/skin/browser.xul#winstripe-keyhole-forward-mask-hover);
 	/* Don't animate the box shadow, as the blur and spread radii affect the mask. */
 	-moz-transition: background-color .4s ease-in;
+}
+
+#unified-back-forward-button {
+	-moz-binding: url(chrome://global/skin/globalBindings.xml#restore-back-forward-dropmarker);
 }
 
 #back-forward-dropmarker {
@@ -935,10 +945,6 @@ toolbar:not([iconsize="small"])[mode="icons"] #forward-button:not([disabled="tru
 	display: none;
 }
 
-#tab-view-deck #unified-back-forward-button {
-	-moz-binding: url(chrome://global/skin/globalBindings.xml#restore-back-forward-dropmarker);
-}
-
 .unified-nav-back[_moz-menuactive]:-moz-locale-dir(ltr),
 .unified-nav-forward[_moz-menuactive]:-moz-locale-dir(rtl) {
 	list-style-image: url("chrome://browser/skin/menu-back.png") !important;
@@ -966,6 +972,7 @@ toolbar:not([iconsize="small"])[mode="icons"] #forward-button:not([disabled="tru
 #home-button.bookmark-item {
 	list-style-image: url("chrome://browser/skin/Toolbar.png");
 }
+
 #home-button {
 	-moz-image-region: rect(0, 90px, 18px, 72px);
 }
@@ -1076,6 +1083,7 @@ toolbar:not([iconsize="small"])[mode="icons"] #forward-button:not([disabled="tru
 #sync-button {
 	-moz-image-region: rect(0, 324px, 18px, 306px);
 }
+
 #sync-button[status="active"] {
 	list-style-image: url("chrome://browser/skin/sync-throbber.png");
 	-moz-image-region: rect(0, 18px, 18px, 0);
@@ -1191,7 +1199,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	background: transparent;
 }
 
-#urlbar-search-splitter + #urlbar-container > #urlbar ,
+#urlbar-search-splitter + #urlbar-container > #urlbar,
 #urlbar-search-splitter + #search-container > #searchbar > .searchbar-textbox {
 	margin-left: 0;
 }
@@ -1216,7 +1224,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	margin-right: 3px;
 }
 
-/* Pale Moon: Feed icon */
+/* Feed icon */
 #ub-feed-button,
 #ub-feed-button > .button-box,
 #ub-feed-button:hover:active > .button-box {
@@ -1274,37 +1282,8 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	text-shadow: 0 1px 0 rgba(0,0,0,.25);
 }
 
-/*
 #identity-box.verifiedDomain {
-	background-color: rgb(143, 182, 238);
-}
-*/
-
-@media not all and (-moz-windows-compositor) {
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain,
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
-		background-image: linear-gradient(rgb(152, 191, 245), rgb(91, 149, 225));
-		border-color: rgb(64, 84, 125);
-		box-shadow: 0 0 0 1px rgba(0, 0, 0, .2) inset;
-		text-shadow: none;
-		color: white;
-	}
-
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]) {
-		background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
-	}
-
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active) {
-		background-image: linear-gradient(rgb(179, 208, 248), rgb(117, 164, 230));
-	}
-
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:hover:not(:active):has(> #padlock-ib-left[padshow="ib-left"]) {
-		background-image: linear-gradient(rgb(199, 228, 255), rgb(137, 184, 255));
-	}
-
-	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:active {
-		box-shadow: 1px 2px 3px rgba(0, 0, 0, .5) inset;
-	}
+	background-color: rgb(68, 133, 240);
 }
 
 #identity-box.verifiedIdentity {
@@ -1324,7 +1303,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	outline-offset: -3px;
 }
 
-#identity-box.verifiedDomain:focus ,
+#identity-box.verifiedDomain:focus,
 #identity-box.verifiedIdentity:focus {
 	outline-color: white;
 }
@@ -1334,7 +1313,12 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	transform: translate(0, -1px);
 }
 
-@media (-moz-windows-compositor) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11),
+       (-moz-windows-compositor) {
 	#identity-box {
 		position: relative;
 	}
@@ -1778,7 +1762,8 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	-moz-border-right-colors: transparent #707070;
 }
 
-.tab-icon-image, .tab-throbber {
+.tab-icon-image,
+.tab-throbber {
 	width: 16px;
 	height: 16px;
 	list-style-image: url("chrome://global/skin/icons/folder-item.png");
@@ -1838,9 +1823,6 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	.tab-throbber[progress] {
 		filter: hue-rotate(105deg) saturate(0.8);
 	}
-}
-
-.tabbrowser-tab:not([pinned]) > .tab-icon-image {
 }
 
 /* tabbrowser-tab focus ring */
@@ -2192,7 +2174,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 	margin: 0;
 }
 
-#identity-popup-content-host ,
+#identity-popup-content-host,
 #identity-popup-content-box.verifiedIdentity > #identity-popup-content-owner {
 	font-size: 1.2em;
 }
@@ -2219,13 +2201,13 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 	margin: 4px 0 2px;
 }
 
-#identity-popup-content-box.verifiedIdentity > #identity-popup-encryption ,
+#identity-popup-content-box.verifiedIdentity > #identity-popup-encryption,
 #identity-popup-content-box.verifiedDomain > #identity-popup-encryption {
 	margin-top: 10px;
 	margin-left: -24px;
 }
 
-#identity-popup-content-box.verifiedIdentity > #identity-popup-encryption > vbox > #identity-popup-encryption-icon ,
+#identity-popup-content-box.verifiedIdentity > #identity-popup-encryption > vbox > #identity-popup-encryption-icon,
 #identity-popup-content-box.verifiedDomain > #identity-popup-encryption > vbox > #identity-popup-encryption-icon {
 	list-style-image: url("chrome://browser/skin/Secure24.png");
 }
@@ -2857,8 +2839,8 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 /* Developer toolbar */
 
 /* NOTE: THESE NEED TO STAY IN SYNC WITH LIGHT-THEME.CSS AND DARK-THEME.CSS.
-	 We are copy/pasting variables from light-theme and dark-theme,
-	 since they aren't loaded in this context (within browser.css). */
+   We are copy/pasting variables from light-theme and dark-theme,
+   since they aren't loaded in this context (within browser.css). */
 :root[devtoolstheme="light"] #developer-toolbar {
 	--gcli-background-color: #ebeced; /* --theme-tab-toolbar-background */
 	--gcli-input-background: #f0f1f2; /* --theme-toolbar-background */
@@ -2968,7 +2950,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 }
 
 #developer-toolbar-closebutton > .toolbarbutton-icon {
-	/* XXX Buttons have padding in widget/ that we don't want here but can't override with good CSS, so we must use evil CSS to give the impression of smaller content */
+	/* Buttons have padding in widget/ that we don't want here but can't override with good CSS, so we must use evil CSS to give the impression of smaller content */
 	margin: -4px;
 }
 
@@ -3173,7 +3155,8 @@ toolbarbutton, .toolbarbutton-1 {
        (-moz-os-version: windows-win7), 
        (-moz-os-version: windows-win8), 
        (-moz-os-version: windows-win10), 
-       (-moz-os-version: windows-win11) {
+       (-moz-os-version: windows-win11),
+       (-moz-windows-compositor) {
 	#navigator-toolbox:not([tabsontop="true"]) #TabsToolbar:not(:-moz-lwtheme) {
 		padding-bottom: 2px;
 	}
@@ -3214,7 +3197,13 @@ toolbarbutton, .toolbarbutton-1 {
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar:not([collapsed="true"]) ~ #TabsToolbar #tabbrowser-tabs .arrowscrollbox-scrollbox:not(:-moz-lwtheme) {
 		max-height: 26px !important;
 	}
+}
 
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	@media not all and (-moz-windows-compositor) {
 		#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
 			background-image: linear-gradient(transparent 0%, transparent calc(100% - 3px), rgb(246, 248, 249) calc(100% - 4px)) !important;
@@ -4084,9 +4073,14 @@ toolbarbutton, .toolbarbutton-1 {
 	filter: invert(5%);
 }
 
-@media (-moz-windows-compositor) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11),
+       (-moz-windows-compositor) {
 	#notification-popup-box {
-		background-color: rgb(229, 233, 240);
+		background-color: rgb(230, 234, 238);
 		border-color: rgb(141, 162, 186);
 	}
 
@@ -4109,7 +4103,9 @@ toolbarbutton, .toolbarbutton-1 {
 		background-image: url("chrome://browser/skin/notification-popup-box-arrow-aero.svg");
 		filter: none;
 	}
+}
 
+@media (-moz-windows-compositor) {
 	#navigator-toolbox:not([tabsontop="true"]) #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not([tabsontop="true"]):last-child:not(:-moz-lwtheme) .tabbrowser-tab[selected="true"] {
 		background-image: -moz-radial-gradient(center top, white, rgba(255,255,255,0) 50%), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255,255,255,.0) 1px, rgba(255,255,255,.0)), -moz-linear-gradient(left, transparent, transparent 1px, rgba(255, 255, 255, .85) 1px, rgba(255, 255, 255, .85)) !important;
 	}
@@ -4227,48 +4223,61 @@ toolbarbutton, .toolbarbutton-1 {
 	max-width: calc(24em + 22px);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="ev"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="ev"]:not([hidden="true"]) {
 	filter: brightness(2.1) saturate(0.3);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="ev"][padstyle="classic"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="ev"][padstyle="classic"]:not([hidden="true"]) {
 	filter: brightness(1.8) saturate(0.8);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="high"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"]:not([hidden="true"]) {
 	filter: brightness(2.5) saturate(0.3) hue-rotate(20deg);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="high"][padstyle="classic"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
 	filter: brightness(2.1) saturate(1.5) hue-rotate(-26deg);
 }
 
-@media (-moz-windows-compositor) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11),
+       (-moz-windows-compositor) {
+	#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="high"][padstyle="classic"]:not([hidden="true"]),
 	#urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="high"][padstyle="classic"]:not([hidden="true"]) {
-		/* filter: brightness(2.5) saturate(1.2) hue-rotate(174deg); */
 		filter: brightness(1.55) saturate(0.35) hue-rotate(174deg);
 	}
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="broken"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="broken"]:not([hidden="true"]) {
 	filter: brightness(2.1);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="broken"][padstyle="classic"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="broken"][padstyle="classic"]:not([hidden="true"]) {
 	filter: brightness(1.6) saturate(0.9);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="low"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="low"]:not([hidden="true"]) {
 	filter: brightness(1.5);
 }
 
+#urlbar #identity-box > #padlock-ib[padshow="ib-trans-bg"][level="low"][padstyle="classic"]:not([hidden="true"]),
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level="low"][padstyle="classic"]:not([hidden="true"]) {
 	filter: brightness(1.3) saturate(0.9);
 }
 
 @media (-moz-windows-compositor) {
 	@media (-moz-os-version: windows-win10),
-           (-moz-os-version: windows-win11) {
+	       (-moz-os-version: windows-win11) {
 		/* Draw XUL caption buttons and background on Win10/11 */
 		@media (-moz-windows-accent-color-applies: 0) {
 			/* Default styling for when no accent color is applied */
