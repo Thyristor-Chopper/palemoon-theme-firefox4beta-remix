@@ -65,9 +65,17 @@ treechildren::-moz-tree-image(title, container, livemark) {
 	-moz-image-region: auto;
 }
 
+treechildren::-moz-tree-image(title, container, livemark, open) {
+	list-style-image: url("chrome://browser/skin/livemark-folder-open.png");
+}
+
 @media (-moz-os-version: windows-xp) {
 	treechildren::-moz-tree-image(title, container, livemark) {
 		list-style-image: url("chrome://browser/skin/livemark-folder-xp.png");
+	}
+
+	treechildren::-moz-tree-image(title, container, livemark, open) {
+		list-style-image: url("chrome://browser/skin/livemark-folder-open-xp.png");
 	}
 }
 
@@ -97,9 +105,17 @@ treechildren::-moz-tree-image(title, query) {
 	-moz-image-region: auto;
 }
 
+treechildren::-moz-tree-image(title, query, open) {
+	list-style-image: url("chrome://browser/skin/places/query-open.png");
+}
+
 @media (-moz-os-version: windows-xp) {
 	treechildren::-moz-tree-image(title, query) {
 		list-style-image: url("chrome://browser/skin/places/query-xp.png");
+	}
+
+	treechildren::-moz-tree-image(title, query, open) {
+		list-style-image: url("chrome://browser/skin/places/query-open-xp.png");
 	}
 }
 
