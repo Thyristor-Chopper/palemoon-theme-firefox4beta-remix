@@ -1822,7 +1822,8 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 .tab-throbber {
 	width: 16px;
 	height: 16px;
-	list-style-image: url("chrome://global/skin/icons/page.png");
+	list-style-image: url("chrome://global/skin/icons/folder-item.png");
+	-moz-image-region: rect(0, 16px, 16px, 0);
 	margin: 0 3px 0 0 !important;
 	padding: 0 !important;
 }
@@ -1830,7 +1831,7 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 @media (-moz-os-version: windows-xp) {
 	.tab-icon-image,
 	.tab-throbber {
-		list-style-image: url("chrome://global/skin/icons/page-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
 	}
 }
 
@@ -3495,10 +3496,6 @@ toolbarbutton, .toolbarbutton-1 {
 				overflow: hidden;
 			}
 
-			#navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
-
-			}
-
 			#main-window:not([sizemode="maximized"]) #navigator-toolbox:not([tabsontop="true"]) > #PersonalToolbar[collapsed="true"] ~ #TabsToolbar:not(:-moz-lwtheme) {
 				margin-left: 4px;
 				margin-right: 4px;
@@ -4112,18 +4109,20 @@ toolbarbutton, .toolbarbutton-1 {
 
 #urlbar #identity-box > #page-proxy-favicon {
 	object-position: -17px -17px;
-	background-image: url("chrome://global/skin/icons/page.png");
+	background-image: url("chrome://global/skin/icons/folder-item.png");
+	filter: saturate(0.4);
 }
 
 @media (-moz-os-version: windows-xp) {
 	#urlbar #identity-box > #page-proxy-favicon {
-		background-image: url("chrome://global/skin/icons/page-xp.png");
+		background-image: url("chrome://global/skin/icons/folder-item-xp.png");
 	}
 }
 
 #urlbar #identity-box > #page-proxy-favicon:has(+ #padlock-ib-left[padshow="ib-left"][level]:not([hidden="true"])) {
 	background-image: none;
 	list-style-image: none;
+	filter: none;
 }
 
 #urlbar #identity-box > #padlock-ib-left[padshow="ib-left"][level]:not([hidden="true"]) {
