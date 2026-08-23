@@ -9,8 +9,20 @@
   -moz-margin-end: 6px;
 }
 
+@media (-moz-os-version: windows-xp) {
+  #icon {
+    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+  }
+}
+
 #eula-dialog[addontype="theme"] #icon {
   list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+  #eula-dialog[addontype="theme"] #icon {
+    list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-XP.png");
+  }
 }
 
 #eula-dialog[addontype="locale"] #icon {
@@ -19,6 +31,12 @@
 
 #eula-dialog[addontype="plugin"] #icon {
   list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+  #eula-dialog[addontype="plugin"] #icon {
+    list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
+  }
 }
 
 #eula-dialog[addontype="dictionary"] #icon {

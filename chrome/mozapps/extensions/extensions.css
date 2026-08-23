@@ -288,6 +288,11 @@
 #category-plugin > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-plugins.png");
 }
+@media (-moz-os-version: windows-xp) {
+	#category-plugin > .category-icon {
+		list-style-image: url("chrome://mozapps/skin/extensions/category-plugins-XP.png");
+	}
+}
 #category-dictionary > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-dictionaries.png");
 }
@@ -518,6 +523,12 @@
 
 .addon-view[type="plugin"] .icon {
 	list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+	.addon-view[type="plugin"] .icon {
+		list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
+	}
 }
 
 .addon-view[type="dictionary"] .icon {

@@ -114,6 +114,11 @@
 .pref-icon[type="plugins"] {
   list-style-image: url(chrome://mozapps/skin/plugins/pluginGeneric-48.png);
 }
+@media (-moz-os-version: windows-xp) {
+  .pref-icon[type="plugins"] {
+    list-style-image: url(chrome://mozapps/skin/plugins/pluginGeneric-48-XP.png);
+  }
+}
 
 .pref-title {
   font-size: 125%;

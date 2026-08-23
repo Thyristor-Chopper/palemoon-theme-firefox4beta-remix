@@ -49,6 +49,12 @@
   list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
 }
 
+@media (-moz-os-version: windows-xp) {
+  #genericAbout[addontype="plugin"] #extensionIcon {
+    list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
+  }
+}
+
 #genericAbout[addontype="dictionary"] #extensionIcon {
   list-style-image: url("chrome://mozapps/skin/extensions/dictionaryGeneric.png");
 }

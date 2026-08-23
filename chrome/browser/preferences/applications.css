@@ -57,6 +57,13 @@ menuitem[appHandlerIcon="plugin"] {
 	list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-16.png");
 }
 
+@media (-moz-os-version: windows-xp) {
+	richlistitem[appHandlerIcon="plugin"],
+	menuitem[appHandlerIcon="plugin"] {
+		list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-16-XP.png");
+	}
+}
+
 .actionsMenu .menulist-icon {
 	margin-inline-end: 3px;
 }

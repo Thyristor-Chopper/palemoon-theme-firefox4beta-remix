@@ -92,12 +92,24 @@ installitem[type="theme"] .xpinstallItemIcon {
 	list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric.png");
 }
 
+@media (-moz-os-version: windows-xp) {
+	installitem[type="theme"] .xpinstallItemIcon {
+		list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-XP.png");
+	}
+}
+
 installitem[type="locale"] .xpinstallItemIcon {
 	list-style-image: url("chrome://mozapps/skin/extensions/localeGeneric.png");
 }
 
 installitem[type="plugin"] .xpinstallItemIcon {
 	list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
+}
+
+@media (-moz-os-version: windows-xp) {
+	installitem[type="plugin"] .xpinstallItemIcon {
+		list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
+	}
 }
 
 installitem[type="dictionary"] .xpinstallItemIcon {
