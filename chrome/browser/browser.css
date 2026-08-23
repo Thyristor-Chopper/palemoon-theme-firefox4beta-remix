@@ -3165,42 +3165,42 @@ toolbarbutton, .toolbarbutton-1 {
 	}
 }
 
-#urlbar[level="high"][security_level="ev"][pageproxystate="valid"],
-#urlbar[level="low"][security_level="ev"][pageproxystate="valid"] {
+#urlbar[security_level="ev"][pageproxystate="valid"]:-moz-any([https_color="secure-only"], [https_color="secure-mixed"]):-moz-any([level="high"], [level="low"]) {
 	--ev-ssl-urlbar-background: 234, 242, 219;
 	background-color: rgb(var(--ev-ssl-urlbar-background));
 }
 
-#urlbar[level="high"][security_level="ev"][pageproxystate="valid"]:-moz-lwtheme,
-#urlbar[level="low"][security_level="ev"][pageproxystate="valid"]:-moz-lwtheme {
+#urlbar[security_level="ev"][pageproxystate="valid"]:-moz-any([https_color="secure-only"], [https_color="secure-mixed"]):-moz-any([level="high"], [level="low"]):-moz-lwtheme {
 	background-color: rgba(var(--ev-ssl-urlbar-background), .85);
 }
 
 @media all and (-moz-windows-compositor) {
-	#urlbar[level="high"][security_level="ev"][pageproxystate="valid"]:not(:-moz-lwtheme),
-	#urlbar[level="low"][security_level="ev"][pageproxystate="valid"]:not(:-moz-lwtheme) {
+	#urlbar[security_level="ev"][pageproxystate="valid"]:-moz-any([https_color="secure-only"], [https_color="secure-mixed"]):-moz-any([level="high"], [level="low"]):not(:-moz-lwtheme) {
 		background-color: rgba(var(--ev-ssl-urlbar-background), .8);
 	}
 }
 
-#urlbar[security_level="broken"] {
+#urlbar[security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-any([https_color="secure-only"], [https_color="secure-mixed"]):-moz-any([level="high"], [level="low"]):-moz-lwtheme {
+	background-color: color-mix(in srgb, rgba(var(--ev-ssl-urlbar-background), .95), rgba(255, 255, 255, .95) 80%);
+}
+
+#urlbar[security_level="broken"][https_color="secure-mixed"] {
 	--broken-ssl-urlbar-background: 255, 235, 233;
 	background-color: rgb(var(--broken-ssl-urlbar-background));
 }
 
-#urlbar[security_level="broken"]:-moz-lwtheme {
+#urlbar[security_level="broken"][https_color="secure-mixed"]:-moz-lwtheme {
 	background-color: rgba(var(--broken-ssl-urlbar-background), .85);
 }
 
 @media all and (-moz-windows-compositor) {
-	#urlbar[security_level="broken"]:not(:-moz-lwtheme) {
+	#urlbar[security_level="broken"][https_color="secure-mixed"]:not(:-moz-lwtheme) {
 		background-color: rgba(var(--broken-ssl-urlbar-background), .8);
 	}
 }
 
-#urlbar[level="high"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme,
-#urlbar[level="low"][security_level="ev"][pageproxystate="valid"][focused="true"]:-moz-lwtheme {
-	background-color: color-mix(in srgb, rgba(var(--ev-ssl-urlbar-background), .95), rgba(255, 255, 255, .95) 80%);
+#urlbar[security_level="broken"][https_color="secure-mixed"][focused="true"]:-moz-any([level="high"], [level="low"]):-moz-lwtheme {
+	background-color: color-mix(in srgb, rgba(var(--broken-ssl-urlbar-background), .95), rgba(255, 255, 255, .95) 80%);
 }
 
 .tabbrowser-tab:not([pinned]) {
