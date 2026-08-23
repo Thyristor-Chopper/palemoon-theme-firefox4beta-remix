@@ -1822,15 +1822,15 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 .tab-throbber {
 	width: 16px;
 	height: 16px;
-	list-style-image: url("chrome://global/skin/icons/folder-item.png");
-	-moz-image-region: rect(0px, 16px, 16px, 0px);
+	list-style-image: url("chrome://global/skin/icons/page.png");
 	margin: 0 3px 0 0 !important;
 	padding: 0 !important;
 }
 
 @media (-moz-os-version: windows-xp) {
-	.tab-icon-image, .tab-throbber {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+	.tab-icon-image,
+	.tab-throbber {
+		list-style-image: url("chrome://global/skin/icons/page-xp.png");
 	}
 }
 
@@ -4366,7 +4366,7 @@ toolbarbutton, .toolbarbutton-1 {
 }
 
 #personal-bookmarks toolbarbutton.bookmark-item:not(:last-of-type) {
-	margin-right: 4px;
+	margin-right: 3px;
 }
 
 @media (-moz-windows-compositor) {
