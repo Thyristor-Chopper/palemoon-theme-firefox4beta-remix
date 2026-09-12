@@ -17,9 +17,13 @@
 	-moz-image-region: rect(0px, 32px, 16px, 16px) !important;
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.folder-icon {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png") !important;
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png") !important;
 	}
 }
 

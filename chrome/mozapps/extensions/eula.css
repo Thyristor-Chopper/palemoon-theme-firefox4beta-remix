@@ -3,63 +3,67 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 #icon {
-  list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
-  max-width: 48px;
-  max-height: 48px;
-  -moz-margin-end: 6px;
+	list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
+	max-width: 48px;
+	max-height: 48px;
+	-moz-margin-end: 6px;
 }
 
-@media (-moz-os-version: windows-xp) {
-  #icon {
-    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
-  }
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
+	#icon {
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-aero.png");
+	}
 }
 
 #eula-dialog[addontype="theme"] #icon {
-  list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric.png");
+	list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric.png");
 }
 
 @media (-moz-os-version: windows-xp) {
-  #eula-dialog[addontype="theme"] #icon {
-    list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-XP.png");
-  }
+	#eula-dialog[addontype="theme"] #icon {
+		list-style-image: url("chrome://mozapps/skin/extensions/themeGeneric-XP.png");
+	}
 }
 
 #eula-dialog[addontype="locale"] #icon {
-  list-style-image: url("chrome://mozapps/skin/extensions/localeGeneric.png");
+	list-style-image: url("chrome://mozapps/skin/extensions/localeGeneric.png");
 }
 
 #eula-dialog[addontype="plugin"] #icon {
-  list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
+	list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric.png");
 }
 
 @media (-moz-os-version: windows-xp) {
-  #eula-dialog[addontype="plugin"] #icon {
-    list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
-  }
+	#eula-dialog[addontype="plugin"] #icon {
+		list-style-image: url("chrome://mozapps/skin/plugins/pluginGeneric-XP.png");
+	}
 }
 
 #eula-dialog[addontype="dictionary"] #icon {
-  list-style-image: url("chrome://mozapps/skin/extensions/dictionaryGeneric.png");
+	list-style-image: url("chrome://mozapps/skin/extensions/dictionaryGeneric.png");
 }
 
 #heading-container {
-  -moz-box-align: center;
+	-moz-box-align: center;
 }
 
 #heading {
-  font-size: 120%;
+	font-size: 120%;
 }
 
 #eula {
-  appearance: none;
-  color: -moz-FieldText;
-  background-color: -moz-Field;
-  margin: 1em;
-  border: 1px solid;
-  -moz-border-top-colors: ActiveBorder;
-  -moz-border-right-colors: ActiveBorder;
-  -moz-border-bottom-colors: ActiveBorder;
-  -moz-border-left-colors: ActiveBorder;
+	appearance: none;
+	color: -moz-FieldText;
+	background-color: -moz-Field;
+	margin: 1em;
+	border: 1px solid;
+	-moz-border-top-colors: ActiveBorder;
+	-moz-border-right-colors: ActiveBorder;
+	-moz-border-bottom-colors: ActiveBorder;
+	-moz-border-left-colors: ActiveBorder;
 }
 

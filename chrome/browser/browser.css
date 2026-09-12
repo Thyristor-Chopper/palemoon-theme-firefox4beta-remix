@@ -444,9 +444,13 @@ statusbarpanel#statusbar-display {
 	list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16.png");
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#appmenu_addons {
-		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-aero.png");
 	}
 }
 
@@ -609,9 +613,13 @@ menuitem.bookmark-item {
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.bookmark-item {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -632,9 +640,13 @@ menuitem.bookmark-item {
 	-moz-image-region: rect(0px, 32px, 16px, 16px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.bookmark-item[container][livemark] {
-		list-style-image: url("chrome://browser/skin/livemark-folder-xp.png");
+		list-style-image: url("chrome://browser/skin/livemark-folder-aero.png");
 	}
 }
 
@@ -656,9 +668,13 @@ menuitem.bookmark-item {
 	-moz-image-region: rect(0px, 32px, 16px, 16px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.bookmark-item[container][query] {
-		list-style-image: url("chrome://browser/skin/places/query-xp.png");
+		list-style-image: url("chrome://browser/skin/places/query-aero.png");
 	}
 }
 
@@ -677,9 +693,13 @@ menuitem.bookmark-item {
 	-moz-image-region: rect(0px, 32px, 16px, 16px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.bookmark-item[query][hostContainer] {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -688,9 +708,13 @@ menuitem.bookmark-item {
 	-moz-image-region: rect(16px, 32px, 32px, 16px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.bookmark-item[query][hostContainer][open] {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -832,7 +856,7 @@ toolbar[mode="full"] .toolbarbutton-menubutton-button {
 	height: auto;
 }
 
-#TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):hover:not(:active)
+#TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])):hover:not(:active),
 #TabsToolbar:not([customizing="true"]) > #home-button:has(+ #new-tab-button + .tabbrowser-tabs:not([overflow="true"])):hover:not(:active) {
 	box-shadow: none;
 }
@@ -1295,7 +1319,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	background-color: rgb(87, 137, 225);
 }
 
-#identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]:not([hidden="true"])) {
+#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]:not([hidden="true"])) {
 	background-color: rgba(0, 32, 64, .1);
 }
 
@@ -1353,7 +1377,7 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 		background-image: -moz-linear-gradient(rgba(0, 0, 0, .3), rgba(0, 0, 0, .05));
 	}
 
-	#identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]:not([hidden="true"])) {
+	#urlbar:not([security_level="broken"]) #identity-box.verifiedDomain:has(> #padlock-ib-left[padshow="ib-left"]:not([hidden="true"])) {
 		background-color: rgba(0, 32, 64, .1);
 	}
 
@@ -1457,9 +1481,13 @@ html|*.textbox-input:-moz-placeholder, html|*.textbox-input::placeholder {
 	-moz-image-region: rect(0px, 16px, 16px, 0px)
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#page-proxy-favicon:not([src]) {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -1834,10 +1862,14 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	padding: 0 !important;
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.tab-icon-image,
 	.tab-throbber {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -1878,9 +1910,13 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	filter: saturate(0.7);
 }
 
-@media not all and (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.tab-throbber[progress] {
-		filter: hue-rotate(105deg) saturate(0.8);
+		filter: hue-rotate(105deg) saturate(0.8) brightness(0.7);
 	}
 }
 
@@ -2076,9 +2112,13 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 	-moz-image-region: rect(0px, 16px, 16px, 0px);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.alltabs-item > .menu-iconic-left > .menu-iconic-icon {
-		list-style-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		list-style-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 
@@ -2315,7 +2355,11 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 	height: 32px;
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.popup-notification-icon[popupid="xpinstall-disabled"],
 	.popup-notification-icon[popupid="addon-progress"],
 	.popup-notification-icon[popupid="addon-install-cancelled"],
@@ -2323,7 +2367,7 @@ toolbarbutton.bookmark-item[dragover="true"][open="true"] {
 	.popup-notification-icon[popupid="addon-install-origin-blocked"],
 	.popup-notification-icon[popupid="addon-install-failed"],
 	.popup-notification-icon[popupid="addon-install-complete"] {
-		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-aero.png");
 	}
 }
 
@@ -3458,7 +3502,7 @@ toolbarbutton, .toolbarbutton-1 {
 				border-right: 1px solid rgba(0, 0, 0, .45);
 			}
 
-			#navigator-toolbox[tabsontop="true"] #TabsToolbar {
+			#navigator-toolbox[tabsontop="true"] #TabsToolbar:not(:-moz-lwtheme) {
 				background-image: linear-gradient(transparent 0%, transparent calc(100% - 1px), rgba(0, 0, 0, .2) calc(100% - 2px));
 			}
 
@@ -4038,9 +4082,13 @@ toolbarbutton, .toolbarbutton-1 {
 	list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-16.png);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#addons-notification-icon {
-		list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png);
+		list-style-image: url(chrome://mozapps/skin/extensions/extensionGeneric-16-aero.png);
 	}
 }
 
@@ -4119,9 +4167,13 @@ toolbarbutton, .toolbarbutton-1 {
 	filter: saturate(0.4);
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#urlbar #identity-box > #page-proxy-favicon {
-		background-image: url("chrome://global/skin/icons/folder-item-xp.png");
+		background-image: url("chrome://global/skin/icons/folder-item-aero.png");
 	}
 }
 

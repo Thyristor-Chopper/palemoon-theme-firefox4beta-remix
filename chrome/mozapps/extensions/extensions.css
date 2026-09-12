@@ -255,9 +255,13 @@
 #category-discover > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-discover.png");
 }
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#category-discover > .category-icon {
-		list-style-image: url("chrome://mozapps/skin/extensions/category-discover-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/category-discover-aero.png");
 	}
 }
 #category-locale > .category-icon {
@@ -269,9 +273,13 @@
 #category-extension > .category-icon {
 	list-style-image: url("chrome://mozapps/skin/extensions/category-extensions.png");
 }
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	#category-extension > .category-icon {
-		list-style-image: url("chrome://mozapps/skin/extensions/category-extensions-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/category-extensions-aero.png");
 	}
 }
 #category-service > .category-icon {
@@ -496,9 +504,13 @@
 	max-height: 48px;
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.icon {
-		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-aero.png");
 	}
 }
 

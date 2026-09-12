@@ -129,9 +129,13 @@
   list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16.png");
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
   .addon-icon {
-    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-XP.png");
+    list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-16-aero.png");
   }
 }
 

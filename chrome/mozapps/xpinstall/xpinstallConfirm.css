@@ -82,9 +82,13 @@ installitem {
 	list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric.png");
 }
 
-@media (-moz-os-version: windows-xp) {
+@media (-moz-os-version: windows-vista), 
+       (-moz-os-version: windows-win7), 
+       (-moz-os-version: windows-win8), 
+       (-moz-os-version: windows-win10), 
+       (-moz-os-version: windows-win11) {
 	.xpinstallItemIcon {
-		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-XP.png");
+		list-style-image: url("chrome://mozapps/skin/extensions/extensionGeneric-aero.png");
 	}
 }
 
