@@ -1980,7 +1980,9 @@ richlistitem[type="action"][actiontype="switchtab"] > .ac-url-box > .ac-action-i
 
 	.tabs-newtab-button,
 	#TabsToolbar:not([customizing="true"]) > #new-tab-button:has(+ .tabbrowser-tabs:not([overflow="true"])),
-	#TabsToolbar:not([customizing="true"]) > #new-tab-button:has(+ #home-button + .tabbrowser-tabs:not([overflow="true"])) {
+	#TabsToolbar:not([customizing="true"]) > #new-tab-button:has(+ #home-button + .tabbrowser-tabs:not([overflow="true"])),
+	#TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])),
+	#TabsToolbar:not([customizing="true"]) > #home-button:has(+ #new-tab-button + .tabbrowser-tabs:not([overflow="true"])) {
 		min-width: 1cm;
 	}
 }
@@ -4020,6 +4022,12 @@ toolbarbutton, .toolbarbutton-1 {
 #TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])),
 #TabsToolbar:not([customizing="true"]) > #home-button:has(+ #new-tab-button + .tabbrowser-tabs:not([overflow="true"])) {
 	margin-right: -3px !important;
+}
+
+#TabsToolbar:not([customizing="true"]) > #home-button:has(+ .tabbrowser-tabs:not([overflow="true"])),
+#TabsToolbar:not([customizing="true"]) > #home-button:has(+ #new-tab-button + .tabbrowser-tabs:not([overflow="true"])),
+#TabsToolbar:not([customizing="true"]) > #new-tab-button:has(+ #home-button + .tabbrowser-tabs:not([overflow="true"])),
+#TabsToolbar:not([customizing="true"]) > #new-tab-button:has(+ .tabbrowser-tabs:not([overflow="true"])) {
 	-moz-transition: none !important;
 	box-shadow: none !important;
 	-moz-box-shadow: none !important;
